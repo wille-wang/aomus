@@ -6,6 +6,7 @@
 
 - [COMP90018 A2 T13-G03](#comp90018-a2-t13-g03)
   - [Quick Links](#quick-links)
+  - [Requirements](#requirements)
   - [Development Conventions](#development-conventions)
     - [Committing](#committing)
     - [Branching](#branching)
@@ -15,6 +16,12 @@
 ## Quick Links
 
 - 📅 [GitHub project](https://github.com/users/wille-wang/projects/12)
+- 👨‍🎓 [Assignment specification](https://canvas.lms.unimelb.edu.au/courses/183251/assignments/494805)
+- 👨‍💻 [Android developer guides](https://developer.android.com/guide)
+
+## Requirements
+
+- [Android Studio Koala/2024.1.1+](https://developer.android.com/studio/releases/past-releases/as-koala-release-notes)
 
 ## Development Conventions
 
