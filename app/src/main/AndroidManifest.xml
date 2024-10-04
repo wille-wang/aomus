@@ -23,6 +23,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".OneActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".TwoActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".ThreeActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".FourActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>
