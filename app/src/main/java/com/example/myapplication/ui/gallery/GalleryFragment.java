@@ -4,13 +4,18 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentGalleryBinding;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class GalleryFragment extends Fragment {
 
@@ -24,8 +29,21 @@ public class GalleryFragment extends Fragment {
         binding = FragmentGalleryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textGallery;
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        // Sample photo list
+        List<Integer> photoList = Arrays.asList(
+                R.drawable.photo_par_112,
+                R.drawable.photo_par_113,
+                R.drawable.photo_par_122,
+                R.drawable.photo_par_128,
+                R.drawable.photo_par_134,
+                R.drawable.photo_par_150
+        );
+
+        RecyclerView recyclerView = binding.recyclerView;
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false)); // 1 photo per row (vertical)
+        PhotoWallAdapter adapter = new PhotoWallAdapter(photoList);
+        recyclerView.setAdapter(adapter);
+
         return root;
     }
 
