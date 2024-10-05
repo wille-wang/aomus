@@ -1,10 +1,20 @@
-# COMP90018 A2 T13-G03
+# AOMUS
 
-<!-- TODO: add introduction to this repo -->
+_All-in-One for Melbourne University Students_ (_AOMUS_, /ˈau̇-mər-s/) is an Android app designed for new students of the University of Melbourne to get familiar with the campus. Users with this Android app can:
+
+- have their own profiles in the app
+- visit the University of Melbourne with predefined routes
+- check in near/inside the places of interest on campus by scanning QR codes
+- leave comments on the places of interest on campus
+- read the introduction to a place of interest, provided by ChatGPT
+- view and modify their course details (e.g., schedules, venues)
 
 <!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
 
-- [COMP90018 A2 T13-G03](#comp90018-a2-t13-g03)
+## Table of Contents
+
+- [AOMUS](#aomus)
+  - [Table of Contents](#table-of-contents)
   - [Quick Links](#quick-links)
   - [Requirements](#requirements)
   - [Development Conventions](#development-conventions)
