@@ -109,4 +109,20 @@ public class MainActivity extends AppCompatActivity {
             Log.e(TAG, "Username TextView not found");
         }
     }
+
+    // handle the profile click
+    public void handleProfileClick(View view) {
+        SharedPreferences sharedPreferences = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
+        boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
+
+        Intent intent;
+        if (isLoggedIn) {
+            // Redirect to SettingsActivity
+            intent = new Intent(this, SettingsActivity.class);
+        } else {
+            // Redirect to LoginActivity
+            intent = new Intent(this, LoginActivity.class);
+        }
+        startActivity(intent);
+    }
 }
