@@ -5,6 +5,7 @@ import android.app.Activity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -189,6 +190,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (storedPassword.equals(password)) {
                         // Password is correct, login
                         loginViewModel.login(username, password);
+                        saveLoginStatus(username); // Save login status
                         Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_SHORT).show();
                     } else {
                         // Password is incorrect, clear the password field, stop loading, and show message
@@ -203,6 +205,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     // Automatically log in the newly registered user
                     loginViewModel.login(username, password);
+                    saveLoginStatus(username); // Save login status
                     Toast.makeText(getApplicationContext(), "User registered successfully", Toast.LENGTH_SHORT).show();
                 }
             } else {
@@ -211,6 +214,15 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Error accessing the database", Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    // save the login status
+    private void saveLoginStatus(String username) {
+        SharedPreferences sharedPreferences = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("isLoggedIn", true);
+        editor.putString("username", username);
+        editor.apply();
     }
 
 }
