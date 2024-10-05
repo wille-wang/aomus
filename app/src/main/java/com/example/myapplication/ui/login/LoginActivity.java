@@ -1,5 +1,7 @@
 package com.example.myapplication.ui.login;
 
+import java.util.UUID;
+
 import android.app.Activity;
 
 import androidx.lifecycle.Observer;
@@ -28,11 +30,17 @@ import com.example.myapplication.R;
 import com.example.myapplication.ui.login.LoginViewModel;
 import com.example.myapplication.ui.login.LoginViewModelFactory;
 import com.example.myapplication.databinding.ActivityLoginBinding;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
     private ActivityLoginBinding binding;
+    private FirebaseDatabase database;
+    private DatabaseReference usersRef;
+
+    private ProgressBar loadingProgressBar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,6 +48,10 @@ public class LoginActivity extends AppCompatActivity {
 
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        // initialize the database
+        database = FirebaseDatabase.getInstance();
+        usersRef = database.getReference("users");
 
         // Set up the toolbar with a back button
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -58,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
         final EditText usernameEditText = binding.username;
         final EditText passwordEditText = binding.password;
         final Button loginButton = binding.login;
-        final ProgressBar loadingProgressBar = binding.loading;
+        loadingProgressBar = binding.loading;
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -109,8 +121,10 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                loginViewModel.loginDataChanged(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString());
+                String username = usernameEditText.getText().toString();
+                String password = passwordEditText.getText().toString();
+
+                loginViewModel.loginDataChanged(username, password);
             }
         };
         usernameEditText.addTextChangedListener(afterTextChangedListener);
@@ -130,9 +144,20 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String username = usernameEditText.getText().toString();
+                String password = passwordEditText.getText().toString();
+
+                // Validate password length only when the button is clicked
+                if (password.length() <= 5) {
+                    passwordEditText.setError("Password must be >5 characters");
+                    loadingProgressBar.setVisibility(View.GONE);  // Stop loading if validation fails
+                    return;
+                }
+
                 loadingProgressBar.setVisibility(View.VISIBLE);
-                loginViewModel.login(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString());
+
+                // Check if user exists and handle login/registration
+                checkUserInDatabase(username, password);
             }
         });
     }
@@ -150,10 +175,46 @@ public class LoginActivity extends AppCompatActivity {
     private void updateUiWithUser(LoggedInUserView model) {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
         // TODO : initiate successful logged in experience
-        Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+//        Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {
-        Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
+
+    // Check the validity of the user and handle login/registration using username as a unique identifier
+    private void checkUserInDatabase(String username, String password) {
+        // Use username directly as the key in Firebase
+        usersRef.child(username).get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                if (task.getResult().getValue() != null) {
+                    // User exists, check password
+                    String storedPassword = task.getResult().child("password").getValue(String.class);
+                    if (storedPassword.equals(password)) {
+                        // Password is correct, login
+                        loginViewModel.login(username, password);
+                        Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_SHORT).show();
+                    } else {
+                        // Password is incorrect, clear the password field, stop loading, and show message
+                        EditText passwordEditText = findViewById(R.id.password);
+                        passwordEditText.setText("");
+                        loadingProgressBar.setVisibility(View.GONE);
+                        Toast.makeText(getApplicationContext(), "Incorrect password", Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    // User does not exist, register a new user using username as the unique ID
+                    usersRef.child(username).child("password").setValue(password);
+
+                    // Automatically log in the newly registered user
+                    loginViewModel.login(username, password);
+                    Toast.makeText(getApplicationContext(), "User registered successfully", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                // Error accessing the database, stop loading and show message
+                loadingProgressBar.setVisibility(View.GONE);
+                Toast.makeText(getApplicationContext(), "Error accessing the database", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
 }
