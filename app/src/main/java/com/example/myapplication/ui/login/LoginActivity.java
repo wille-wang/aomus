@@ -1,7 +1,5 @@
 package com.example.myapplication.ui.login;
 
-import java.util.UUID;
-
 import android.app.Activity;
 
 import androidx.lifecycle.Observer;
@@ -27,8 +25,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
-import com.example.myapplication.ui.login.LoginViewModel;
-import com.example.myapplication.ui.login.LoginViewModelFactory;
 import com.example.myapplication.databinding.ActivityLoginBinding;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -67,8 +63,8 @@ public class LoginActivity extends AppCompatActivity {
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
-        final EditText usernameEditText = binding.username;
-        final EditText passwordEditText = binding.password;
+        final EditText usernameEditText = binding.usernameEditText;
+        final EditText passwordEditText = binding.passwordEditText;
         final Button loginButton = binding.login;
         loadingProgressBar = binding.loading;
 
@@ -196,7 +192,7 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_SHORT).show();
                     } else {
                         // Password is incorrect, clear the password field, stop loading, and show message
-                        EditText passwordEditText = findViewById(R.id.password);
+                        EditText passwordEditText = findViewById(R.id.passwordEditText);
                         passwordEditText.setText("");
                         loadingProgressBar.setVisibility(View.GONE);
                         Toast.makeText(getApplicationContext(), "Incorrect password", Toast.LENGTH_LONG).show();
