@@ -39,9 +39,22 @@ public class GalleryFragment extends Fragment {
                 R.drawable.photo_par_150
         );
 
+        // Sample description list
+        List<String> descriptionList = Arrays.asList(
+                "Photo 1 description",
+                "Photo 2 description",
+                "Photo 3 description",
+                "Photo 4 description",
+                "Photo 5 description",
+                "Photo 6 description"
+        );
+
+        // Set up the RecyclerView
         RecyclerView recyclerView = binding.recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false)); // 1 photo per row (vertical)
-        PhotoWallAdapter adapter = new PhotoWallAdapter(photoList);
+
+        // Pass both the photo list and description list to the adapter
+        PhotoWallAdapter adapter = new PhotoWallAdapter(photoList, descriptionList);
         recyclerView.setAdapter(adapter);
 
         return root;

@@ -1,10 +1,10 @@
-// app/src/main/java/com/example/myapplication/ui/gallery/PhotoWallAdapter.java
 package com.example.myapplication.ui.gallery;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,10 +15,12 @@ import java.util.List;
 
 public class PhotoWallAdapter extends RecyclerView.Adapter<PhotoWallAdapter.PhotoViewHolder> {
 
-    private List<Integer> photoList;
+    private List<Integer> photoList; // List of photo resources
+    private List<String> descriptionList; // List of photo descriptions
 
-    public PhotoWallAdapter(List<Integer> photoList) {
+    public PhotoWallAdapter(List<Integer> photoList, List<String> descriptionList) {
         this.photoList = photoList;
+        this.descriptionList = descriptionList;
     }
 
     @NonNull
@@ -30,7 +32,8 @@ public class PhotoWallAdapter extends RecyclerView.Adapter<PhotoWallAdapter.Phot
 
     @Override
     public void onBindViewHolder(@NonNull PhotoViewHolder holder, int position) {
-        holder.imageView.setImageResource(photoList.get(position));
+        holder.imageView.setImageResource(photoList.get(position)); // Set photo
+        holder.photoDescription.setText(descriptionList.get(position)); // Set description
     }
 
     @Override
@@ -40,10 +43,12 @@ public class PhotoWallAdapter extends RecyclerView.Adapter<PhotoWallAdapter.Phot
 
     static class PhotoViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
+        TextView photoDescription; // Reference for the TextView to display description
 
         PhotoViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageView);
+            photoDescription = itemView.findViewById(R.id.photoDescription); // Bind TextView for description
         }
     }
 }
