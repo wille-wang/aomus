@@ -11,6 +11,7 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -25,6 +26,7 @@ import com.journeyapps.barcodescanner.BarcodeResult;
 import com.journeyapps.barcodescanner.CompoundBarcodeView;
 import java.io.InputStream;
 import java.util.List;
+import org.json.JSONObject;
 
 public class ScannerFragment extends Fragment {
 
@@ -34,9 +36,8 @@ public class ScannerFragment extends Fragment {
         @Override
         public void barcodeResult(BarcodeResult result) {
           if (result.getText() != null) {
-            // Handle scanned QR code result
             String scannedData = result.getText();
-            // Process the scannedData (e.g., update the UI or do something with it)
+            handleScannedData(scannedData);
           }
         }
 
@@ -75,7 +76,6 @@ public class ScannerFragment extends Fragment {
   public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
     if (requestCode == PICK_IMAGE_REQUEST) {
-      getActivity();
       if (resultCode == Activity.RESULT_OK && data != null && data.getData() != null) {
         Uri imageUri = data.getData();
         decodeImage(imageUri);
@@ -96,12 +96,33 @@ public class ScannerFragment extends Fragment {
       Result result = new MultiFormatReader().decode(binaryBitmap);
 
       if (result != null) {
-        // Handle the decoded QR code result
         String scannedData = result.getText();
-        // Process the scannedData (e.g., update the UI or do something with it)
+        handleScannedData(scannedData);
       }
     } catch (Exception e) {
       e.printStackTrace();
+    }
+  }
+
+  // Handle the scanned data
+  //   schema: { "app": "aomus", "action": "check-in", "buildingCode": "120" }
+  // TODO: Implement the logic to check whether the user is logged in
+  private void handleScannedData(String scannedData) {
+    try {
+      JSONObject jsonObject = new JSONObject(scannedData);
+      String app = jsonObject.getString("app");
+      String action = jsonObject.getString("action");
+      String buildingCode = jsonObject.getString("buildingCode");
+
+      if ("aomus".equals(app) && "check-in".equals(action)) {
+        Toast.makeText(getContext(), "Check in at Building " + buildingCode, Toast.LENGTH_LONG)
+            .show();
+      } else {
+        Toast.makeText(getContext(), "Invalid QR code data", Toast.LENGTH_LONG).show();
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+      Toast.makeText(getContext(), "Failed to parse QR code data", Toast.LENGTH_LONG).show();
     }
   }
 
