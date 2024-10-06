@@ -3,7 +3,7 @@ package com.example.myapplication.util;
 public class Building {
 
   private String campus;
-  private int code;
+  private String code;
   private String desc;
   private String googleMapPlusCode;
   private String imgUrl;
@@ -16,7 +16,7 @@ public class Building {
   // Constructor to initialize the building object
   public Building(
       String campus,
-      int code,
+      String code,
       String desc,
       String googleMapPlusCode,
       String imgUrl,
@@ -40,11 +40,11 @@ public class Building {
     this.campus = campus;
   }
 
-  public int getCode() {
+  public String getCode() {
     return code;
   }
 
-  public void setCode(int code) {
+  public void setCode(String code) {
     this.code = code;
   }
 
