@@ -37,10 +37,10 @@
                 android:id="@+id/textViewProfileTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:text="Profile Information"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp" />
+                android:textStyle="bold" />
 
             <!-- Real Name Field -->
             <EditText
@@ -69,27 +69,27 @@
                 android:id="@+id/buttonUpdateProfile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Update Profile"
-                android:layout_marginTop="16dp" />
+                android:layout_marginTop="16dp"
+                android:text="Update Profile" />
 
             <!-- Divider (Unclear Line) between Profile and Password -->
             <View
                 android:id="@+id/divider1"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/darker_gray"
                 android:layout_marginTop="24dp"
-                android:layout_marginBottom="24dp" />
+                android:layout_marginBottom="24dp"
+                android:background="@android:color/darker_gray" />
 
             <!-- Password Section -->
             <TextView
                 android:id="@+id/textViewPasswordTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:text="Change Password"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp" />
+                android:textStyle="bold" />
 
             <!-- New Password Field -->
             <EditText
@@ -104,35 +104,35 @@
                 android:id="@+id/buttonConfirm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Confirm"
-                android:layout_marginTop="16dp" />
+                android:layout_marginTop="16dp"
+                android:text="Confirm" />
 
             <!-- Divider (Unclear Line) between Password and Exit Account -->
             <View
                 android:id="@+id/divider2"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/darker_gray"
                 android:layout_marginTop="24dp"
-                android:layout_marginBottom="24dp" />
+                android:layout_marginBottom="24dp"
+                android:background="@android:color/darker_gray" />
 
             <!-- Exit Account Section Title -->
             <TextView
                 android:id="@+id/textViewExitAccountTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:text="Account Management"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp" />
+                android:textStyle="bold" />
 
             <!-- Exit Account Button -->
             <Button
                 android:id="@+id/buttonExitAccount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Exit Account"
-                android:layout_marginTop="16dp" />
+                android:layout_marginTop="16dp"
+                android:text="Exit Account" />
 
         </LinearLayout>
     </FrameLayout>

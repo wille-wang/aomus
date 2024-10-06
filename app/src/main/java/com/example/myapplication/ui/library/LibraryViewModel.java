@@ -6,19 +6,19 @@ import androidx.lifecycle.ViewModel;
 
 public class LibraryViewModel extends ViewModel {
 
-    private final MutableLiveData<String> url;
+  private final MutableLiveData<String> url;
 
-    public LibraryViewModel() {
-        url = new MutableLiveData<>();
-        // TODO: set the URL of study space here
-        url.setValue("https://library.unimelb.edu.au/services/book-a-room-or-computer");
-    }
+  public LibraryViewModel() {
+    url = new MutableLiveData<>();
+    // TODO: set the URL of study space here
+    url.setValue("https://library.unimelb.edu.au/services/book-a-room-or-computer");
+  }
 
-    public LiveData<String> getUrl() {
-        return url;
-    }
+  public LiveData<String> getUrl() {
+    return url;
+  }
 
-    public void setUrl(String newUrl) {
-        url.setValue(newUrl);
-    }
+  public void setUrl(String newUrl) {
+    url.setValue(newUrl);
+  }
 }
