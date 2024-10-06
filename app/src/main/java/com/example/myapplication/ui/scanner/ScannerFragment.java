@@ -113,7 +113,7 @@ public class ScannerFragment extends Fragment {
   }
 
   // Handle the scanned data
-  //   schema: { "app": "aomus", "action": "check-in", "buildingCode": "120" }
+  //   schema: { "app": "aomus", "action": "check-in", "campus": "par", "buildingCode": "120" }
   private void handleScannedData(String scannedData) {
     if (!isLoggedIn()) {
       Toast.makeText(getContext(), "Please log in to check in", Toast.LENGTH_LONG).show();
@@ -124,10 +124,14 @@ public class ScannerFragment extends Fragment {
       JSONObject jsonObject = new JSONObject(scannedData);
       String app = jsonObject.getString("app");
       String action = jsonObject.getString("action");
+      String campus = jsonObject.getString("campus");
       String buildingCode = jsonObject.getString("buildingCode");
 
       if ("aomus".equals(app) && "check-in".equals(action)) {
-        Toast.makeText(getContext(), "Check in at Building " + buildingCode, Toast.LENGTH_LONG)
+        Toast.makeText(
+                getContext(),
+                "Check in at Building " + buildingCode + " in " + campus,
+                Toast.LENGTH_LONG)
             .show();
       } else {
         Toast.makeText(getContext(), "Invalid QR code data", Toast.LENGTH_LONG).show();
