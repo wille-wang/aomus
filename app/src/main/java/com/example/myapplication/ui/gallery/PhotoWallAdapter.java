@@ -1,5 +1,6 @@
 package com.example.myapplication.ui.gallery;
 
+import android.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,16 @@ public class PhotoWallAdapter extends RecyclerView.Adapter<PhotoWallAdapter.Phot
     holder.imageView.setImageResource(photoList.get(position));
     // Set descriptions
     holder.photoDescription.setText(descriptionList.get(position));
+
+    // Set click listener to show dialog with description
+    holder.itemView.setOnClickListener(
+        v -> {
+          new AlertDialog.Builder(v.getContext())
+              .setTitle("Building Introduction")
+              .setMessage(descriptionList.get(position))
+              .setPositiveButton(android.R.string.ok, null)
+              .show();
+        });
   }
 
   @Override
