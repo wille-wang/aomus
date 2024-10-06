@@ -5,9 +5,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -15,10 +18,12 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import com.example.myapplication.databinding.ActivityMainBinding;
 import com.example.myapplication.ui.login.LoginActivity;
+import com.example.myapplication.ui.map.MapFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+    implements NavigationView.OnNavigationItemSelectedListener {
 
   private static final String TAG = "MainActivity";
   private AppBarConfiguration mAppBarConfiguration;
@@ -46,13 +51,15 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView = binding.navView;
     mAppBarConfiguration =
         new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_library, R.id.nav_scanner)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_library, R.id.nav_scanner, R.id.nav_map)
             .setOpenableLayout(drawer)
             .build();
     NavController navController =
         Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
     NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
     NavigationUI.setupWithNavController(navigationView, navController);
+
+    navigationView.setNavigationItemSelectedListener(this);
 
     // Initial update of nav_header_main with username if logged in
     updateNavHeaderUsername();
@@ -76,6 +83,24 @@ public class MainActivity extends AppCompatActivity {
         Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
     return NavigationUI.navigateUp(navController, mAppBarConfiguration)
         || super.onSupportNavigateUp();
+  }
+
+  @Override
+  public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    int id = item.getItemId();
+
+    if (id == R.id.nav_map) {
+      getSupportFragmentManager()
+          .beginTransaction()
+          .replace(R.id.nav_host_fragment_content_main, new MapFragment())
+          .commit();
+    }
+
+    // Handle other navigation items...
+
+    DrawerLayout drawer = findViewById(R.id.drawer_layout);
+    drawer.closeDrawer(GravityCompat.START);
+    return true;
   }
 
   // click the icon to be navigated to the login page

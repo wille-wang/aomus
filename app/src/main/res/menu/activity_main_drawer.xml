@@ -19,6 +19,11 @@
             android:title="Scanner" />
 
         <item
+            android:id="@+id/nav_map"
+            android:icon="@drawable/ic_menu_map"
+            android:title="Map" />
+
+        <item
             android:id="@+id/nav_library"
             android:icon="@drawable/ic_menu_library"
             android:title="Library" />
