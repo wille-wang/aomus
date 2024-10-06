@@ -122,8 +122,8 @@ public class MapFragment extends Fragment {
             locationMap.clear();
 
             // Add hardcoded University of Melbourne location to suggestions
-            suggestionsList.add("University of Melbourne, Parkville Campus");
-            locationMap.put("University of Melbourne, Parkville Campus", universityMelbourne);
+            // suggestionsList.add("University of Melbourne, Parkville Campus");
+            // locationMap.put("University of Melbourne, Parkville Campus", universityMelbourne);
 
             for (DataSnapshot buildingSnapshot : dataSnapshot.getChildren()) {
               Building building = buildingSnapshot.getValue(Building.class);
