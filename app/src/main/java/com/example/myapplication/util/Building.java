@@ -2,18 +2,21 @@ package com.example.myapplication.util;
 
 public class Building {
 
-  private String campus; // campus where the building is located
-  private String code; // unique building code
-  private String desc; // description of the building
-  private String googleMapPlusCode; // Google Maps Plus code for location
-  private String imgUrl; // URL of the building's image
-  private String name; // name of the building
-  private int year; // year the building was established
+  private String campus;
+  private int code;
+  private String desc;
+  private String googleMapPlusCode;
+  private String imgUrl;
+  private String name;
+  private int year;
+
+  // No-argument constructor required for Firebase
+  public Building() {}
 
   // Constructor to initialize the building object
   public Building(
       String campus,
-      String code,
+      int code,
       String desc,
       String googleMapPlusCode,
       String imgUrl,
@@ -37,11 +40,11 @@ public class Building {
     this.campus = campus;
   }
 
-  public String getCode() {
+  public int getCode() {
     return code;
   }
 
-  public void setCode(String code) {
+  public void setCode(int code) {
     this.code = code;
   }
 

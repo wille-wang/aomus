@@ -4,20 +4,31 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentGalleryBinding;
-import java.util.Arrays;
+import com.example.myapplication.util.Building;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GalleryFragment extends Fragment {
 
+  private final List<String> photoUrlList = new ArrayList<>();
+  private final List<String> nameList = new ArrayList<>();
+  private final List<Integer> yearList = new ArrayList<>();
   private FragmentGalleryBinding binding;
+  private DatabaseReference buildingsRef;
 
+  @Override
   public View onCreateView(
       @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     GalleryViewModel galleryViewModel = new ViewModelProvider(this).get(GalleryViewModel.class);
@@ -25,27 +36,8 @@ public class GalleryFragment extends Fragment {
     binding = FragmentGalleryBinding.inflate(inflater, container, false);
     View root = binding.getRoot();
 
-    // Visit https://www.unimelb.edu.au/filming-on-campus/gallery for sample photos
-
-    // sample photo list
-    List<Integer> photoList =
-        Arrays.asList(
-            R.drawable.photo_par_112,
-            R.drawable.photo_par_113,
-            R.drawable.photo_par_122,
-            R.drawable.photo_par_128,
-            R.drawable.photo_par_134,
-            R.drawable.photo_par_150);
-
-    // sample description list
-    List<String> descriptionList =
-        Arrays.asList(
-            "Building 112: University House (1884)",
-            "Building 113: Baldwin Spencer Building (1887)",
-            "Building 122: System Garden Tower (1866)",
-            "Building 128: Old Physics (1860)",
-            "Building 134: Elisabeth Murdoch Building (1884)",
-            "Building 150: Old Quadrangle (1854)");
+    // Initialize Firebase reference
+    buildingsRef = FirebaseDatabase.getInstance().getReference("buildings");
 
     // Set up the RecyclerView
     RecyclerView recyclerView = binding.recyclerView;
@@ -53,11 +45,38 @@ public class GalleryFragment extends Fragment {
         new LinearLayoutManager(
             getContext(), RecyclerView.VERTICAL, false)); // 1 photo per row (vertical)
 
-    // Pass both the photo list and description list to the adapter
-    PhotoWallAdapter adapter = new PhotoWallAdapter(photoList, descriptionList);
-    recyclerView.setAdapter(adapter);
+    // Fetch data from Firebase
+    fetchBuildingData(recyclerView);
 
     return root;
+  }
+
+  private void fetchBuildingData(RecyclerView recyclerView) {
+    buildingsRef.addValueEventListener(
+        new ValueEventListener() {
+          @Override
+          public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            photoUrlList.clear();
+            nameList.clear();
+            yearList.clear();
+            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+              Building building = snapshot.getValue(Building.class);
+              if (building != null) {
+                photoUrlList.add(building.getImgUrl());
+                nameList.add(building.getName());
+                yearList.add(building.getYear());
+              }
+            }
+            // Pass the photo list, name list, and year list to the adapter
+            PhotoWallAdapter adapter = new PhotoWallAdapter(photoUrlList, nameList, yearList);
+            recyclerView.setAdapter(adapter);
+          }
+
+          @Override
+          public void onCancelled(@NonNull DatabaseError databaseError) {
+            Toast.makeText(getContext(), "Failed to load data", Toast.LENGTH_SHORT).show();
+          }
+        });
   }
 
   @Override

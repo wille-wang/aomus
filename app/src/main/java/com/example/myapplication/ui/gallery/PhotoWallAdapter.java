@@ -8,17 +8,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
 import java.util.List;
 
 public class PhotoWallAdapter extends RecyclerView.Adapter<PhotoWallAdapter.PhotoViewHolder> {
 
-  private final List<Integer> photoList; // list of photo resources
-  private final List<String> descriptionList; // list of photo descriptions
+  private final List<String> photoUrlList;
+  private final List<String> nameList;
+  private final List<Integer> yearList;
 
-  public PhotoWallAdapter(List<Integer> photoList, List<String> descriptionList) {
-    this.photoList = photoList;
-    this.descriptionList = descriptionList;
+  public PhotoWallAdapter(
+      List<String> photoUrlList, List<String> nameList, List<Integer> yearList) {
+    this.photoUrlList = photoUrlList;
+    this.nameList = nameList;
+    this.yearList = yearList;
   }
 
   @NonNull
@@ -31,17 +35,16 @@ public class PhotoWallAdapter extends RecyclerView.Adapter<PhotoWallAdapter.Phot
 
   @Override
   public void onBindViewHolder(@NonNull PhotoViewHolder holder, int position) {
-    // Set photos
-    holder.imageView.setImageResource(photoList.get(position));
-    // Set descriptions
-    holder.photoDescription.setText(descriptionList.get(position));
+    Glide.with(holder.itemView.getContext())
+        .load(photoUrlList.get(position))
+        .into(holder.imageView);
+    holder.photoDescription.setText(nameList.get(position) + " (" + yearList.get(position) + ")");
 
-    // Set click listener to show dialog with description
     holder.itemView.setOnClickListener(
         v -> {
           new AlertDialog.Builder(v.getContext())
               .setTitle("Building Introduction")
-              .setMessage(descriptionList.get(position))
+              .setMessage(nameList.get(position) + " (" + yearList.get(position) + ")")
               .setPositiveButton(android.R.string.ok, null)
               .show();
         });
@@ -49,17 +52,16 @@ public class PhotoWallAdapter extends RecyclerView.Adapter<PhotoWallAdapter.Phot
 
   @Override
   public int getItemCount() {
-    return photoList.size();
+    return photoUrlList.size();
   }
 
   static class PhotoViewHolder extends RecyclerView.ViewHolder {
     ImageView imageView;
-    TextView photoDescription; // reference for the TextView to display description
+    TextView photoDescription;
 
     PhotoViewHolder(@NonNull View itemView) {
       super(itemView);
       imageView = itemView.findViewById(R.id.imageView);
-      // Bind TextView for description
       photoDescription = itemView.findViewById(R.id.photoDescription);
     }
   }
