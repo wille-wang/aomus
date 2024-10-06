@@ -25,6 +25,8 @@ public class GalleryFragment extends Fragment {
     binding = FragmentGalleryBinding.inflate(inflater, container, false);
     View root = binding.getRoot();
 
+    // Visit https://www.unimelb.edu.au/filming-on-campus/gallery for sample photos
+
     // sample photo list
     List<Integer> photoList =
         Arrays.asList(
@@ -38,12 +40,12 @@ public class GalleryFragment extends Fragment {
     // sample description list
     List<String> descriptionList =
         Arrays.asList(
-            "Photo 1 description",
-            "Photo 2 description",
-            "Photo 3 description",
-            "Photo 4 description",
-            "Photo 5 description",
-            "Photo 6 description");
+            "Building 112: University House (1884)",
+            "Building 113: Baldwin Spencer Building (1887)",
+            "Building 122: System Garden Tower (1866)",
+            "Building 128: Old Physics (1860)",
+            "Building 134: Elisabeth Murdoch Building (1884)",
+            "Building 150: Old Quadrangle (1854)");
 
     // Set up the RecyclerView
     RecyclerView recyclerView = binding.recyclerView;
