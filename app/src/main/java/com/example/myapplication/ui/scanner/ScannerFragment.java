@@ -2,6 +2,7 @@ package com.example.myapplication.ui.scanner;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -104,10 +105,21 @@ public class ScannerFragment extends Fragment {
     }
   }
 
+  // Check if the user is logged in
+  private boolean isLoggedIn() {
+    SharedPreferences sharedPreferences =
+        getActivity().getSharedPreferences("LoginPrefs", Activity.MODE_PRIVATE);
+    return sharedPreferences.getBoolean("isLoggedIn", false);
+  }
+
   // Handle the scanned data
   //   schema: { "app": "aomus", "action": "check-in", "buildingCode": "120" }
-  // TODO: Implement the logic to check whether the user is logged in
   private void handleScannedData(String scannedData) {
+    if (!isLoggedIn()) {
+      Toast.makeText(getContext(), "Please log in to check in", Toast.LENGTH_LONG).show();
+      return;
+    }
+
     try {
       JSONObject jsonObject = new JSONObject(scannedData);
       String app = jsonObject.getString("app");
