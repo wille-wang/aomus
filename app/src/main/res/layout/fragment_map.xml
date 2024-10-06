@@ -8,12 +8,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <SearchView
-        android:id="@+id/searchView"
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:background="@android:color/white"
-        android:iconifiedByDefault="false"
-        android:queryHint="Search location" />
+        android:hint="Search location"
+        android:inputType="text" />
+    par
 </RelativeLayout>
