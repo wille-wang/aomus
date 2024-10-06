@@ -1,8 +1,8 @@
 package com.example.myapplication.util;
 
+// Represent the schema of the Building object in the database
 public class Building {
 
-  private String campus;
   private String code;
   private String desc;
   private String googleMapPlusCode;
@@ -15,14 +15,7 @@ public class Building {
 
   // Constructor to initialize the building object
   public Building(
-      String campus,
-      String code,
-      String desc,
-      String googleMapPlusCode,
-      String imgUrl,
-      String name,
-      int year) {
-    this.campus = campus;
+      String code, String desc, String googleMapPlusCode, String imgUrl, String name, int year) {
     this.code = code;
     this.desc = desc;
     this.googleMapPlusCode = googleMapPlusCode;
@@ -32,13 +25,6 @@ public class Building {
   }
 
   // Getter and setter methods for each field
-  public String getCampus() {
-    return campus;
-  }
-
-  public void setCampus(String campus) {
-    this.campus = campus;
-  }
 
   public String getCode() {
     return code;
