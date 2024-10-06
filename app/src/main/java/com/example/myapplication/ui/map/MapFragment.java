@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -17,21 +18,30 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapFragment extends Fragment {
 
+  private GoogleMap mMap;
+
   private final OnMapReadyCallback callback =
       new OnMapReadyCallback() {
         @Override
         public void onMapReady(GoogleMap googleMap) {
+          mMap = googleMap;
+
+          // Enable UI controls
+          mMap.getUiSettings().setZoomControlsEnabled(true);
+          mMap.getUiSettings().setCompassEnabled(true);
+          mMap.getUiSettings().setMapToolbarEnabled(true);
+
           // Set the coordinates for University of Melbourne, Parkville Campus
           LatLng melbourneUni = new LatLng(-37.7963, 144.9614);
 
           // Add a marker for University of Melbourne
-          googleMap.addMarker(
+          mMap.addMarker(
               new MarkerOptions()
                   .position(melbourneUni)
                   .title("University of Melbourne, Parkville Campus"));
 
           // Move and zoom the camera to the University of Melbourne
-          googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(melbourneUni, 15));
+          mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(melbourneUni, 15));
         }
       };
 
@@ -41,7 +51,31 @@ public class MapFragment extends Fragment {
       @NonNull LayoutInflater inflater,
       @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.fragment_map, container, false);
+    View view = inflater.inflate(R.layout.fragment_map, container, false);
+
+    // Initialize the search bar
+    SearchView searchView = view.findViewById(R.id.searchView);
+
+    // Expand the search view by default
+    searchView.setIconified(false);
+    searchView.clearFocus();
+
+    searchView.setOnQueryTextListener(
+        new SearchView.OnQueryTextListener() {
+          @Override
+          public boolean onQueryTextSubmit(String query) {
+            // Handle search query submission
+            // For example, you can use Geocoder to find the location and move the map
+            return false;
+          }
+
+          @Override
+          public boolean onQueryTextChange(String newText) {
+            return false;
+          }
+        });
+
+    return view;
   }
 
   @Override
