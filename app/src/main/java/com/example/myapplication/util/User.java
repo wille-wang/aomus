@@ -10,7 +10,7 @@ public class User {
   private String program;
   private String realName;
   private String schoolEmail;
-  private Map<Integer, CheckInInfo> checkins;
+  private Map<String, CheckInInfo> checkins;
 
   public User() {}
 
@@ -68,11 +68,11 @@ public class User {
     this.schoolEmail = schoolEmail;
   }
 
-  public Map<Integer, CheckInInfo> getCheckins() {
+  public Map<String, CheckInInfo> getCheckins() {
     return checkins;
   }
 
-  public void setCheckins(Map<Integer, CheckInInfo> checkins) {
+  public void setCheckins(Map<String, CheckInInfo> checkins) {
     this.checkins = checkins;
   }
 
