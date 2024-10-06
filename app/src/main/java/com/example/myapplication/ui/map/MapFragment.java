@@ -47,11 +47,11 @@ public class MapFragment extends Fragment {
           mMap.getUiSettings().setCompassEnabled(true);
           mMap.getUiSettings().setMapToolbarEnabled(true);
 
-          // Add hardcoded marker for University of Melbourne
-          mMap.addMarker(
-              new MarkerOptions()
-                  .position(universityMelbourne)
-                  .title("University of Melbourne, Parkville Campus"));
+          // Remove the initial marker for University of Melbourne
+          // mMap.addMarker(
+          //     new MarkerOptions()
+          //         .position(universityMelbourne)
+          //         .title("University of Melbourne, Parkville Campus"));
 
           // Move and zoom the camera to the University of Melbourne
           mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(universityMelbourne, 15));
