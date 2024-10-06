@@ -18,6 +18,12 @@
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
+        android:id="@+id/nav_scanner"
+        android:name="com.example.myapplication.ui.scanner.ScannerFragment"
+        android:label="Scanner"
+        tools:layout="@layout/fragment_scanner" />
+
+    <fragment
         android:id="@+id/nav_library"
         android:name="com.example.myapplication.ui.library.LibraryFragment"
         android:label="Library"
