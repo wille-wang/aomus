@@ -17,6 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.example.myapplication.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.MultiFormatReader;
 import com.google.zxing.Result;
@@ -32,6 +34,8 @@ import org.json.JSONObject;
 public class ScannerFragment extends Fragment {
 
   private static final int PICK_IMAGE_REQUEST = 1;
+  private CompoundBarcodeView barcodeView;
+  private DatabaseReference databaseReference;
   private final BarcodeCallback callback =
       new BarcodeCallback() {
         @Override
@@ -47,7 +51,6 @@ public class ScannerFragment extends Fragment {
           // You can highlight result points on the camera preview if needed
         }
       };
-  private CompoundBarcodeView barcodeView;
 
   @Nullable
   @Override
@@ -59,6 +62,9 @@ public class ScannerFragment extends Fragment {
     View view = inflater.inflate(R.layout.fragment_scanner, container, false);
     barcodeView = view.findViewById(R.id.barcode_scanner);
     getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+    // Initialize Firebase
+    databaseReference = FirebaseDatabase.getInstance().getReference();
 
     // Start continuous scanning immediately
     barcodeView.decodeContinuous(callback);
@@ -128,6 +134,9 @@ public class ScannerFragment extends Fragment {
       String buildingCode = jsonObject.getString("buildingCode");
 
       if ("aomus".equals(app) && "check-in".equals(action)) {
+        // Store check-in records in Firebase
+        storeCheckInRecord(campus, buildingCode);
+
         Toast.makeText(
                 getContext(),
                 "Check in at Building " + buildingCode + " in " + campus,
@@ -140,6 +149,28 @@ public class ScannerFragment extends Fragment {
       e.printStackTrace();
       Toast.makeText(getContext(), "Failed to parse QR code data", Toast.LENGTH_LONG).show();
     }
+  }
+
+  // Store check-in records in Firebase
+  private void storeCheckInRecord(String campus, String buildingCode) {
+    SharedPreferences sharedPreferences = getActivity().getSharedPreferences("LoginPrefs", Activity.MODE_PRIVATE);
+    String username = sharedPreferences.getString("username", "unknown");
+
+    DatabaseReference userCheckinsRef = databaseReference.child("users").child(username).child("checkins").child(campus).child(buildingCode);
+
+    userCheckinsRef.child("counts").get().addOnCompleteListener(task -> {
+      if (task.isSuccessful()) {
+        long counts = 0;
+        if (task.getResult().exists()) {
+          counts = task.getResult().getValue(Long.class);
+        }
+        userCheckinsRef.child("counts").setValue(counts + 1);
+        userCheckinsRef.child("lastCheckIn").setValue(System.currentTimeMillis());
+      } else {
+        userCheckinsRef.child("counts").setValue(1);
+        userCheckinsRef.child("lastCheckIn").setValue(System.currentTimeMillis());
+      }
+    });
   }
 
   @Override
