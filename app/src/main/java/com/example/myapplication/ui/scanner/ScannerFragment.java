@@ -137,10 +137,7 @@ public class ScannerFragment extends Fragment {
         // Store check-in records in Firebase
         storeCheckInRecord(campus, buildingCode);
 
-        Toast.makeText(
-                getContext(),
-                "Check in at Building " + buildingCode + " in " + campus,
-                Toast.LENGTH_LONG)
+        Toast.makeText(getContext(), "Check in at Building " + buildingCode, Toast.LENGTH_LONG)
             .show();
       } else {
         Toast.makeText(getContext(), "Invalid QR code data", Toast.LENGTH_LONG).show();
@@ -153,24 +150,35 @@ public class ScannerFragment extends Fragment {
 
   // Store check-in records in Firebase
   private void storeCheckInRecord(String campus, String buildingCode) {
-    SharedPreferences sharedPreferences = getActivity().getSharedPreferences("LoginPrefs", Activity.MODE_PRIVATE);
+    SharedPreferences sharedPreferences =
+        getActivity().getSharedPreferences("LoginPrefs", Activity.MODE_PRIVATE);
     String username = sharedPreferences.getString("username", "unknown");
 
-    DatabaseReference userCheckinsRef = databaseReference.child("users").child(username).child("checkins").child(campus).child(buildingCode);
+    DatabaseReference userCheckinsRef =
+        databaseReference
+            .child("users")
+            .child(username)
+            .child("checkins")
+            .child(campus)
+            .child(buildingCode);
 
-    userCheckinsRef.child("counts").get().addOnCompleteListener(task -> {
-      if (task.isSuccessful()) {
-        long counts = 0;
-        if (task.getResult().exists()) {
-          counts = task.getResult().getValue(Long.class);
-        }
-        userCheckinsRef.child("counts").setValue(counts + 1);
-        userCheckinsRef.child("lastCheckIn").setValue(System.currentTimeMillis());
-      } else {
-        userCheckinsRef.child("counts").setValue(1);
-        userCheckinsRef.child("lastCheckIn").setValue(System.currentTimeMillis());
-      }
-    });
+    userCheckinsRef
+        .child("counts")
+        .get()
+        .addOnCompleteListener(
+            task -> {
+              if (task.isSuccessful()) {
+                long counts = 0;
+                if (task.getResult().exists()) {
+                  counts = task.getResult().getValue(Long.class);
+                }
+                userCheckinsRef.child("counts").setValue(counts + 1);
+                userCheckinsRef.child("lastCheckIn").setValue(System.currentTimeMillis());
+              } else {
+                userCheckinsRef.child("counts").setValue(1);
+                userCheckinsRef.child("lastCheckIn").setValue(System.currentTimeMillis());
+              }
+            });
   }
 
   @Override
