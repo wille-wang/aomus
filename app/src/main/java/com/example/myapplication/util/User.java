@@ -2,7 +2,7 @@ package com.example.myapplication.util;
 
 import java.util.Map;
 
-// Represent the schema of the User object in the database
+// Represent the schema of the User object in the `users` node in the Firebase Realtime Database
 public class User {
 
   private String username;

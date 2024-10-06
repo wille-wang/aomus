@@ -1,6 +1,7 @@
 package com.example.myapplication.util;
 
-// Represent the schema of the Building object in the database
+// Represent the schema of the Building object in the `buildings` node in the Firebase Realtime
+// Database
 public class Building {
 
   private String code;
