@@ -1,20 +1,25 @@
 package com.example.myapplication.ui.scanner;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import com.example.myapplication.R;
 import com.google.firebase.database.DatabaseReference;
@@ -34,6 +39,7 @@ import org.json.JSONObject;
 public class ScannerFragment extends Fragment {
 
   private static final int PICK_IMAGE_REQUEST = 1;
+  private static final int CAMERA_PERMISSION_REQUEST_CODE = 100;
   private CompoundBarcodeView barcodeView;
   private DatabaseReference databaseReference;
   private final BarcodeCallback callback =
@@ -43,6 +49,8 @@ public class ScannerFragment extends Fragment {
           if (result.getText() != null) {
             String scannedData = result.getText();
             handleScannedData(scannedData);
+          } else {
+            Log.e("ScannerFragment", "No barcode detected");
           }
         }
 
@@ -66,12 +74,34 @@ public class ScannerFragment extends Fragment {
     // Initialize Firebase
     databaseReference = FirebaseDatabase.getInstance().getReference();
 
-    // Start continuous scanning immediately
-    barcodeView.decodeContinuous(callback);
+    // Request camera permission if not granted
+    if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA)
+        != PackageManager.PERMISSION_GRANTED) {
+      ActivityCompat.requestPermissions(
+          getActivity(), new String[] {Manifest.permission.CAMERA}, CAMERA_PERMISSION_REQUEST_CODE);
+    } else {
+      // Start continuous scanning immediately
+      barcodeView.decodeContinuous(callback);
+    }
 
     view.findViewById(R.id.choosePhotoButton).setOnClickListener(v -> openGallery());
 
     return view;
+  }
+
+  @Override
+  public void onRequestPermissionsResult(
+      int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    if (requestCode == CAMERA_PERMISSION_REQUEST_CODE) {
+      if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        barcodeView.decodeContinuous(callback);
+      } else {
+        Toast.makeText(
+                getContext(), "Camera permission is required to scan barcodes", Toast.LENGTH_LONG)
+            .show();
+      }
+    }
   }
 
   private void openGallery() {
