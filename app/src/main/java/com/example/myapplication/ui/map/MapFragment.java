@@ -134,7 +134,8 @@ public class MapFragment extends Fragment {
             for (DataSnapshot buildingSnapshot : dataSnapshot.getChildren()) {
               Building building = buildingSnapshot.getValue(Building.class);
               if (building != null) {
-                String suggestion = building.getName() + " (" + building.getCode() + ")";
+                String suggestion =
+                    building.getName() + " (" + building.getCode().toUpperCase() + ")";
                 suggestionsList.add(suggestion);
 
                 // Store the building location in the map

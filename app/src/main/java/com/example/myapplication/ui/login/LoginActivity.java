@@ -22,6 +22,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.ActivityLoginBinding;
+import com.example.myapplication.util.User;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -189,7 +190,6 @@ public class LoginActivity extends AppCompatActivity {
   // Check the validity of the user and handle login/registration using username as a unique
   // identifier
   private void checkUserInDatabase(String username, String password) {
-    // Use username directly as the key in Firebase
     usersRef
         .child(username)
         .get()
@@ -216,7 +216,8 @@ public class LoginActivity extends AppCompatActivity {
                   }
                 } else {
                   // User does not exist, register a new user using username as the unique ID
-                  usersRef.child(username).child("password").setValue(password);
+                  User newUser = new User(username, password);
+                  usersRef.child(username).setValue(newUser);
 
                   // Automatically log in the newly registered user
                   loginViewModel.login(username, password);

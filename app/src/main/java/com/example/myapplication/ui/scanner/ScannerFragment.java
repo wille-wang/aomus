@@ -149,7 +149,7 @@ public class ScannerFragment extends Fragment {
   }
 
   // Handle the scanned data
-  //   schema: { "app": "aomus", "action": "check-in", "campus": "par", "buildingCode": "120" }
+  //   schema: { "app": "aomus", "action": "check-in", "code": "par-112" }
   private void handleScannedData(String scannedData) {
     if (!isLoggedIn()) {
       Toast.makeText(getContext(), "Please log in to check in", Toast.LENGTH_LONG).show();
@@ -160,15 +160,13 @@ public class ScannerFragment extends Fragment {
       JSONObject jsonObject = new JSONObject(scannedData);
       String app = jsonObject.getString("app");
       String action = jsonObject.getString("action");
-      String campus = jsonObject.getString("campus");
-      String buildingCode = jsonObject.getString("buildingCode");
+      String code = jsonObject.getString("code");
 
       if ("aomus".equals(app) && "check-in".equals(action)) {
         // Store check-in records in Firebase
-        storeCheckInRecord(campus, buildingCode);
+        storeCheckInRecord(code);
 
-        Toast.makeText(getContext(), "Check in at Building " + buildingCode, Toast.LENGTH_LONG)
-            .show();
+        Toast.makeText(getContext(), "Check in successfully", Toast.LENGTH_LONG).show();
       } else {
         Toast.makeText(getContext(), "Invalid QR code data", Toast.LENGTH_LONG).show();
       }
@@ -179,18 +177,13 @@ public class ScannerFragment extends Fragment {
   }
 
   // Store check-in records in Firebase
-  private void storeCheckInRecord(String campus, String buildingCode) {
+  private void storeCheckInRecord(String buildingCode) {
     SharedPreferences sharedPreferences =
         getActivity().getSharedPreferences("LoginPrefs", Activity.MODE_PRIVATE);
     String username = sharedPreferences.getString("username", "unknown");
 
     DatabaseReference userCheckinsRef =
-        databaseReference
-            .child("users")
-            .child(username)
-            .child("checkins")
-            .child(campus)
-            .child(buildingCode);
+        databaseReference.child("users").child(username).child("checkins").child(buildingCode);
 
     userCheckinsRef
         .child("counts")
