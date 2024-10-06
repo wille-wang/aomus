@@ -1,37 +1,40 @@
 package com.example.myapplication.ui.map;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.example.myapplication.R;
+import com.example.myapplication.util.Building;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MapFragment extends Fragment {
 
-  private final Map<String, LatLng> locationMap =
-      new HashMap<String, LatLng>() {
-        {
-          // mock data for locations
-          put("University of Melbourne, Parkville Campus", new LatLng(-37.7963, 144.9614));
-          put("Melbourne Central", new LatLng(-37.8100, 144.9628));
-          put("Flinders Street Station", new LatLng(-37.8183, 144.9671));
-          put("Federation Square", new LatLng(-37.8179, 144.9691));
-        }
-      };
+  private final Map<String, LatLng> locationMap = new HashMap<>();
+  private final LatLng universityMelbourne =
+      new LatLng(-37.7963, 144.9614); // Hardcode the University of Melbourne
+  private final List<String> suggestionsList = new ArrayList<>();
   private GoogleMap mMap;
   private final OnMapReadyCallback callback =
       new OnMapReadyCallback() {
@@ -44,19 +47,14 @@ public class MapFragment extends Fragment {
           mMap.getUiSettings().setCompassEnabled(true);
           mMap.getUiSettings().setMapToolbarEnabled(true);
 
-          // Set the coordinates for University of Melbourne, Parkville Campus
-          LatLng melbourneUni = locationMap.get("University of Melbourne, Parkville Campus");
+          // Add hardcoded marker for University of Melbourne
+          mMap.addMarker(
+              new MarkerOptions()
+                  .position(universityMelbourne)
+                  .title("University of Melbourne, Parkville Campus"));
 
-          // Add a marker for University of Melbourne
-          if (melbourneUni != null) {
-            mMap.addMarker(
-                new MarkerOptions()
-                    .position(melbourneUni)
-                    .title("University of Melbourne, Parkville Campus"));
-
-            // Move and zoom the camera to the University of Melbourne
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(melbourneUni, 15));
-          }
+          // Move and zoom the camera to the University of Melbourne
+          mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(universityMelbourne, 15));
         }
       };
   private ArrayAdapter<String> suggestionAdapter;
@@ -72,35 +70,31 @@ public class MapFragment extends Fragment {
     // Initialize the AutoCompleteTextView
     AutoCompleteTextView autoCompleteTextView = view.findViewById(R.id.autoCompleteTextView);
 
-    // Ensure the AutoCompleteTextView is not null
     if (autoCompleteTextView != null) {
-      // Make sure AutoCompleteTextView is focusable and can receive input
       autoCompleteTextView.setFocusable(true);
       autoCompleteTextView.setFocusableInTouchMode(true);
 
-      // Create an ArrayAdapter to hold suggestions
       suggestionAdapter =
           new ArrayAdapter<>(
-              getContext(),
-              android.R.layout.simple_dropdown_item_1line,
-              new ArrayList<>(locationMap.keySet()));
-
-      // Set the adapter to the AutoCompleteTextView
+              getContext(), android.R.layout.simple_dropdown_item_1line, suggestionsList);
       autoCompleteTextView.setAdapter(suggestionAdapter);
+      autoCompleteTextView.setThreshold(1); // Show suggestions after typing 1 character
 
-      // Ensure suggestions are shown after typing 1 character
-      autoCompleteTextView.setThreshold(1);
-
-      // Handle item selection from suggestions
+      // Handle item selection
       autoCompleteTextView.setOnItemClickListener(
           (parent, view1, position, id) -> {
-            String selectedLocation = (String) parent.getItemAtPosition(position);
-            LatLng location = locationMap.get(selectedLocation);
+            String selectedSuggestion = (String) parent.getItemAtPosition(position);
+            LatLng location = locationMap.get(selectedSuggestion);
             if (location != null) {
               mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
-              mMap.addMarker(new MarkerOptions().position(location).title(selectedLocation));
+              mMap.addMarker(new MarkerOptions().position(location).title(selectedSuggestion));
+            } else {
+              Toast.makeText(getContext(), "Location not found", Toast.LENGTH_SHORT).show();
             }
           });
+
+      // Fetch data from Firebase and update suggestions
+      fetchBuildingDataFromFirebase();
     }
 
     return view;
@@ -114,5 +108,46 @@ public class MapFragment extends Fragment {
     if (mapFragment != null) {
       mapFragment.getMapAsync(callback);
     }
+  }
+
+  private void fetchBuildingDataFromFirebase() {
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference buildingsRef = database.getReference("buildings");
+
+    buildingsRef.addValueEventListener(
+        new ValueEventListener() {
+          @Override
+          public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            suggestionsList.clear();
+            locationMap.clear();
+
+            // Add hardcoded University of Melbourne location to suggestions
+            suggestionsList.add("University of Melbourne, Parkville Campus");
+            locationMap.put("University of Melbourne, Parkville Campus", universityMelbourne);
+
+            for (DataSnapshot buildingSnapshot : dataSnapshot.getChildren()) {
+              Building building = buildingSnapshot.getValue(Building.class);
+              if (building != null) {
+                String suggestion = building.getName() + " (" + building.getCode() + ")";
+                suggestionsList.add(suggestion);
+
+                // Store the building location in the map
+                LatLng location =
+                    new LatLng(
+                        buildingSnapshot.child("latitude").getValue(Double.class),
+                        buildingSnapshot.child("longitude").getValue(Double.class));
+                locationMap.put(suggestion, location);
+              }
+            }
+
+            // Notify the adapter to update the suggestions list
+            suggestionAdapter.notifyDataSetChanged();
+          }
+
+          @Override
+          public void onCancelled(@NonNull DatabaseError databaseError) {
+            Log.e("MapFragment", "Failed to read buildings data", databaseError.toException());
+          }
+        });
   }
 }
