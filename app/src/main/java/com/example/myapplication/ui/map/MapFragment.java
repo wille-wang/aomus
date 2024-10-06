@@ -127,23 +127,27 @@ public class MapFragment extends Fragment {
             suggestionsList.clear();
             locationMap.clear();
 
-            // Add hardcoded University of Melbourne location to suggestions
-            // suggestionsList.add("University of Melbourne, Parkville Campus");
-            // locationMap.put("University of Melbourne, Parkville Campus", universityMelbourne);
-
             for (DataSnapshot buildingSnapshot : dataSnapshot.getChildren()) {
               Building building = buildingSnapshot.getValue(Building.class);
               if (building != null) {
-                String suggestion =
-                    building.getName() + " (" + building.getCode().toUpperCase() + ")";
-                suggestionsList.add(suggestion);
+                String nameSuggestion = building.getName();
+                String codeSuggestion = building.getCode();
+                // Do not use parentheses in the combined suggestion
+                String combinedSuggestion = nameSuggestion + "  —  " + codeSuggestion.toUpperCase();
+
+                // Add the combined suggestion to the list
+                // suggestionsList.add(nameSuggestion);
+                // suggestionsList.add(codeSuggestion);
+                suggestionsList.add(combinedSuggestion);
 
                 // Store the building location in the map
                 LatLng location =
                     new LatLng(
                         buildingSnapshot.child("latitude").getValue(Double.class),
                         buildingSnapshot.child("longitude").getValue(Double.class));
-                locationMap.put(suggestion, location);
+                locationMap.put(nameSuggestion, location);
+                locationMap.put(codeSuggestion, location);
+                locationMap.put(combinedSuggestion, location);
               }
             }
 
