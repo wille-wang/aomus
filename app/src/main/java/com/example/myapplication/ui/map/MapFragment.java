@@ -1,10 +1,12 @@
 package com.example.myapplication.ui.map;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Toast;
@@ -47,12 +49,6 @@ public class MapFragment extends Fragment {
           mMap.getUiSettings().setCompassEnabled(true);
           mMap.getUiSettings().setMapToolbarEnabled(true);
 
-          // Remove the initial marker for University of Melbourne
-          // mMap.addMarker(
-          //     new MarkerOptions()
-          //         .position(universityMelbourne)
-          //         .title("University of Melbourne, Parkville Campus"));
-
           // Move and zoom the camera to the University of Melbourne
           mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(universityMelbourne, 15));
         }
@@ -88,6 +84,16 @@ public class MapFragment extends Fragment {
             if (location != null) {
               mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
               mMap.addMarker(new MarkerOptions().position(location).title(selectedSuggestion));
+
+              // Hide the keyboard
+              InputMethodManager imm =
+                  (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+              if (imm != null) {
+                imm.hideSoftInputFromWindow(autoCompleteTextView.getWindowToken(), 0);
+              }
+
+              // Clear focus from AutoCompleteTextView
+              autoCompleteTextView.clearFocus();
             } else {
               Toast.makeText(getContext(), "Location not found", Toast.LENGTH_SHORT).show();
             }
