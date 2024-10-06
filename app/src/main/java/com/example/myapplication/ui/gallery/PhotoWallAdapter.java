@@ -17,12 +17,17 @@ public class PhotoWallAdapter extends RecyclerView.Adapter<PhotoWallAdapter.Phot
   private final List<String> photoUrlList;
   private final List<String> nameList;
   private final List<Integer> yearList;
+  private final List<String> descList;
 
   public PhotoWallAdapter(
-      List<String> photoUrlList, List<String> nameList, List<Integer> yearList) {
+      List<String> photoUrlList,
+      List<String> nameList,
+      List<Integer> yearList,
+      List<String> descList) {
     this.photoUrlList = photoUrlList;
     this.nameList = nameList;
     this.yearList = yearList;
+    this.descList = descList;
   }
 
   @NonNull
@@ -43,8 +48,8 @@ public class PhotoWallAdapter extends RecyclerView.Adapter<PhotoWallAdapter.Phot
     holder.itemView.setOnClickListener(
         v -> {
           new AlertDialog.Builder(v.getContext())
-              .setTitle("Building Introduction")
-              .setMessage(nameList.get(position) + " (" + yearList.get(position) + ")")
+              .setTitle(nameList.get(position) + " (" + yearList.get(position) + ")")
+              .setMessage(descList.get(position))
               .setPositiveButton(android.R.string.ok, null)
               .show();
         });

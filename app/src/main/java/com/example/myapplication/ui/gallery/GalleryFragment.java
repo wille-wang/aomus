@@ -25,6 +25,7 @@ public class GalleryFragment extends Fragment {
   private final List<String> photoUrlList = new ArrayList<>();
   private final List<String> nameList = new ArrayList<>();
   private final List<Integer> yearList = new ArrayList<>();
+  private final List<String> descList = new ArrayList<>();
   private FragmentGalleryBinding binding;
   private DatabaseReference buildingsRef;
 
@@ -59,16 +60,19 @@ public class GalleryFragment extends Fragment {
             photoUrlList.clear();
             nameList.clear();
             yearList.clear();
+            descList.clear();
             for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
               Building building = snapshot.getValue(Building.class);
               if (building != null) {
                 photoUrlList.add(building.getImgUrl());
                 nameList.add(building.getName());
                 yearList.add(building.getYear());
+                descList.add(building.getDesc());
               }
             }
-            // Pass the photo list, name list, and year list to the adapter
-            PhotoWallAdapter adapter = new PhotoWallAdapter(photoUrlList, nameList, yearList);
+            // Pass the photo list, name list, year list, and desc list to the adapter
+            PhotoWallAdapter adapter =
+                new PhotoWallAdapter(photoUrlList, nameList, yearList, descList);
             recyclerView.setAdapter(adapter);
           }
 
