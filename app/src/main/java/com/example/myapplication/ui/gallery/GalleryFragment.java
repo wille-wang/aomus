@@ -25,7 +25,7 @@ public class GalleryFragment extends Fragment {
     binding = FragmentGalleryBinding.inflate(inflater, container, false);
     View root = binding.getRoot();
 
-    // Sample photo list
+    // sample photo list
     List<Integer> photoList =
         Arrays.asList(
             R.drawable.photo_par_112,
@@ -35,7 +35,7 @@ public class GalleryFragment extends Fragment {
             R.drawable.photo_par_134,
             R.drawable.photo_par_150);
 
-    // Sample description list
+    // sample description list
     List<String> descriptionList =
         Arrays.asList(
             "Photo 1 description",

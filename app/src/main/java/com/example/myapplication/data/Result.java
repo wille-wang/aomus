@@ -2,7 +2,7 @@ package com.example.myapplication.data;
 
 /** A generic class that holds a result success w/ data or an error exception. */
 public class Result<T> {
-  // hide the private constructor to limit subclass types (Success, Error)
+  // Hide the private constructor to limit subclass types (Success, Error)
   private Result() {}
 
   @Override
@@ -17,7 +17,7 @@ public class Result<T> {
     return "";
   }
 
-  // Success sub-class
+  // success sub-class
   public static final class Success<T> extends Result {
     private final T data;
 
@@ -30,7 +30,7 @@ public class Result<T> {
     }
   }
 
-  // Error sub-class
+  // error sub-class
   public static final class Error extends Result {
     private final Exception error;
 

@@ -19,20 +19,20 @@
             app:popupTheme="@style/Theme.MyApplication.PopupOverlay" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- Fragment -->
+    <!-- fragment -->
     <FrameLayout
         android:id="@+id/settings_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- Inner LinearLayout inside Fragment -->
+        <!-- inner LinearLayout inside Fragment -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Profile Fields Section -->
+            <!-- profile fields -->
             <TextView
                 android:id="@+id/textViewProfileTitle"
                 android:layout_width="wrap_content"
@@ -42,21 +42,21 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <!-- Real Name Field -->
+            <!-- Real Name field -->
             <EditText
                 android:id="@+id/editTextRealName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Real Name" />
 
-            <!-- Program Field -->
+            <!-- Program field -->
             <EditText
                 android:id="@+id/editTextProgram"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Program" />
 
-            <!-- School Email Field -->
+            <!-- School Email field -->
             <EditText
                 android:id="@+id/editTextSchoolEmail"
                 android:layout_width="match_parent"
@@ -64,7 +64,7 @@
                 android:hint="School Email"
                 android:inputType="textEmailAddress" />
 
-            <!-- Update Profile Button -->
+            <!-- Update Profile button -->
             <Button
                 android:id="@+id/buttonUpdateProfile"
                 android:layout_width="match_parent"
@@ -72,7 +72,7 @@
                 android:layout_marginTop="16dp"
                 android:text="Update Profile" />
 
-            <!-- Divider (Unclear Line) between Profile and Password -->
+            <!-- divider between Profile and Password -->
             <View
                 android:id="@+id/divider1"
                 android:layout_width="match_parent"
@@ -81,7 +81,7 @@
                 android:layout_marginBottom="24dp"
                 android:background="@android:color/darker_gray" />
 
-            <!-- Password Section -->
+            <!-- Password section -->
             <TextView
                 android:id="@+id/textViewPasswordTitle"
                 android:layout_width="wrap_content"
@@ -91,7 +91,7 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <!-- New Password Field -->
+            <!-- New Password field -->
             <EditText
                 android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
@@ -99,7 +99,7 @@
                 android:hint="New Password"
                 android:inputType="textPassword" />
 
-            <!-- Confirm Button -->
+            <!-- Confirm button -->
             <Button
                 android:id="@+id/buttonConfirm"
                 android:layout_width="match_parent"
@@ -107,7 +107,7 @@
                 android:layout_marginTop="16dp"
                 android:text="Confirm" />
 
-            <!-- Divider (Unclear Line) between Password and Exit Account -->
+            <!-- divider between Password and Exit Account -->
             <View
                 android:id="@+id/divider2"
                 android:layout_width="match_parent"
@@ -116,7 +116,7 @@
                 android:layout_marginBottom="24dp"
                 android:background="@android:color/darker_gray" />
 
-            <!-- Exit Account Section Title -->
+            <!-- Exit Account section title -->
             <TextView
                 android:id="@+id/textViewExitAccountTitle"
                 android:layout_width="wrap_content"
@@ -126,7 +126,7 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <!-- Exit Account Button -->
+            <!-- Exit Account button -->
             <Button
                 android:id="@+id/buttonExitAccount"
                 android:layout_width="match_parent"

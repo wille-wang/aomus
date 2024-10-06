@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     binding = ActivityLoginBinding.inflate(getLayoutInflater());
     setContentView(binding.getRoot());
 
-    // initialize the database
+    // Initialize the database
     database = FirebaseDatabase.getInstance();
     usersRef = database.getReference("users");
 
@@ -169,7 +169,8 @@ public class LoginActivity extends AppCompatActivity {
   public boolean onOptionsItemSelected(MenuItem item) {
     // Handle back button click here
     if (item.getItemId() == android.R.id.home) {
-      finish(); // Close the activity and go back to the previous one
+      // Close the activity and go back to the previous one
+      finish();
       return true;
     }
     return super.onOptionsItemSelected(item);
@@ -177,12 +178,12 @@ public class LoginActivity extends AppCompatActivity {
 
   private void updateUiWithUser(LoggedInUserView model) {
     String welcome = getString(R.string.welcome) + model.getDisplayName();
-    // TODO : initiate successful logged in experience
+    // TODO : Initiate successful logged in experience
     //        Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
   }
 
   private void showLoginFailed(@StringRes Integer errorString) {
-    //        Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
+    // Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
   }
 
   // Check the validity of the user and handle login/registration using username as a unique
@@ -236,7 +237,7 @@ public class LoginActivity extends AppCompatActivity {
             });
   }
 
-  // save the login status
+  // Save the login status
   private void saveLoginStatus(String username) {
     SharedPreferences sharedPreferences = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
     SharedPreferences.Editor editor = sharedPreferences.edit();

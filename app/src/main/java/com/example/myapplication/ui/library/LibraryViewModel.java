@@ -10,7 +10,7 @@ public class LibraryViewModel extends ViewModel {
 
   public LibraryViewModel() {
     url = new MutableLiveData<>();
-    // TODO: set the URL of study space here
+    // TODO: Set the URL of study space here
     url.setValue("https://library.unimelb.edu.au/services/book-a-room-or-computer");
   }
 

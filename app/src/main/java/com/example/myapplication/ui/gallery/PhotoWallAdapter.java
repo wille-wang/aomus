@@ -12,8 +12,8 @@ import java.util.List;
 
 public class PhotoWallAdapter extends RecyclerView.Adapter<PhotoWallAdapter.PhotoViewHolder> {
 
-  private final List<Integer> photoList; // List of photo resources
-  private final List<String> descriptionList; // List of photo descriptions
+  private final List<Integer> photoList; // list of photo resources
+  private final List<String> descriptionList; // list of photo descriptions
 
   public PhotoWallAdapter(List<Integer> photoList, List<String> descriptionList) {
     this.photoList = photoList;
@@ -30,8 +30,10 @@ public class PhotoWallAdapter extends RecyclerView.Adapter<PhotoWallAdapter.Phot
 
   @Override
   public void onBindViewHolder(@NonNull PhotoViewHolder holder, int position) {
-    holder.imageView.setImageResource(photoList.get(position)); // Set photo
-    holder.photoDescription.setText(descriptionList.get(position)); // Set description
+    // Set photos
+    holder.imageView.setImageResource(photoList.get(position));
+    // Set descriptions
+    holder.photoDescription.setText(descriptionList.get(position));
   }
 
   @Override
@@ -41,13 +43,13 @@ public class PhotoWallAdapter extends RecyclerView.Adapter<PhotoWallAdapter.Phot
 
   static class PhotoViewHolder extends RecyclerView.ViewHolder {
     ImageView imageView;
-    TextView photoDescription; // Reference for the TextView to display description
+    TextView photoDescription; // reference for the TextView to display description
 
     PhotoViewHolder(@NonNull View itemView) {
       super(itemView);
       imageView = itemView.findViewById(R.id.imageView);
-      photoDescription =
-          itemView.findViewById(R.id.photoDescription); // Bind TextView for description
+      // Bind TextView for description
+      photoDescription = itemView.findViewById(R.id.photoDescription);
     }
   }
 }

@@ -20,7 +20,6 @@
             app:popupTheme="@style/Theme.MyApplication.PopupOverlay" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- Your existing Login UI -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container"
         android:layout_width="match_parent"

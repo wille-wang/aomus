@@ -25,7 +25,8 @@ public class LibraryFragment extends Fragment {
 
     // Get the WebView and load a web page
     WebView webView = view.findViewById(R.id.libraryWebView);
-    webView.setWebViewClient(new WebViewClient()); // ensures links open within the WebView
+    // Ensure links open within the WebView
+    webView.setWebViewClient(new WebViewClient());
 
     // Observe the URL LiveData from the ViewModel
     libraryViewModel.getUrl().observe(getViewLifecycleOwner(), webView::loadUrl);
