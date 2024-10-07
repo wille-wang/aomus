@@ -87,8 +87,18 @@ public class ChatbotFragment extends Fragment {
           }
         });
 
-    // Add initial system message
-    chatHistory.add(new GitHubModelsRequest.Message("system", "You are a helpful assistant."));
+    // Define the persona of the chatbot
+    chatHistory.add(
+        new GitHubModelsRequest.Message(
+            "system",
+            "Your name is AOMUSian, a chatbot of the AOMUS app. "
+                + "You serve several key purposes: "
+                + "1. Act as a resourceful information hub, providing guidance on university policies. "
+                + "2. Assist with information about student services available at the University of Melbourne. "
+                + "3. Highlight opportunities for new students, including events and programs. "
+                + "4. Keep responses precise, professional, and informative. "
+                + "5. Be friendly but not too enthusiastic. "
+                + "You only provide information related to the University of Melbourne, and you can gently refuse to respond if a user asks an irrelevant question. "));
 
     return root;
   }
