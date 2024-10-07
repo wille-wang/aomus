@@ -1,3 +1,5 @@
+// File: ChatbotFragment.java
+
 package com.example.myapplication.ai.chatbot;
 
 import android.os.Bundle;
@@ -48,6 +50,7 @@ public class ChatbotFragment extends Fragment {
     recyclerView.setAdapter(messageAdapter);
 
     // Initialize Retrofit
+    // TODO: Replace the GitHub PAT with the environment variable
     Retrofit retrofit =
         new Retrofit.Builder()
             .baseUrl("https://models.inference.ai.azure.com/") // Base URL without the path
@@ -60,7 +63,9 @@ public class ChatbotFragment extends Fragment {
                           Request request =
                               original
                                   .newBuilder()
-                                  .header("Authorization", "Bearer YOUR_API_KEY")
+                                  .header(
+                                      "Authorization",
+                                      "Bearer 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")
                                   .method(original.method(), original.body())
                                   .build();
                           return chain.proceed(request);
@@ -104,14 +109,19 @@ public class ChatbotFragment extends Fragment {
                   Call<GitHubModelsResponse> call, Response<GitHubModelsResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
                   Log.d("ChatbotFragment", "Full Response: " + response.body());
-                  String reply = response.body().getChoices().get(0).getText();
-                  if (reply != null) {
-                    messageList.add(reply);
-                    chatHistory.add(new GitHubModelsRequest.Message("assistant", reply));
-                    messageAdapter.notifyItemInserted(messageList.size() - 1);
-                    binding.recyclerViewMessages.scrollToPosition(messageList.size() - 1);
+                  List<GitHubModelsResponse.Choice> choices = response.body().getChoices();
+                  if (choices != null && !choices.isEmpty()) {
+                    String reply = choices.get(0).getMessage().getContent();
+                    if (reply != null) {
+                      messageList.add(reply);
+                      chatHistory.add(new GitHubModelsRequest.Message("assistant", reply));
+                      messageAdapter.notifyItemInserted(messageList.size() - 1);
+                      binding.recyclerViewMessages.scrollToPosition(messageList.size() - 1);
+                    } else {
+                      Log.e("ChatbotFragment", "Received null reply from assistant");
+                    }
                   } else {
-                    Log.e("ChatbotFragment", "Received null reply from assistant");
+                    Log.e("ChatbotFragment", "Choices list is empty or null");
                   }
                 } else {
                   try {

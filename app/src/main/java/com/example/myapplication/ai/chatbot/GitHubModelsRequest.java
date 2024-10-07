@@ -1,3 +1,5 @@
+// File: ChatbotFragment.java
+
 package com.example.myapplication.ai.chatbot;
 
 import java.util.List;

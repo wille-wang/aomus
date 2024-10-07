@@ -1,3 +1,5 @@
+// File: GitHubModelsResponse.java
+
 package com.example.myapplication.ai.chatbot;
 
 import java.util.List;
@@ -19,19 +21,36 @@ public class GitHubModelsResponse {
   }
 
   public static class Choice {
-    private String text;
+    private Message message;
 
-    public String getText() {
-      return text;
+    public Message getMessage() {
+      return message;
     }
 
-    public void setText(String text) {
-      this.text = text;
+    public void setMessage(Message message) {
+      this.message = message;
     }
 
     @Override
     public String toString() {
-      return "Choice{" + "text='" + text + '\'' + '}';
+      return "Choice{" + "message=" + message + '}';
+    }
+
+    public static class Message {
+      private String content;
+
+      public String getContent() {
+        return content;
+      }
+
+      public void setContent(String content) {
+        this.content = content;
+      }
+
+      @Override
+      public String toString() {
+        return "Message{" + "content='" + content + '\'' + '}';
+      }
     }
   }
 }
