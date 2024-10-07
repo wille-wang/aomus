@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
 import java.util.List;
+import java.util.Map;
 
 public class PhotoWallAdapter extends RecyclerView.Adapter<PhotoWallAdapter.PhotoViewHolder> {
 
@@ -18,16 +19,22 @@ public class PhotoWallAdapter extends RecyclerView.Adapter<PhotoWallAdapter.Phot
   private final List<String> nameList;
   private final List<Integer> yearList;
   private final List<String> descList;
+  private final List<String> codeList; // Add a list for building codes
+  private final Map<String, Integer> visitCounts;
 
   public PhotoWallAdapter(
       List<String> photoUrlList,
       List<String> nameList,
       List<Integer> yearList,
-      List<String> descList) {
+      List<String> descList,
+      List<String> codeList, // Add codeList to the constructor
+      Map<String, Integer> visitCounts) {
     this.photoUrlList = photoUrlList;
     this.nameList = nameList;
     this.yearList = yearList;
     this.descList = descList;
+    this.codeList = codeList; // Initialize codeList
+    this.visitCounts = visitCounts;
   }
 
   @NonNull
@@ -43,12 +50,20 @@ public class PhotoWallAdapter extends RecyclerView.Adapter<PhotoWallAdapter.Phot
     Glide.with(holder.itemView.getContext())
         .load(photoUrlList.get(position))
         .into(holder.imageView);
-    holder.photoDescription.setText(nameList.get(position) + " (" + yearList.get(position) + ")");
+    String buildingName = nameList.get(position);
+    holder.photoDescription.setText(buildingName + " (" + yearList.get(position) + ")");
+    String buildingCode = codeList.get(position); // Get the building code
+    Integer visitCount = visitCounts.get(buildingCode); // Use building code to fetch visit count
+    if (visitCount != null) {
+      holder.visitCount.setText("Visits: " + visitCount);
+    } else {
+      holder.visitCount.setText("Visits: 0");
+    }
 
     holder.itemView.setOnClickListener(
         v -> {
           new AlertDialog.Builder(v.getContext())
-              .setTitle(nameList.get(position) + " (" + yearList.get(position) + ")")
+              .setTitle(buildingName + " (" + yearList.get(position) + ")")
               .setMessage(descList.get(position))
               .setPositiveButton(android.R.string.ok, null)
               .show();
@@ -63,11 +78,13 @@ public class PhotoWallAdapter extends RecyclerView.Adapter<PhotoWallAdapter.Phot
   static class PhotoViewHolder extends RecyclerView.ViewHolder {
     ImageView imageView;
     TextView photoDescription;
+    TextView visitCount;
 
     PhotoViewHolder(@NonNull View itemView) {
       super(itemView);
       imageView = itemView.findViewById(R.id.imageView);
       photoDescription = itemView.findViewById(R.id.photoDescription);
+      visitCount = itemView.findViewById(R.id.visitCount);
     }
   }
 }
