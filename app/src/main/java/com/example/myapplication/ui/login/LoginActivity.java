@@ -51,11 +51,11 @@ public class LoginActivity extends AppCompatActivity {
     setSupportActionBar(toolbar);
 
     // Enable the back button
-    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-    // Set title (optional)
-    getSupportActionBar().setTitle("Back");
+    if (getSupportActionBar() != null) {
+      getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+      getSupportActionBar().setDisplayShowHomeEnabled(true);
+      getSupportActionBar().setTitle("Back");
+    }
 
     loginViewModel =
         new ViewModelProvider(this, new LoginViewModelFactory()).get(LoginViewModel.class);
@@ -199,7 +199,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (task.getResult().getValue() != null) {
                   // User exists, check password
                   String storedPassword = task.getResult().child("password").getValue(String.class);
-                  if (storedPassword.equals(password)) {
+                  if (storedPassword != null && storedPassword.equals(password)) {
                     // Password is correct, login
                     loginViewModel.login(username, password);
                     saveLoginStatus(username); // Save login status
