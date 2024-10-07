@@ -133,20 +133,10 @@ public class SettingsActivity extends AppCompatActivity {
 
     Map<String, Object> updates = new HashMap<>();
 
-    if (!realName.isEmpty()) {
-      updates.put("realName", realName);
-    }
-    if (!program.isEmpty()) {
-      updates.put("program", program);
-    }
-    if (!schoolEmail.isEmpty()) {
-      updates.put("schoolEmail", schoolEmail);
-    }
-
-    if (updates.isEmpty()) {
-      Toast.makeText(this, "No changes to update", Toast.LENGTH_SHORT).show();
-      return;
-    }
+    // Update fields with the current values, even if they are empty
+    updates.put("realName", realName);
+    updates.put("program", program);
+    updates.put("schoolEmail", schoolEmail);
 
     usersRef
         .child(username)
