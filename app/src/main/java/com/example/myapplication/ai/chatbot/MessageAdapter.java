@@ -2,7 +2,6 @@
 
 package com.example.myapplication.ai.chatbot;
 
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.myapplication.R;
-
 import java.util.List;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageViewHolder> {
@@ -41,10 +38,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         (LinearLayout.LayoutParams) holder.textViewMessage.getLayoutParams();
     if ("user".equals(message.getRole())) {
       holder.textViewMessage.setBackgroundResource(R.drawable.bubble_user);
-      params.gravity = Gravity.END;
     } else if ("assistant".equals(message.getRole())) {
       holder.textViewMessage.setBackgroundResource(R.drawable.bubble_assistant);
-      params.gravity = Gravity.START;
     }
     holder.textViewMessage.setLayoutParams(params);
   }
