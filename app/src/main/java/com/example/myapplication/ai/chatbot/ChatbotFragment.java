@@ -1,6 +1,7 @@
 package com.example.myapplication.ai.chatbot;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,14 +12,24 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.databinding.FragmentChatbotBinding;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ChatbotFragment extends Fragment {
 
   private FragmentChatbotBinding binding;
   private MessageAdapter messageAdapter;
   private List<String> messageList;
+  private List<GitHubModelsRequest.Message> chatHistory;
+  private GitHubModelsApiService gitHubModelsApiService;
 
   @Override
   public View onCreateView(
@@ -31,23 +42,92 @@ public class ChatbotFragment extends Fragment {
     Button buttonSend = binding.buttonSend;
 
     messageList = new ArrayList<>();
+    chatHistory = new ArrayList<>();
     messageAdapter = new MessageAdapter(messageList);
     recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     recyclerView.setAdapter(messageAdapter);
+
+    // Initialize Retrofit
+    Retrofit retrofit =
+        new Retrofit.Builder()
+            .baseUrl("https://models.inference.ai.azure.com/") // Base URL without the path
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(
+                new OkHttpClient.Builder()
+                    .addInterceptor(
+                        chain -> {
+                          Request original = chain.request();
+                          Request request =
+                              original
+                                  .newBuilder()
+                                  .header("Authorization", "Bearer YOUR_API_KEY")
+                                  .method(original.method(), original.body())
+                                  .build();
+                          return chain.proceed(request);
+                        })
+                    .build())
+            .build();
+    gitHubModelsApiService = retrofit.create(GitHubModelsApiService.class);
 
     buttonSend.setOnClickListener(
         v -> {
           String message = editTextMessage.getText().toString();
           if (!message.isEmpty()) {
             messageList.add(message);
+            chatHistory.add(new GitHubModelsRequest.Message("user", message));
             messageAdapter.notifyItemInserted(messageList.size() - 1);
             recyclerView.scrollToPosition(messageList.size() - 1);
             editTextMessage.setText("");
-            // Here you can add code to handle the chatbot response
+            getGitHubModelsResponse(chatHistory);
           }
         });
 
+    // Add initial system message
+    chatHistory.add(new GitHubModelsRequest.Message("system", "You are a helpful assistant."));
+
     return root;
+  }
+
+  private void getGitHubModelsResponse(List<GitHubModelsRequest.Message> messages) {
+    // Log messages for debugging
+    for (GitHubModelsRequest.Message message : messages) {
+      Log.d("ChatbotFragment", "Role: " + message.getRole() + ", Content: " + message.getContent());
+    }
+
+    GitHubModelsRequest request = new GitHubModelsRequest(messages, "gpt-4o-mini", 1, 4096, 1);
+    gitHubModelsApiService
+        .getGitHubModelsResponse(request)
+        .enqueue(
+            new Callback<GitHubModelsResponse>() {
+              @Override
+              public void onResponse(
+                  Call<GitHubModelsResponse> call, Response<GitHubModelsResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                  Log.d("ChatbotFragment", "Full Response: " + response.body());
+                  String reply = response.body().getChoices().get(0).getText();
+                  if (reply != null) {
+                    messageList.add(reply);
+                    chatHistory.add(new GitHubModelsRequest.Message("assistant", reply));
+                    messageAdapter.notifyItemInserted(messageList.size() - 1);
+                    binding.recyclerViewMessages.scrollToPosition(messageList.size() - 1);
+                  } else {
+                    Log.e("ChatbotFragment", "Received null reply from assistant");
+                  }
+                } else {
+                  try {
+                    String errorBody = response.errorBody().string();
+                    Log.e("ChatbotFragment", "Response not successful: " + errorBody);
+                  } catch (IOException e) {
+                    Log.e("ChatbotFragment", "Error reading error body", e);
+                  }
+                }
+              }
+
+              @Override
+              public void onFailure(Call<GitHubModelsResponse> call, Throwable t) {
+                Log.e("ChatbotFragment", "API call failed", t);
+              }
+            });
   }
 
   @Override

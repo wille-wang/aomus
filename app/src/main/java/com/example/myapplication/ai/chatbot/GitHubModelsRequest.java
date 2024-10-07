@@ -1,28 +1,46 @@
 package com.example.myapplication.ai.chatbot;
 
+import java.util.List;
+
 public class GitHubModelsRequest {
-  private String prompt;
-  private int max_tokens;
+  private final List<Message> messages;
+  private final String model;
+  private final int temperature;
+  private final int max_tokens;
+  private final int top_p;
 
-  public GitHubModelsRequest(String prompt, int max_tokens) {
-    this.prompt = prompt;
+  public GitHubModelsRequest(
+      List<Message> messages, String model, int temperature, int max_tokens, int top_p) {
+    this.messages = messages;
+    this.model = model;
+    this.temperature = temperature;
     this.max_tokens = max_tokens;
+    this.top_p = top_p;
   }
 
-  // Getters and setters
-  public String getPrompt() {
-    return prompt;
-  }
+  public static class Message {
+    private String role;
+    private String content;
 
-  public void setPrompt(String prompt) {
-    this.prompt = prompt;
-  }
+    public Message(String role, String content) {
+      this.role = role;
+      this.content = content;
+    }
 
-  public int getMaxTokens() {
-    return max_tokens;
-  }
+    public String getRole() {
+      return role;
+    }
 
-  public void setMaxTokens(int max_tokens) {
-    this.max_tokens = max_tokens;
+    public void setRole(String role) {
+      this.role = role;
+    }
+
+    public String getContent() {
+      return content;
+    }
+
+    public void setContent(String content) {
+      this.content = content;
+    }
   }
 }

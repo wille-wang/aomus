@@ -13,6 +13,11 @@ public class GitHubModelsResponse {
     this.choices = choices;
   }
 
+  @Override
+  public String toString() {
+    return "GitHubModelsResponse{" + "choices=" + choices + '}';
+  }
+
   public static class Choice {
     private String text;
 
@@ -22,6 +27,11 @@ public class GitHubModelsResponse {
 
     public void setText(String text) {
       this.text = text;
+    }
+
+    @Override
+    public String toString() {
+      return "Choice{" + "text='" + text + '\'' + '}';
     }
   }
 }
