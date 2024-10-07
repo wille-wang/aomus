@@ -18,6 +18,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -64,23 +66,29 @@ public class SettingsActivity extends AppCompatActivity {
 
   // Fetch profile information from Firebase
   private void fetchProfileData() {
-    usersRef.child(username).addListenerForSingleValueEvent(
-        new ValueEventListener() {
-          @Override
-          public void onDataChange(DataSnapshot dataSnapshot) {
-            User user = dataSnapshot.getValue(User.class);
-            if (user != null) {
-              editTextRealName.setText(user.getRealName());
-              editTextProgram.setText(user.getProgram());
-              editTextSchoolEmail.setText(user.getSchoolEmail());
-            }
-          }
+    usersRef
+        .child(username)
+        .addListenerForSingleValueEvent(
+            new ValueEventListener() {
+              @Override
+              public void onDataChange(DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+                if (user != null) {
+                  editTextRealName.setText(user.getRealName());
+                  editTextProgram.setText(user.getProgram());
+                  editTextSchoolEmail.setText(user.getSchoolEmail());
+                }
+              }
 
-          @Override
-          public void onCancelled(DatabaseError databaseError) {
-            Toast.makeText(SettingsActivity.this, "Failed to fetch profile information", Toast.LENGTH_SHORT).show();
-          }
-        });
+              @Override
+              public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(
+                        SettingsActivity.this,
+                        "Failed to fetch profile information",
+                        Toast.LENGTH_SHORT)
+                    .show();
+              }
+            });
   }
 
   // Change the password in Firebase
@@ -94,16 +102,24 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     // Update password in Firebase
-    usersRef.child(username).child("password").setValue(newPassword).addOnCompleteListener(
-        task -> {
-          if (task.isSuccessful()) {
-            Toast.makeText(SettingsActivity.this, "Password updated successfully", Toast.LENGTH_SHORT).show();
-            // Hide the keyboard after successful update
-            hideKeyboard();
-          } else {
-            Toast.makeText(SettingsActivity.this, "Failed to update password", Toast.LENGTH_SHORT).show();
-          }
-        });
+    usersRef
+        .child(username)
+        .child("password")
+        .setValue(newPassword)
+        .addOnCompleteListener(
+            task -> {
+              if (task.isSuccessful()) {
+                Toast.makeText(
+                        SettingsActivity.this, "Password updated successfully", Toast.LENGTH_SHORT)
+                    .show();
+                // Hide the keyboard after successful update
+                hideKeyboard();
+              } else {
+                Toast.makeText(
+                        SettingsActivity.this, "Failed to update password", Toast.LENGTH_SHORT)
+                    .show();
+              }
+            });
 
     // Clear the password field
     editTextPassword.setText("");
@@ -115,26 +131,39 @@ public class SettingsActivity extends AppCompatActivity {
     String program = editTextProgram.getText().toString();
     String schoolEmail = editTextSchoolEmail.getText().toString();
 
-    // Check for empty fields
-    if (realName.isEmpty() || program.isEmpty() || schoolEmail.isEmpty()) {
-      Toast.makeText(this, "Please fill out all fields", Toast.LENGTH_SHORT).show();
+    Map<String, Object> updates = new HashMap<>();
+
+    if (!realName.isEmpty()) {
+      updates.put("realName", realName);
+    }
+    if (!program.isEmpty()) {
+      updates.put("program", program);
+    }
+    if (!schoolEmail.isEmpty()) {
+      updates.put("schoolEmail", schoolEmail);
+    }
+
+    if (updates.isEmpty()) {
+      Toast.makeText(this, "No changes to update", Toast.LENGTH_SHORT).show();
       return;
     }
 
-    // Create a User object to hold profile data
-    User user = new User(username, null, program, realName, schoolEmail);
-
-    // Update profile data in Firebase
-    usersRef.child(username).setValue(user).addOnCompleteListener(
-        task -> {
-          if (task.isSuccessful()) {
-            Toast.makeText(SettingsActivity.this, "Profile updated successfully", Toast.LENGTH_SHORT).show();
-            // Hide the keyboard after successful update
-            hideKeyboard();
-          } else {
-            Toast.makeText(SettingsActivity.this, "Failed to update profile", Toast.LENGTH_SHORT).show();
-          }
-        });
+    usersRef
+        .child(username)
+        .updateChildren(updates)
+        .addOnCompleteListener(
+            task -> {
+              if (task.isSuccessful()) {
+                Toast.makeText(
+                        SettingsActivity.this, "Profile updated successfully", Toast.LENGTH_SHORT)
+                    .show();
+                hideKeyboard();
+              } else {
+                Toast.makeText(
+                        SettingsActivity.this, "Failed to update profile", Toast.LENGTH_SHORT)
+                    .show();
+              }
+            });
   }
 
   private void exitAccount() {
