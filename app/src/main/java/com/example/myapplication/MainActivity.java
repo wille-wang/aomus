@@ -18,6 +18,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import com.example.myapplication.ai.chatbot.ChatbotFragment;
 import com.example.myapplication.databinding.ActivityMainBinding;
 import com.example.myapplication.ui.gallery.GalleryFragment;
 import com.example.myapplication.ui.home.HomeFragment;
@@ -57,7 +58,12 @@ public class MainActivity extends AppCompatActivity
     NavigationView navigationView = binding.navView;
     mAppBarConfiguration =
         new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_library, R.id.nav_scanner, R.id.nav_map)
+                R.id.nav_home,
+                R.id.nav_gallery,
+                R.id.nav_library,
+                R.id.nav_scanner,
+                R.id.nav_map,
+                R.id.nav_chatbot)
             .setOpenableLayout(drawer)
             .build();
     NavController navController =
@@ -135,6 +141,11 @@ public class MainActivity extends AppCompatActivity
       getSupportFragmentManager()
           .beginTransaction()
           .replace(R.id.nav_host_fragment_content_main, new LibraryFragment())
+          .commit();
+    } else if (id == R.id.nav_chatbot) {
+      getSupportFragmentManager()
+          .beginTransaction()
+          .replace(R.id.nav_host_fragment_content_main, new ChatbotFragment())
           .commit();
     }
 

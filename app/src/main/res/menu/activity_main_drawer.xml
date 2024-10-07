@@ -24,6 +24,11 @@
             android:title="Map" />
 
         <item
+            android:id="@+id/nav_chatbot"
+            android:icon="@drawable/ic_menu_chatbot"
+            android:title="Chatbot" />
+
+        <item
             android:id="@+id/nav_library"
             android:icon="@drawable/ic_menu_library"
             android:title="Library" />
