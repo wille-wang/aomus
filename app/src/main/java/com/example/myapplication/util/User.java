@@ -1,5 +1,6 @@
 package com.example.myapplication.util;
 
+import java.util.HashMap;
 import java.util.Map;
 
 // Represent the schema of the User object in the `users` node in the Firebase Realtime Database
@@ -76,15 +77,37 @@ public class User {
     this.checkins = checkins;
   }
 
+  public void updateVisitCount(String buildingId) {
+    if (checkins == null) {
+      checkins = new HashMap<>();
+    }
+    CheckInInfo checkInInfo =
+        checkins.getOrDefault(
+            buildingId, new CheckInInfo(buildingId, 0, System.currentTimeMillis()));
+    checkInInfo.setCounts(checkInInfo.getCounts() + 1);
+    checkInInfo.setLastCheckIn(System.currentTimeMillis());
+    checkins.put(buildingId, checkInInfo);
+  }
+
   public static class CheckInInfo {
+    private String buildingCode;
     private int counts;
     private long lastCheckIn;
 
     public CheckInInfo() {}
 
-    public CheckInInfo(int counts, long lastCheckIn) {
+    public CheckInInfo(String buildingCode, int counts, long lastCheckIn) {
+      this.buildingCode = buildingCode;
       this.counts = counts;
       this.lastCheckIn = lastCheckIn;
+    }
+
+    public String getBuildingCode() {
+      return buildingCode;
+    }
+
+    public void setBuildingCode(String buildingCode) {
+      this.buildingCode = buildingCode;
     }
 
     public int getCounts() {

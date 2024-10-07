@@ -195,9 +195,11 @@ public class ScannerFragment extends Fragment {
                 if (task.getResult().exists()) {
                   counts = task.getResult().getValue(Long.class);
                 }
+                userCheckinsRef.child("buildingCode").setValue(buildingCode);
                 userCheckinsRef.child("counts").setValue(counts + 1);
                 userCheckinsRef.child("lastCheckIn").setValue(System.currentTimeMillis());
               } else {
+                userCheckinsRef.child("buildingCode").setValue(buildingCode);
                 userCheckinsRef.child("counts").setValue(1);
                 userCheckinsRef.child("lastCheckIn").setValue(System.currentTimeMillis());
               }
