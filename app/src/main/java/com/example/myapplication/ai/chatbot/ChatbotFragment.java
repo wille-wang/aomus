@@ -29,7 +29,7 @@ public class ChatbotFragment extends Fragment {
 
   private FragmentChatbotBinding binding;
   private MessageAdapter messageAdapter;
-  private List<String> messageList;
+  private List<GitHubModelsRequest.Message> messageList;
   private List<GitHubModelsRequest.Message> chatHistory;
   private GitHubModelsApiService gitHubModelsApiService;
   private Button buttonSend;
@@ -80,8 +80,10 @@ public class ChatbotFragment extends Fragment {
           String message = editTextMessage.getText().toString();
           if (!message.isEmpty()) {
             buttonSend.setEnabled(false); // Disable the Send button
-            messageList.add(message);
-            chatHistory.add(new GitHubModelsRequest.Message("user", message));
+            GitHubModelsRequest.Message userMessage =
+                new GitHubModelsRequest.Message("user", message);
+            messageList.add(userMessage);
+            chatHistory.add(userMessage);
             messageAdapter.notifyItemInserted(messageList.size() - 1);
             recyclerView.scrollToPosition(messageList.size() - 1);
             editTextMessage.setText("");
@@ -126,8 +128,10 @@ public class ChatbotFragment extends Fragment {
                   if (choices != null && !choices.isEmpty()) {
                     String reply = choices.get(0).getMessage().getContent();
                     if (reply != null) {
-                      messageList.add(reply);
-                      chatHistory.add(new GitHubModelsRequest.Message("assistant", reply));
+                      GitHubModelsRequest.Message assistantMessage =
+                          new GitHubModelsRequest.Message("assistant", reply);
+                      messageList.add(assistantMessage);
+                      chatHistory.add(assistantMessage);
                       messageAdapter.notifyItemInserted(messageList.size() - 1);
                       binding.recyclerViewMessages.scrollToPosition(messageList.size() - 1);
                     } else {
