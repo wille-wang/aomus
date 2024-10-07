@@ -27,7 +27,6 @@ import com.example.myapplication.ui.login.LoginActivity;
 import com.example.myapplication.ui.map.MapFragment;
 import com.example.myapplication.ui.scanner.ScannerFragment;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
@@ -44,16 +43,16 @@ public class MainActivity extends AppCompatActivity
     setContentView(binding.getRoot());
 
     setSupportActionBar(binding.appBarMain.toolbar);
-    binding.appBarMain.fab.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null)
-                .setAnchorView(R.id.fab)
-                .show();
-          }
-        });
+//    binding.appBarMain.fab.setOnClickListener(
+//        new View.OnClickListener() {
+//          @Override
+//          public void onClick(View view) {
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null)
+//                .setAnchorView(R.id.fab)
+//                .show();
+//          }
+//        });
     DrawerLayout drawer = binding.drawerLayout;
     NavigationView navigationView = binding.navView;
     mAppBarConfiguration =
