@@ -32,6 +32,7 @@ public class ChatbotFragment extends Fragment {
   private List<String> messageList;
   private List<GitHubModelsRequest.Message> chatHistory;
   private GitHubModelsApiService gitHubModelsApiService;
+  private Button buttonSend;
 
   @Override
   public View onCreateView(
@@ -41,7 +42,7 @@ public class ChatbotFragment extends Fragment {
 
     RecyclerView recyclerView = binding.recyclerViewMessages;
     EditText editTextMessage = binding.editTextMessage;
-    Button buttonSend = binding.buttonSend;
+    buttonSend = binding.buttonSend;
 
     messageList = new ArrayList<>();
     chatHistory = new ArrayList<>();
@@ -78,6 +79,7 @@ public class ChatbotFragment extends Fragment {
         v -> {
           String message = editTextMessage.getText().toString();
           if (!message.isEmpty()) {
+            buttonSend.setEnabled(false); // Disable the Send button
             messageList.add(message);
             chatHistory.add(new GitHubModelsRequest.Message("user", message));
             messageAdapter.notifyItemInserted(messageList.size() - 1);
@@ -117,6 +119,7 @@ public class ChatbotFragment extends Fragment {
               @Override
               public void onResponse(
                   Call<GitHubModelsResponse> call, Response<GitHubModelsResponse> response) {
+                buttonSend.setEnabled(true); // Re-enable the Send button
                 if (response.isSuccessful() && response.body() != null) {
                   Log.d("ChatbotFragment", "Full Response: " + response.body());
                   List<GitHubModelsResponse.Choice> choices = response.body().getChoices();
@@ -145,6 +148,7 @@ public class ChatbotFragment extends Fragment {
 
               @Override
               public void onFailure(Call<GitHubModelsResponse> call, Throwable t) {
+                buttonSend.setEnabled(true); // Re-enable the Send button
                 Log.e("ChatbotFragment", "API call failed", t);
               }
             });
