@@ -15,6 +15,8 @@ _All-in-One for Melbourne University Students_ (_AOMUS_, /ˈau̇-mər-s/) is an 
 
 - [AOMUS](#aomus)
   - [Table of Contents](#table-of-contents)
+  - [Architecture](#architecture)
+    - [Database Schemas](#database-schemas)
   - [Quick Links](#quick-links)
   - [Requirements](#requirements)
   - [Development Conventions](#development-conventions)
@@ -22,6 +24,51 @@ _All-in-One for Melbourne University Students_ (_AOMUS_, /ˈau̇-mər-s/) is an 
     - [Branching](#branching)
 
 <!-- TOC end -->
+
+## Architecture
+
+The AOMUS architecture follows a client-server model, where the Android app interacts with the Firebase backend services for data storage, retrieval, and user authentication. The key components of the architecture include:
+
+- **client (Android app)**:
+  - provides a user interface for interactions such as viewing profiles, checking in at locations, and reading building information
+  - features for QR code scanning and so forth
+  - communicates with Firebase for all real-time data needs (e.g., check-ins, profiles)
+- **server (Firebase)**:
+  - stores data in a JSON format, ensuring real-time updates across all connected clients
+  - manages user profiles, building details, check-in data, and so forth
+  - synchronizes data changes automatically in real time, allowing users to instantly see updates
+
+### Database Schemas
+
+The following schema outlines the structure of the Firebase Realtime Database used by AOMUS. Data is stored in collections, with each node representing a distinct kind of entities:
+
+```
+root/
+├── buildings/
+│   └── {buildingCode}/
+│       ├── code: `String`
+│       ├── desc: `String`
+│       ├── imgUrl: `String`
+│       ├── latitude: `float`
+│       ├── longitude: `float`
+│       ├── name: `String`
+│       └── year: `int`
+└── users/
+    └── {username}/
+        ├── checkins/
+        │   └── {buildingId}/
+        │       ├── buildingCode: `String`
+        │       ├── counts: `int`
+        │       └── lastCheckIn: `long`
+        ├── password: `String`
+        ├── program: `String`
+        ├── realName: `String`
+        ├── schoolEmail: `String`
+        └── username: `String`
+```
+
+- **`buildings`**: a collection of all buildings on the campus. Each `building` contains metadata like its name, location (latitude/longitude), description, and year of establishment.
+- **`users`**: a collection of registered users. Each user has personal details such as username, email, and program information, with a `checkin` node to track the buildings they have visited.
 
 ## Quick Links
 
