@@ -33,10 +33,17 @@ The AOMUS architecture follows a client-server model, where the Android app inte
   - provides a user interface for interactions such as viewing profiles, checking in at locations, and reading building information
   - features for QR code scanning and so forth
   - communicates with Firebase for all real-time data needs (e.g., check-ins, profiles)
-- **server (Firebase)**:
-  - stores data in a JSON format, ensuring real-time updates across all connected clients
-  - manages user profiles, building details, check-in data, and so forth
-  - synchronizes data changes automatically in real time, allowing users to instantly see updates
+- **server**:
+  - **Firebase**
+    - stores data in a JSON format, ensuring real-time updates across all connected clients
+    - manages user profiles, building details, check-in data, and so forth
+    - synchronizes data changes automatically in real time, allowing users to instantly see updates
+  - **GitHub Models**
+    - provides large language models for user queries, enabling intelligent, AI-powered responses
+  - **Google Maps**
+    - offers basic map-based and location-based services
+
+![architecture](./docs/img/architecture.png)
 
 ### Database Management System (DBMS)
 
