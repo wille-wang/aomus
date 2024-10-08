@@ -16,5 +16,4 @@
         android:background="@android:color/white"
         android:hint="Search location"
         android:inputType="text" />
-    par
 </RelativeLayout>
