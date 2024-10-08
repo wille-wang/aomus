@@ -1,0 +1,66 @@
+{
+  "buildings": {
+    "par-112": {
+      "code": "par-112",
+      "desc": "University House at the University of Melbourne is a prestigious academic club that serves as the social and professional hub for the university's staff and graduate community. Established in 1953, it is located on the Parkville campus, housed within historic buildings that blend heritage charm with modern facilities. University House offers dining, events, and meeting spaces, fostering collaboration and networking among academics, researchers, and graduate students. With a range of social, cultural, and intellectual activities, it provides a vibrant setting for interaction, reflection, and community building within the university.",
+      "imgUrl": "https://www.unimelb.edu.au/__data/assets/image/0004/2275015/Unihouse-3.jpg",
+      "latitude": -37.7964945,
+      "longitude": 144.9575035,
+      "name": "University House",
+      "year": 1884
+    },
+    "par-113": {
+      "code": "par-113",
+      "desc": " The Baldwin Spencer Building is a notable landmark located at the University of Melbourne, Australia. Named after Sir Baldwin Spencer, a renowned biologist, anthropologist, and founding professor at the university, the building holds significant academic and historical value. Originally designed in a classical style, it reflects the architectural heritage of the early 20th century. Today, it serves as a hub for various academic departments and research facilities, continuing its legacy as a center of learning and intellectual pursuit within the university campus.",
+      "imgUrl": "https://www.unimelb.edu.au/__data/assets/image/0007/2236048/Engineering-2.jpg",
+      "latitude": -37.7965116,
+      "longitude": 144.9595121,
+      "name": "Baldwin Spencer Building",
+      "year": 1887
+    },
+    "par-122": {
+      "code": "par-122",
+      "desc": "The System Garden Tower is a prominent feature located within the University of Melbourne’s historic System Garden. Originally designed as part of the university's efforts to blend scientific study with natural beauty, the tower stands as a symbol of the connection between botany and education. The System Garden itself, established in the 1850s, is a living laboratory showcasing a wide range of plant species, while the tower offers a vantage point for observing the garden's layout and diversity. The combination of the garden and the tower reflects the university's commitment to scientific exploration and environmental sustainability.",
+      "imgUrl": "https://www.unimelb.edu.au/__data/assets/image/0009/1980792/SystemGardenTower.jpg",
+      "latitude": -37.796762,
+      "longitude": 144.9565813,
+      "name": "System Garden Tower",
+      "year": 1866
+    }
+  },
+  "users": {
+    "admin1": {
+      "checkins": {
+        "par-112": {
+          "buildingCode": "par-112",
+          "counts": 6,
+          "lastCheckIn": 1728355262447
+        },
+        "par-122": {
+          "buildingCode": "par-122",
+          "counts": 1,
+          "lastCheckIn": 1728355343774
+        }
+      },
+      "password": "admin1",
+      "program": "Doctor of Computer Science",
+      "realName": "Admin One",
+      "schoolEmail": "admin1@example.com",
+      "username": "admin1"
+    },
+    "admin2": {
+      "checkins": {
+        "par-112": {
+          "buildingCode": "par-112",
+          "counts": 1,
+          "lastCheckIn": 1728355316137
+        }
+      },
+      "password": "admin2",
+      "program": "Master of Computer Science",
+      "realName": "Admin Two",
+      "schoolEmail": "admin2@example.com",
+      "username": "admin2"
+    }
+  }
+}
