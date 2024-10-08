@@ -2,25 +2,45 @@ name: Android CI
 
 on:
   push:
-    # branches: ["master"]
   pull_request:
-    # branches: ["master"]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+      # Step to check out the code
       - uses: actions/checkout@v4
-      - name: set up JDK 17
+
+      # Set up JDK 17 with Gradle cache enabled
+      - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           java-version: "17"
           distribution: "temurin"
           cache: gradle
 
+      # Install Android SDK and configure environment
+      - name: Install Android SDK
+        uses: android-actions/setup-android@v2
+        with:
+          api-level: 34
+          target: android-34
+          build-tools: 34.0.0
+          cache: gradle
+
+      # Set ANDROID_HOME environment variable for compatibility
+      - name: Set ANDROID_HOME environment variable
+        run: echo "ANDROID_HOME=$ANDROID_SDK_ROOT" >> $GITHUB_ENV
+
+      # Create a dummy local.properties file to define the SDK path
+      - name: Create local.properties file
+        run: echo "sdk.dir=$ANDROID_SDK_ROOT" > ./local.properties
+
+      # Grant execution permissions for the Gradle wrapper script
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
+      # Run the Gradle build
       - name: Build with Gradle
         run: ./gradlew build
