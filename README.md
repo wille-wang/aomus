@@ -16,7 +16,7 @@ _All-in-One for Melbourne University Students_ (_AOMUS_, /ˈau̇-mər-s/) is an 
 - [AOMUS](#aomus)
   - [Table of Contents](#table-of-contents)
   - [Architecture](#architecture)
-    - [Database Schemas](#database-schemas)
+    - [Database Management System (DBMS)](#database-management-system-dbms)
   - [Quick Links](#quick-links)
   - [Requirements](#requirements)
   - [Development Conventions](#development-conventions)
@@ -38,9 +38,9 @@ The AOMUS architecture follows a client-server model, where the Android app inte
   - manages user profiles, building details, check-in data, and so forth
   - synchronizes data changes automatically in real time, allowing users to instantly see updates
 
-### Database Schemas
+### Database Management System (DBMS)
 
-The following schema outlines the structure of the Firebase Realtime Database used by AOMUS. Data is stored in collections, with each node representing a distinct kind of entities:
+The following schema outlines the structure of the Firebase Realtime Database, a JSON-based NoSQL DBMS used by AOMUS. Data are stored in collections, with each node representing a distinct type of entity:
 
 ```
 root/
@@ -69,6 +69,8 @@ root/
 
 - **`buildings`**: a collection of all buildings on the campus. Each `building` contains metadata like its name, location (latitude/longitude), description, and year of establishment.
 - **`users`**: a collection of registered users. Each user has personal details such as username, email, and program information, with a `checkin` node to track the buildings they have visited.
+
+![db-schema](./docs/img/db-schema.jpg)
 
 ## Quick Links
 
