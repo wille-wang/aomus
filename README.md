@@ -22,6 +22,7 @@ _All-in-One for Melbourne University Students_ (_AOMUS_, /ˈau̇-mər-s/) is an 
   - [Development Conventions](#development-conventions)
     - [Committing](#committing)
     - [Branching](#branching)
+  - [Resources](#resources)
 
 <!-- TOC end -->
 
@@ -110,3 +111,7 @@ This repository intends to use [Conventional Commits](https://www.conventionalco
 
 > [!TIP]
 > You can also use the type tags following the [commit convention](#committing).
+
+## Resources
+
+- [University of Melbourne: Image Gallery](https://www.unimelb.edu.au/filming-on-campus/gallery)
