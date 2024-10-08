@@ -9,6 +9,8 @@ _All-in-One for Melbourne University Students_ (_AOMUS_, /ˈau̇-mər-s/) is an 
 - read the introduction to a place of interest, provided by ChatGPT
 - view and modify their course details (e.g., schedules, venues)
 
+![summary](./docs/img/summary.jpeg)
+
 <!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
 
 ## Table of Contents
