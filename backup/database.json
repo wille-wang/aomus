@@ -11,7 +11,7 @@
     },
     "par-113": {
       "code": "par-113",
-      "desc": " The Baldwin Spencer Building is a notable landmark located at the University of Melbourne, Australia. Named after Sir Baldwin Spencer, a renowned biologist, anthropologist, and founding professor at the university, the building holds significant academic and historical value. Originally designed in a classical style, it reflects the architectural heritage of the early 20th century. Today, it serves as a hub for various academic departments and research facilities, continuing its legacy as a center of learning and intellectual pursuit within the university campus.",
+      "desc": "The Baldwin Spencer Building is a notable landmark located at the University of Melbourne, Australia. Named after Sir Baldwin Spencer, a renowned biologist, anthropologist, and founding professor at the university, the building holds significant academic and historical value. Originally designed in a classical style, it reflects the architectural heritage of the early 20th century. Today, it serves as a hub for various academic departments and research facilities, continuing its legacy as a center of learning and intellectual pursuit within the university campus.",
       "imgUrl": "https://www.unimelb.edu.au/__data/assets/image/0007/2236048/Engineering-2.jpg",
       "latitude": -37.7965116,
       "longitude": 144.9595121,
@@ -26,9 +26,146 @@
       "longitude": 144.9565813,
       "name": "System Garden Tower",
       "year": 1866
+    },
+    "par-128": {
+      "code": "par-128",
+      "desc": "Old Physics Building is a heritage structure that houses several departments and provides classrooms, labs, and study areas. It reflects the university's legacy in physics education.",
+      "imgUrl": "https://www.unimelb.edu.au/__data/assets/image/0008/2275037/OldPhysics-1.jpg",
+      "latitude": -37.797768,
+      "longitude": 144.960726,
+      "name": "Old Physics Building",
+      "year": 1889
+    },
+    "par-133": {
+      "code": "par-133",
+      "desc": "Glyn Davis Building, part of the Melbourne School of Design, is a cutting-edge facility for architecture and design education. The building is known for its innovative architecture and sustainable design principles.",
+      "imgUrl": "https://www.unimelb.edu.au/__data/assets/image/0004/1985152/MSDConcourse.jpg",
+      "latitude": -37.797585,
+      "longitude": 144.960248,
+      "name": "Glyn Davis Building",
+      "year": 2014
+    },
+    "par-136": {
+      "code": "par-136",
+      "desc": "The Raymond Priestley Building at the University of Melbourne is an important administrative center that houses several university offices, including the Vice-Chancellor's office. The building is named after Sir Raymond Priestley, a geologist and Antarctic explorer who served as the Vice-Chancellor of the university. Its modern design and strategic location make it a central point for administrative activities on campus.",
+      "imgUrl": "https://www.unimelb.edu.au/__data/assets/image/0008/1981340/RPBConcourse.jpg",
+      "latitude": -37.79797,
+      "longitude": 144.959373,
+      "name": "Raymond Priestley Building",
+      "year": 1970
+    },
+    "par-149": {
+      "code": "par-149",
+      "desc": "Old Arts Building is a key location for the university's humanities and social sciences disciplines. It features beautiful architecture and lecture halls, creating a traditional academic atmosphere.",
+      "imgUrl": "https://www.unimelb.edu.au/__data/assets/image/0010/1985140/OldArtsWestEntranceWIDE.jpg",
+      "latitude": -37.79708,
+      "longitude": 144.96113,
+      "name": "Old Arts Building",
+      "year": 1919
+    },
+    "par-150": {
+      "code": "par-150",
+      "desc": "Old Quad, the University of Melbourne's oldest building, is a symbol of the institution's rich history. It is the home of the ceremonial heart of the university, including spaces for events and administrative offices.",
+      "imgUrl": "https://www.unimelb.edu.au/__data/assets/image/0005/1985126/OldQuadEastEntrance.jpg",
+      "latitude": -37.797497,
+      "longitude": 144.960978,
+      "name": "Old Quad",
+      "year": 1857
+    },
+    "par-152": {
+      "code": "par-152",
+      "desc": "The Raymond Priestley Building at the University of Melbourne is an important administrative center that houses several university offices, including the Vice-Chancellor's office. The building is named after Sir Raymond Priestley, a geologist and Antarctic explorer who served as the Vice-Chancellor of the university. Its modern design and strategic location make it a central point for administrative activities on campus.",
+      "imgUrl": "https://www.unimelb.edu.au/__data/assets/image/0011/2275049/RaymondPriestly-1.jpg",
+      "latitude": -37.79797,
+      "longitude": 144.959373,
+      "name": "Raymond Priestley Building",
+      "year": 1967
+    },
+    "par-155": {
+      "code": "par-155",
+      "desc": "The Old Geology Building at the University of Melbourne is a historic structure that has served as a center for geological studies and research. The building features classic architectural elements and provides teaching spaces, research labs, and offices for the School of Earth Sciences. It reflects the university's long-standing commitment to the study of geology and earth sciences.",
+      "imgUrl": "https://www.unimelb.edu.au/__data/assets/image/0007/1985137/OldGeology.jpg",
+      "latitude": -37.797209,
+      "longitude": 144.964012,
+      "name": "Old Geology Building",
+      "year": 1926
+    },
+    "par-158": {
+      "code": "par-158",
+      "desc": "Sidney Myer Asia Centre is dedicated to the study and promotion of Asian cultures, languages, and histories. The building features lecture theatres, seminar rooms, and collaborative spaces designed to foster intercultural learning.",
+      "imgUrl": "https://www.unimelb.edu.au/__data/assets/image/0011/2658674/SMAC-Aerial.jpg",
+      "latitude": -37.795137,
+      "longitude": 144.963555,
+      "name": "Sidney Myer Asia Centre",
+      "year": 2001
+    },
+    "par-171": {
+      "code": "par-171",
+      "desc": "ERC Library, also known as the Eastern Resource Centre, serves as a vital hub for students and researchers. It offers a wide range of academic resources, study spaces, and access to digital archives, supporting the academic community's needs.",
+      "imgUrl": "https://students.unimelb.edu.au/__data/assets/image/0010/4486843/varieties/medium.jpg",
+      "latitude": -37.799118,
+      "longitude": 144.963049,
+      "name": "ERC Library",
+      "year": 1968
+    },
+    "par-173": {
+      "code": "par-173",
+      "desc": "Old Engineering Building is a historic building that represents the University of Melbourne's long-standing commitment to engineering education. It includes lecture halls, labs, and faculty offices, maintaining its classic architectural style.",
+      "imgUrl": "https://www.unimelb.edu.au/__data/assets/image/0007/2236048/Engineering-2.jpg",
+      "latitude": -37.798446,
+      "longitude": 144.960246,
+      "name": "Old Engineering Building",
+      "year": 1899
+    },
+    "par-177": {
+      "code": "par-177",
+      "desc": "Baillieu Library is one of the University of Melbourne's largest libraries, providing an extensive collection of resources in arts, humanities, and social sciences. It offers a conducive environment for study and research.",
+      "imgUrl": "https://www.unimelb.edu.au/__data/assets/image/0005/1985144/BaillieuEntrance.jpg",
+      "latitude": -37.796912,
+      "longitude": 144.959698,
+      "name": "Baillieu Library",
+      "year": 1959
+    },
+    "par-195": {
+      "code": "par-195",
+      "desc": "South Lawn is a central green space at the University of Melbourne, offering a place for relaxation, social activities, and university events. It is surrounded by some of the most iconic buildings on campus.",
+      "imgUrl": "https://www.unimelb.edu.au/__data/assets/image/0011/2232020/SouthLawn_Looking-North.jpg",
+      "latitude": -37.799356,
+      "longitude": 144.961751,
+      "name": "South Lawn",
+      "year": 1855
+    },
+    "par-197": {
+      "code": "par-197",
+      "desc": "The John Smyth Building at the University of Melbourne is a significant structure dedicated to the fields of education and research. It provides lecture halls, seminar rooms, and offices for academic staff, fostering an environment for learning and scholarly activities. The building’s design is modern, offering spaces that support both teaching and collaborative research.",
+      "imgUrl": "https://www.unimelb.edu.au/__data/assets/image/0007/2232097/JohnSmyth.jpg",
+      "latitude": -37.798233,
+      "longitude": 144.964487,
+      "name": "John Smyth Building",
+      "year": 1943
+    },
+    "par-198": {
+      "code": "par-198",
+      "desc": "The 1888 Building is a heritage-listed structure that reflects the history and evolution of the University of Melbourne. Originally serving as a residence, it now hosts various university offices and functions, preserving its historical charm.",
+      "imgUrl": "https://www.unimelb.edu.au/__data/assets/image/0003/2658621/1888-Arial.jpg",
+      "latitude": -37.800599,
+      "longitude": 144.964779,
+      "name": "1888 Building",
+      "year": 1888
     }
   },
   "users": {
+    "admin": {
+      "checkins": {
+        "par-122": {
+          "buildingCode": "par-122",
+          "counts": 2,
+          "lastCheckIn": 1728361612201
+        }
+      },
+      "password": "adminadmin",
+      "username": "admin"
+    },
     "admin1": {
       "checkins": {
         "par-112": {
@@ -42,9 +179,9 @@
           "lastCheckIn": 1728355343774
         }
       },
-      "password": "admin1",
+      "password": "adminadmin",
       "program": "Doctor of Computer Science",
-      "realName": "Admin One",
+      "realName": "Admin",
       "schoolEmail": "admin1@example.com",
       "username": "admin1"
     },
