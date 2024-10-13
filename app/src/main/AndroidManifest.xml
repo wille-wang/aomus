@@ -23,7 +23,7 @@
         <!-- Google Maps API. TODO: Use the environment variables instead of plaintext-->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDwpd0XYRIL1-oRGZJJAXqThSZ-IIe5ErI" />
+            android:value="AIzaSyCuAI8ChoKf7FFCD9jrmVk14zT4vmjWwUE" />
 
         <activity
             android:name=".SettingsActivity"
