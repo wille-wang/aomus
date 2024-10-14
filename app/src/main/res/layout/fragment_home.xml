@@ -6,9 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <!-- Welcome TextView at the top -->
-
-    <!-- Larger AOMUS TextView below Welcome TextView -->
     <TextView
         android:id="@+id/welcomeText"
         android:layout_width="wrap_content"
@@ -23,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- First row: map.png and photo.png buttons with their labels -->
+
     <TextView
         android:id="@+id/aomusText"
         android:layout_width="wrap_content"
@@ -37,6 +34,7 @@
         app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/welcomeText" />
+
 
     <ImageButton
         android:id="@+id/mapIcon"
@@ -60,6 +58,7 @@
         app:layout_constraintStart_toStartOf="@id/mapIcon"
         app:layout_constraintEnd_toEndOf="@id/mapIcon" />
 
+
     <ImageButton
         android:id="@+id/photoIcon"
         android:layout_width="wrap_content"
@@ -81,7 +80,7 @@
         app:layout_constraintStart_toStartOf="@id/photoIcon"
         app:layout_constraintEnd_toEndOf="@id/photoIcon" />
 
-    <!-- Second row: library.png and bot.png buttons with their labels -->
+
     <ImageButton
         android:id="@+id/libraryIcon"
         android:layout_width="wrap_content"
@@ -104,6 +103,7 @@
         app:layout_constraintStart_toStartOf="@id/libraryIcon"
         app:layout_constraintEnd_toEndOf="@id/libraryIcon" />
 
+
     <ImageButton
         android:id="@+id/botIcon"
         android:layout_width="wrap_content"
@@ -125,7 +125,7 @@
         app:layout_constraintStart_toStartOf="@id/botIcon"
         app:layout_constraintEnd_toEndOf="@id/botIcon" />
 
-    <!-- Third row: camera.png and classroom.png buttons with their labels -->
+
     <ImageButton
         android:id="@+id/cameraIcon"
         android:layout_width="wrap_content"
@@ -148,6 +148,7 @@
         app:layout_constraintStart_toStartOf="@id/cameraIcon"
         app:layout_constraintEnd_toEndOf="@id/cameraIcon" />
 
+
     <ImageButton
         android:id="@+id/classroomIcon"
         android:layout_width="wrap_content"
@@ -168,6 +169,7 @@
         app:layout_constraintTop_toBottomOf="@id/classroomIcon"
         app:layout_constraintStart_toStartOf="@id/classroomIcon"
         app:layout_constraintEnd_toEndOf="@id/classroomIcon" />
+
 
     <!-- TextView below all buttons -->
     <TextView
