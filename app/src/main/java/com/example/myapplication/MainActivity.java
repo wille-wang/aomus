@@ -26,6 +26,7 @@ import com.example.myapplication.ui.library.LibraryFragment;
 import com.example.myapplication.ui.login.LoginActivity;
 import com.example.myapplication.ui.map.MapFragment;
 import com.example.myapplication.ui.scanner.ScannerFragment;
+import com.example.myapplication.ui.route.RouteFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity
@@ -62,7 +63,8 @@ public class MainActivity extends AppCompatActivity
                 R.id.nav_library,
                 R.id.nav_scanner,
                 R.id.nav_map,
-                R.id.nav_chatbot)
+                R.id.nav_chatbot,
+                R.id.nav_route)
             .setOpenableLayout(drawer)
             .build();
     NavController navController =
@@ -146,6 +148,11 @@ public class MainActivity extends AppCompatActivity
           .beginTransaction()
           .replace(R.id.nav_host_fragment_content_main, new ChatbotFragment())
           .commit();
+    } else if (id == R.id.nav_route) {
+      getSupportFragmentManager()
+              .beginTransaction()
+              .replace(R.id.nav_host_fragment_content_main, new RouteFragment())
+              .commit();
     }
 
     DrawerLayout drawer = findViewById(R.id.drawer_layout);
