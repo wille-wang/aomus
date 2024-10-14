@@ -10,166 +10,248 @@
         android:id="@+id/welcomeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         android:text="Welcome to"
         android:textAlignment="center"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintHorizontal_bias="0.063"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <TextView
         android:id="@+id/aomusText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:text="AOMUS"
         android:textAlignment="center"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/welcomeText" />
 
-
-    <ImageButton
-        android:id="@+id/mapIcon"
-        android:layout_width="wrap_content"
+    <!-- CardViews for buttons and labels -->
+    <!-- Further increasing the margin to move all cards down -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/mapCard"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:src="@drawable/map"
-        app:layout_constraintEnd_toStartOf="@id/photoIcon"
+        android:layout_margin="8dp"
+        android:layout_marginTop="96dp"
+        app:cardBackgroundColor="@android:color/holo_blue_light"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toStartOf="@id/photoCard"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/aomusText" />
+        app:layout_constraintTop_toBottomOf="@id/aomusText">
 
-    <TextView
-        android:id="@+id/mapLabel"
-        android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/mapIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/map" />
+
+            <TextView
+                android:id="@+id/mapLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Map"
+                android:textAlignment="center" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/photoCard"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Map"
-        android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@id/mapIcon"
-        app:layout_constraintStart_toStartOf="@id/mapIcon"
-        app:layout_constraintEnd_toEndOf="@id/mapIcon" />
-
-
-    <ImageButton
-        android:id="@+id/photoIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:src="@drawable/photo"
+        android:layout_marginTop="96dp"
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="@android:color/holo_purple"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/mapIcon"
-        app:layout_constraintTop_toBottomOf="@id/aomusText" />
+        app:layout_constraintStart_toEndOf="@id/mapCard"
+        app:layout_constraintTop_toBottomOf="@id/aomusText">
 
-    <TextView
-        android:id="@+id/photoLabel"
-        android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/photoIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/photo" />
+
+            <TextView
+                android:id="@+id/photoLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gallery"
+                android:textAlignment="center" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Second row: Library card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/libraryCard"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Gallery"
-        android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@id/photoIcon"
-        app:layout_constraintStart_toStartOf="@id/photoIcon"
-        app:layout_constraintEnd_toEndOf="@id/photoIcon" />
-
-
-    <ImageButton
-        android:id="@+id/libraryIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/library"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        app:layout_constraintTop_toBottomOf="@id/mapLabel"
+        android:layout_marginTop="32dp"
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="@android:color/holo_orange_light"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toStartOf="@id/botCard"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/botIcon"
-        app:layout_constraintHorizontal_chainStyle="spread" />
+        app:layout_constraintTop_toBottomOf="@id/mapCard">
 
-    <TextView
-        android:id="@+id/libraryLabel"
-        android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/libraryIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/library" />
+
+            <TextView
+                android:id="@+id/libraryLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Library"
+                android:textAlignment="center" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Second row: Bot card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/botCard"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Library"
-        android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@id/libraryIcon"
-        app:layout_constraintStart_toStartOf="@id/libraryIcon"
-        app:layout_constraintEnd_toEndOf="@id/libraryIcon" />
+        android:layout_marginTop="32dp"
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="@android:color/holo_red_light"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/libraryCard"
+        app:layout_constraintTop_toBottomOf="@id/photoCard">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    <ImageButton
-        android:id="@+id/botIcon"
-        android:layout_width="wrap_content"
+            <ImageButton
+                android:id="@+id/botIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/bot" />
+
+            <TextView
+                android:id="@+id/botLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chatbot"
+                android:textAlignment="center" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Third row: Camera card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cameraCard"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/bot"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        app:layout_constraintTop_toBottomOf="@id/photoLabel"
-        app:layout_constraintStart_toEndOf="@id/libraryIcon"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/botLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Chatbot"
-        android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@id/botIcon"
-        app:layout_constraintStart_toStartOf="@id/botIcon"
-        app:layout_constraintEnd_toEndOf="@id/botIcon" />
-
-
-    <ImageButton
-        android:id="@+id/cameraIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/camera"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        app:layout_constraintTop_toBottomOf="@id/libraryLabel"
+        android:layout_marginTop="32dp"
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="@android:color/holo_green_light"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toStartOf="@id/classroomCard"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/classroomIcon"
-        app:layout_constraintHorizontal_chainStyle="spread" />
+        app:layout_constraintTop_toBottomOf="@id/libraryCard">
 
-    <TextView
-        android:id="@+id/cameraLabel"
-        android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/cameraIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/camera" />
+
+            <TextView
+                android:id="@+id/cameraLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Scanner"
+                android:textAlignment="center" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Third row: Schedule card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/classroomCard"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Scanner"
-        android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@id/cameraIcon"
-        app:layout_constraintStart_toStartOf="@id/cameraIcon"
-        app:layout_constraintEnd_toEndOf="@id/cameraIcon" />
+        android:layout_marginTop="32dp"
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="@android:color/holo_purple"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cameraCard"
+        app:layout_constraintTop_toBottomOf="@id/botCard">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    <ImageButton
-        android:id="@+id/classroomIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/classroom"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        app:layout_constraintTop_toBottomOf="@id/botLabel"
-        app:layout_constraintStart_toEndOf="@id/cameraIcon"
-        app:layout_constraintEnd_toEndOf="parent" />
+            <ImageButton
+                android:id="@+id/classroomIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/classroom" />
 
-    <TextView
-        android:id="@+id/classroomLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Schedule"
-        android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@id/classroomIcon"
-        app:layout_constraintStart_toStartOf="@id/classroomIcon"
-        app:layout_constraintEnd_toEndOf="@id/classroomIcon" />
-
+            <TextView
+                android:id="@+id/classroomLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Schedule"
+                android:textAlignment="center" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <!-- TextView below all buttons -->
     <TextView
@@ -184,6 +266,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/classroomLabel" />
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
