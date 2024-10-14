@@ -24,7 +24,6 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,9 +33,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import android.graphics.Color;
-
 
 public class RouteFragment extends Fragment {
 
@@ -61,8 +57,8 @@ public class RouteFragment extends Fragment {
                     // Move and zoom the camera to the University of Melbourne
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(universityMelbourne, 15));
 
-                    // 添加路线
-                    drawRouteOnMap();
+                    // 添加标记
+                    addMarkersToMap();
                 }
             };
 
@@ -129,23 +125,26 @@ public class RouteFragment extends Fragment {
         }
     }
 
-    // 绘制路线
-    private void drawRouteOnMap() {
-        // 示例路线点
-        List<LatLng> routePoints = new ArrayList<>();
-        routePoints.add(new LatLng(-37.800401, 144.963108)); // Gate 10, Swanston Street
-        routePoints.add(new LatLng(-37.796720, 144.962460)); // John Medley Building
-        routePoints.add(new LatLng(-37.798446, 144.960246)); // Old Engineering Building
-        routePoints.add(new LatLng(-37.799118, 144.963049)); // ERC Library
-        routePoints.add(new LatLng(-37.800599, 144.964779)); // 1888 Building
-        routePoints.add(new LatLng(-37.795137, 144.963555)); // Sidney Myer Asia Centre
+    // 添加地图标记
+    private void addMarkersToMap() {
+        // 示例标记点
+        LatLng gate10 = new LatLng(-37.800401, 144.963108); // Gate 10, Swanston Street
+        LatLng johnMedleyBuilding = new LatLng(-37.796720, 144.962460); // John Medley Building
+        LatLng oldEngineeringBuilding = new LatLng(-37.798446, 144.960246); // Old Engineering Building
+        LatLng ercLibrary = new LatLng(-37.799118, 144.963049); // ERC Library
+        LatLng building1888 = new LatLng(-37.800599, 144.964779); // 1888 Building
+        LatLng sidneyMyerAsiaCentre = new LatLng(-37.795137, 144.963555); // Sidney Myer Asia Centre
 
-        // 绘制路线
-        PolylineOptions polylineOptions = new PolylineOptions()
-                .addAll(routePoints)
-                .width(10)
-                .color(Color.BLUE);  // 自定义颜色
-        mMap.addPolyline(polylineOptions);
+        // 添加标记到地图
+        mMap.addMarker(new MarkerOptions().position(gate10).title("Gate 10, Swanston Street"));
+        mMap.addMarker(new MarkerOptions().position(johnMedleyBuilding).title("John Medley Building"));
+        mMap.addMarker(new MarkerOptions().position(oldEngineeringBuilding).title("Old Engineering Building"));
+        mMap.addMarker(new MarkerOptions().position(ercLibrary).title("ERC Library"));
+        mMap.addMarker(new MarkerOptions().position(building1888).title("1888 Building"));
+        mMap.addMarker(new MarkerOptions().position(sidneyMyerAsiaCentre).title("Sidney Myer Asia Centre"));
+
+        // 如果需要，可以移动摄像头
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(gate10, 15));
     }
 
     // 跳转到Google Maps导航
