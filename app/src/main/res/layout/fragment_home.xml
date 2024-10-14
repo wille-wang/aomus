@@ -6,31 +6,66 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
+    <!-- Welcome TextView at the top -->
+
+    <!-- Larger AOMUS TextView below Welcome TextView -->
+
     <!-- First row: map.png and photo.png buttons -->
 
     <!-- Second row: library.png and bot.png buttons -->
+
+    <!-- Third row: camera.png and classroom.png buttons -->
+
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Welcome to"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.147"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/aomusText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="AOMUS"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcomeText" />
+
     <ImageButton
         android:id="@+id/mapIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="232dp"
+        android:layout_marginTop="108dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:src="@drawable/map"
         app:layout_constraintEnd_toStartOf="@id/photoIcon"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/aomusText" />
 
     <ImageButton
         android:id="@+id/photoIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="232dp"
+        android:layout_marginTop="108dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:src="@drawable/photo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/mapIcon"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/aomusText" />
 
     <ImageButton
         android:id="@+id/libraryIcon"
@@ -55,7 +90,6 @@
         app:layout_constraintStart_toEndOf="@id/libraryIcon"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Third row: camera.png and classroom.png buttons -->
     <ImageButton
         android:id="@+id/cameraIcon"
         android:layout_width="wrap_content"
