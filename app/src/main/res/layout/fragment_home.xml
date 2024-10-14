@@ -35,7 +35,6 @@
         app:layout_constraintTop_toBottomOf="@id/welcomeText" />
 
     <!-- CardViews for buttons and labels -->
-    <!-- Further increasing the margin to move all cards down -->
     <androidx.cardview.widget.CardView
         android:id="@+id/mapCard"
         android:layout_width="0dp"
@@ -266,7 +265,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@id/classroomLabel" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
