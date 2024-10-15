@@ -36,7 +36,7 @@ public class SettingsActivity extends AppCompatActivity {
     // Set up the toolbar
     Toolbar toolbar = findViewById(R.id.tool_bar_settings);
     setSupportActionBar(toolbar);
-    getSupportActionBar().setTitle("Back");
+    getSupportActionBar().setTitle("Settings");
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     // Initialize Firebase reference
