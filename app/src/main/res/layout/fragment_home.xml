@@ -60,7 +60,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/map" />
+                android:src="@drawable/map"
+                android:clickable="false"
+                android:focusable="false"/>
 
             <TextView
                 android:id="@+id/mapLabel"
@@ -95,7 +97,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/photo" />
+                android:src="@drawable/photo"
+                android:clickable="false"
+                android:focusable="false"/>
 
             <TextView
                 android:id="@+id/photoLabel"
@@ -132,7 +136,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/library" />
+                android:src="@drawable/library"
+                android:clickable="false"
+                android:focusable="false"/>
 
             <TextView
                 android:id="@+id/libraryLabel"
@@ -168,7 +174,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/bot" />
+                android:src="@drawable/bot"
+                android:clickable="false"
+                android:focusable="false"/>
 
             <TextView
                 android:id="@+id/botLabel"
@@ -205,7 +213,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/camera" />
+                android:src="@drawable/camera"
+                android:clickable="false"
+                android:focusable="false"/>
 
             <TextView
                 android:id="@+id/cameraLabel"
@@ -241,7 +251,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/classroom" />
+                android:src="@drawable/classroom"
+                android:clickable="false"
+                android:focusable="false"/>
 
             <TextView
                 android:id="@+id/classroomLabel"
