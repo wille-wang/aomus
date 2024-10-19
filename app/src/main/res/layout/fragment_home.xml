@@ -60,9 +60,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/map"
                 android:clickable="false"
-                android:focusable="false"/>
+                android:focusable="false"
+                android:src="@drawable/ic_home_map" />
 
             <TextView
                 android:id="@+id/mapLabel"
@@ -77,8 +77,8 @@
         android:id="@+id/photoCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
         android:layout_margin="8dp"
+        android:layout_marginTop="96dp"
         app:cardBackgroundColor="@android:color/holo_purple"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp"
@@ -97,9 +97,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/photo"
                 android:clickable="false"
-                android:focusable="false"/>
+                android:focusable="false"
+                android:src="@drawable/ic_home_gallery" />
 
             <TextView
                 android:id="@+id/photoLabel"
@@ -115,8 +115,8 @@
         android:id="@+id/libraryCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:layout_margin="8dp"
+        android:layout_marginTop="32dp"
         app:cardBackgroundColor="@android:color/holo_orange_light"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp"
@@ -136,9 +136,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/library"
                 android:clickable="false"
-                android:focusable="false"/>
+                android:focusable="false"
+                android:src="@drawable/ic_home_library" />
 
             <TextView
                 android:id="@+id/libraryLabel"
@@ -154,8 +154,8 @@
         android:id="@+id/botCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:layout_margin="8dp"
+        android:layout_marginTop="32dp"
         app:cardBackgroundColor="@android:color/holo_red_light"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp"
@@ -174,9 +174,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/bot"
                 android:clickable="false"
-                android:focusable="false"/>
+                android:focusable="false"
+                android:src="@drawable/ic_home_chatbot" />
 
             <TextView
                 android:id="@+id/botLabel"
@@ -192,8 +192,8 @@
         android:id="@+id/cameraCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:layout_margin="8dp"
+        android:layout_marginTop="32dp"
         app:cardBackgroundColor="@android:color/holo_green_light"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp"
@@ -213,9 +213,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/camera"
                 android:clickable="false"
-                android:focusable="false"/>
+                android:focusable="false"
+                android:src="@drawable/ic_home_camera" />
 
             <TextView
                 android:id="@+id/cameraLabel"
@@ -231,8 +231,8 @@
         android:id="@+id/classroomCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:layout_margin="8dp"
+        android:layout_marginTop="32dp"
         app:cardBackgroundColor="@android:color/holo_purple"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp"
@@ -251,9 +251,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/classroom"
                 android:clickable="false"
-                android:focusable="false"/>
+                android:focusable="false"
+                android:src="@drawable/ic_home_schedule" />
 
             <TextView
                 android:id="@+id/classroomLabel"
