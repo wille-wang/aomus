@@ -35,10 +35,10 @@ public class HomeFragment extends Fragment {
     homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
     // Set onClickListeners for each card
-    binding.photoCard.setOnClickListener(v -> openFragment(new GalleryFragment(), "Gallery"));
-    binding.cameraCard.setOnClickListener(v -> openFragment(new ScannerFragment(), "Scanner"));
+    binding.galleryCard.setOnClickListener(v -> openFragment(new GalleryFragment(), "Gallery"));
+    binding.scannerCard.setOnClickListener(v -> openFragment(new ScannerFragment(), "Scanner"));
     binding.mapCard.setOnClickListener(v -> openFragment(new MapFragment(), "Map"));
-    binding.botCard.setOnClickListener(v -> openFragment(new ChatbotFragment(), "Chatbot"));
+    binding.chatbotCard.setOnClickListener(v -> openFragment(new ChatbotFragment(), "Chatbot"));
     binding.libraryCard.setOnClickListener(v -> openFragment(new LibraryFragment(), "Library"));
 
     return root;
