@@ -34,45 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/welcomeText" />
 
-    <!-- CardViews for buttons and labels -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/mapCard"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginTop="96dp"
-        app:cardBackgroundColor="@android:color/holo_blue_light"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="8dp"
-        app:layout_constraintEnd_toStartOf="@id/photoCard"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/aomusText">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/mapIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="false"
-                android:focusable="false"
-                android:src="@drawable/ic_home_map" />
-
-            <TextView
-                android:id="@+id/mapLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Map"
-                android:textAlignment="center" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
+    <!-- Gallery Card - Left (First row) -->
     <androidx.cardview.widget.CardView
         android:id="@+id/photoCard"
         android:layout_width="0dp"
@@ -82,8 +44,8 @@
         app:cardBackgroundColor="@android:color/holo_purple"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/mapCard"
+        app:layout_constraintEnd_toStartOf="@id/cameraCard"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/aomusText">
 
         <LinearLayout
@@ -110,7 +72,121 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- Second row: Library card -->
+    <!-- Scanner Card - Right of Gallery (First row) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cameraCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginTop="96dp"
+        app:cardBackgroundColor="@android:color/holo_green_light"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/photoCard"
+        app:layout_constraintTop_toBottomOf="@id/aomusText">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/cameraIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="false"
+                android:focusable="false"
+                android:src="@drawable/ic_home_camera" />
+
+            <TextView
+                android:id="@+id/cameraLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Scanner"
+                android:textAlignment="center" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Map Card - Left (Second row) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/mapCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginTop="32dp"
+        app:cardBackgroundColor="@android:color/holo_blue_light"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toStartOf="@id/botCard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/photoCard">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/mapIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="false"
+                android:focusable="false"
+                android:src="@drawable/ic_home_map" />
+
+            <TextView
+                android:id="@+id/mapLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Map"
+                android:textAlignment="center" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Chatbot Card - Right of Map (Second row) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/botCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginTop="32dp"
+        app:cardBackgroundColor="@android:color/holo_red_light"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/mapCard"
+        app:layout_constraintTop_toBottomOf="@id/cameraCard">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/botIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="false"
+                android:focusable="false"
+                android:src="@drawable/ic_home_chatbot" />
+
+            <TextView
+                android:id="@+id/botLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chatbot"
+                android:textAlignment="center" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Library Card - Left (Third row) -->
     <androidx.cardview.widget.CardView
         android:id="@+id/libraryCard"
         android:layout_width="0dp"
@@ -120,8 +196,7 @@
         app:cardBackgroundColor="@android:color/holo_orange_light"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp"
-        app:layout_constraintEnd_toStartOf="@id/botCard"
-        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintEnd_toStartOf="@id/classroomCard"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mapCard">
 
@@ -149,84 +224,7 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- Second row: Bot card -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/botCard"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginTop="32dp"
-        app:cardBackgroundColor="@android:color/holo_red_light"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/libraryCard"
-        app:layout_constraintTop_toBottomOf="@id/photoCard">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/botIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="false"
-                android:focusable="false"
-                android:src="@drawable/ic_home_chatbot" />
-
-            <TextView
-                android:id="@+id/botLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Chatbot"
-                android:textAlignment="center" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <!-- Third row: Camera card -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cameraCard"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginTop="32dp"
-        app:cardBackgroundColor="@android:color/holo_green_light"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="8dp"
-        app:layout_constraintEnd_toStartOf="@id/classroomCard"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/libraryCard">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/cameraIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="false"
-                android:focusable="false"
-                android:src="@drawable/ic_home_camera" />
-
-            <TextView
-                android:id="@+id/cameraLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Scanner"
-                android:textAlignment="center" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <!-- Third row: Schedule card -->
+    <!-- Schedule Card - Right of Library (Third row) -->
     <androidx.cardview.widget.CardView
         android:id="@+id/classroomCard"
         android:layout_width="0dp"
@@ -237,7 +235,7 @@
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/cameraCard"
+        app:layout_constraintStart_toEndOf="@id/libraryCard"
         app:layout_constraintTop_toBottomOf="@id/botCard">
 
         <LinearLayout
@@ -278,6 +276,5 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/classroomCard" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
