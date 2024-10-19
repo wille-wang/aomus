@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
@@ -23,7 +24,7 @@ public class HomeFragment extends Fragment {
 
   @Override
   public View onCreateView(
-          @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+      @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
     binding = FragmentHomeBinding.inflate(inflater, container, false);
@@ -34,20 +35,26 @@ public class HomeFragment extends Fragment {
     homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
     // Set onClickListeners for each card
-    binding.mapCard.setOnClickListener(v -> openFragment(new MapFragment()));
-    binding.photoCard.setOnClickListener(v -> openFragment(new GalleryFragment()));
-    binding.libraryCard.setOnClickListener(v -> openFragment(new LibraryFragment()));
-    binding.botCard.setOnClickListener(v -> openFragment(new ChatbotFragment()));
-    binding.cameraCard.setOnClickListener(v -> openFragment(new ScannerFragment()));
+    binding.photoCard.setOnClickListener(v -> openFragment(new GalleryFragment(), "Gallery"));
+    binding.cameraCard.setOnClickListener(v -> openFragment(new ScannerFragment(), "Scanner"));
+    binding.mapCard.setOnClickListener(v -> openFragment(new MapFragment(), "Map"));
+    binding.botCard.setOnClickListener(v -> openFragment(new ChatbotFragment(), "Chatbot"));
+    binding.libraryCard.setOnClickListener(v -> openFragment(new LibraryFragment(), "Library"));
 
     return root;
   }
 
-  private void openFragment(Fragment fragment) {
-    FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+  private void openFragment(Fragment fragment, String title) {
+    FragmentTransaction transaction =
+        requireActivity().getSupportFragmentManager().beginTransaction();
     transaction.replace(R.id.nav_host_fragment_content_main, fragment);
     transaction.addToBackStack(null);
     transaction.commit();
+
+    AppCompatActivity activity = (AppCompatActivity) requireActivity();
+    if (activity.getSupportActionBar() != null) {
+      activity.getSupportActionBar().setTitle(title);
+    }
   }
 
   @Override
