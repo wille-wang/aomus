@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
     if (getSupportActionBar() != null) {
       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
       getSupportActionBar().setDisplayShowHomeEnabled(true);
-      getSupportActionBar().setTitle("Back");
+      getSupportActionBar().setTitle("Settings");
     }
 
     loginViewModel =
