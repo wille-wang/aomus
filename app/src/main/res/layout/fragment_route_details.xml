@@ -1,20 +1,11 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- RecyclerView 用于显示路线列表 -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/routeRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="8dp" />
-
     <!-- 地图部分 -->
     <fragment
-        android:id="@+id/route"
+        android:id="@+id/routeFragment"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -44,13 +35,12 @@
             android:text="Route Details"
             android:textSize="14sp"/>
 
-        <!-- 导航按钮 -->
         <Button
             android:id="@+id/navigateButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Start Navigation"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center_horizontal"/>
     </LinearLayout>
 </LinearLayout>
