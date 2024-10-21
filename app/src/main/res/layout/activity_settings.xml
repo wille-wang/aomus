@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- AppBar with Toolbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.MyApplication.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tool_bar_settings"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.MyApplication.PopupOverlay" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- fragment -->
+    <FrameLayout
+        android:id="@+id/settings_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- inner LinearLayout inside Fragment -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- profile fields -->
+            <TextView
+                android:id="@+id/textViewProfileTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Profile Information"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Real Name field -->
+            <EditText
+                android:id="@+id/editTextRealName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Real Name" />
+
+            <!-- Program field -->
+            <EditText
+                android:id="@+id/editTextProgram"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Program" />
+
+            <!-- School Email field -->
+            <EditText
+                android:id="@+id/editTextSchoolEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="School Email"
+                android:inputType="textEmailAddress" />
+
+            <!-- Update Profile button -->
+            <Button
+                android:id="@+id/buttonUpdateProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Update Profile" />
+
+            <!-- divider between Profile and Password -->
+            <View
+                android:id="@+id/divider1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:background="@android:color/darker_gray" />
+
+            <!-- Password section -->
+            <TextView
+                android:id="@+id/textViewPasswordTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Change Password"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- New Password field -->
+            <EditText
+                android:id="@+id/editTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="New Password"
+                android:inputType="textPassword" />
+
+            <!-- Confirm button -->
+            <Button
+                android:id="@+id/buttonConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Confirm" />
+
+            <!-- divider between Password and Exit Account -->
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:background="@android:color/darker_gray" />
+
+            <!-- Exit Account section title -->
+            <TextView
+                android:id="@+id/textViewExitAccountTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Account Management"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Exit Account button -->
+            <Button
+                android:id="@+id/buttonExitAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Exit Account" />
+
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

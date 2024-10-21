@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="50dp"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:paddingVertical="10dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="25dp"
+        android:text="X"
+        android:textColor="@color/black"
+        android:id="@+id/tv_week"
+        android:gravity="center"
+        android:layout_height="25dp" />
+    <TextView
+        android:layout_width="25dp"
+        android:text="X"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:background="@drawable/shape_backgroud"
+        android:layout_marginTop="10dp"
+        android:id="@+id/tv_day"
+        android:layout_height="25dp" />
+</LinearLayout>
