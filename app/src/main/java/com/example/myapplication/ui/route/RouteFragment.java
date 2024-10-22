@@ -184,7 +184,7 @@ public class RouteFragment extends Fragment {
         Building destinationBuilding = buildingCache.get(selectedRoute.getBuildings().get(selectedRoute.getBuildings().size() - 1));
 
         if (originBuilding == null || destinationBuilding == null) {
-            Toast.makeText(getContext(), "Failed to find origin or destination building.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Failed to find  building.", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -211,6 +211,7 @@ public class RouteFragment extends Fragment {
                 "&destination=" + destination +
                 "&waypoints=" + waypoints.toString() +
                 "&travelmode=walking";
+
 
         // 启动 Intent 跳转到 Google 地图
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
