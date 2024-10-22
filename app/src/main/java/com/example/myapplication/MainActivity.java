@@ -26,7 +26,6 @@ import com.example.myapplication.ui.library.LibraryFragment;
 import com.example.myapplication.ui.login.LoginActivity;
 import com.example.myapplication.ui.map.MapFragment;
 import com.example.myapplication.ui.scanner.ScannerFragment;
-import com.example.myapplication.ui.schedule.ScheduleFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity
@@ -44,16 +43,16 @@ public class MainActivity extends AppCompatActivity
     setContentView(binding.getRoot());
 
     setSupportActionBar(binding.appBarMain.toolbar);
-//    binding.appBarMain.fab.setOnClickListener(
-//        new View.OnClickListener() {
-//          @Override
-//          public void onClick(View view) {
-//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                .setAction("Action", null)
-//                .setAnchorView(R.id.fab)
-//                .show();
-//          }
-//        });
+    //    binding.appBarMain.fab.setOnClickListener(
+    //        new View.OnClickListener() {
+    //          @Override
+    //          public void onClick(View view) {
+    //            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+    //                .setAction("Action", null)
+    //                .setAnchorView(R.id.fab)
+    //                .show();
+    //          }
+    //        });
     DrawerLayout drawer = binding.drawerLayout;
     NavigationView navigationView = binding.navView;
     mAppBarConfiguration =
@@ -63,8 +62,7 @@ public class MainActivity extends AppCompatActivity
                 R.id.nav_library,
                 R.id.nav_scanner,
                 R.id.nav_map,
-                R.id.nav_chatbot,
-                R.id.nav_schedule)
+                R.id.nav_chatbot)
             .setOpenableLayout(drawer)
             .build();
     NavController navController =
@@ -123,36 +121,49 @@ public class MainActivity extends AppCompatActivity
           .beginTransaction()
           .replace(R.id.nav_host_fragment_content_main, new HomeFragment())
           .commit();
+      if (getSupportActionBar() != null) {
+        getSupportActionBar().setTitle("Home");
+      }
     } else if (id == R.id.nav_gallery) {
       getSupportFragmentManager()
           .beginTransaction()
           .replace(R.id.nav_host_fragment_content_main, new GalleryFragment())
           .commit();
+      if (getSupportActionBar() != null) {
+        getSupportActionBar().setTitle("Gallery");
+      }
     } else if (id == R.id.nav_scanner) {
       getSupportFragmentManager()
           .beginTransaction()
           .replace(R.id.nav_host_fragment_content_main, new ScannerFragment())
           .commit();
+      if (getSupportActionBar() != null) {
+        getSupportActionBar().setTitle("Scanner");
+      }
     } else if (id == R.id.nav_map) {
       getSupportFragmentManager()
           .beginTransaction()
           .replace(R.id.nav_host_fragment_content_main, new MapFragment())
           .commit();
+      if (getSupportActionBar() != null) {
+        getSupportActionBar().setTitle("Map");
+      }
     } else if (id == R.id.nav_library) {
       getSupportFragmentManager()
           .beginTransaction()
           .replace(R.id.nav_host_fragment_content_main, new LibraryFragment())
           .commit();
+      if (getSupportActionBar() != null) {
+        getSupportActionBar().setTitle("Library");
+      }
     } else if (id == R.id.nav_chatbot) {
       getSupportFragmentManager()
           .beginTransaction()
           .replace(R.id.nav_host_fragment_content_main, new ChatbotFragment())
           .commit();
-    } else if (id == R.id.nav_schedule) {
-      getSupportFragmentManager()
-              .beginTransaction()
-              .replace(R.id.nav_host_fragment_content_main, new ScheduleFragment())
-              .commit();
+      if (getSupportActionBar() != null) {
+        getSupportActionBar().setTitle("ChatBot");
+      }
     }
 
     DrawerLayout drawer = findViewById(R.id.drawer_layout);
