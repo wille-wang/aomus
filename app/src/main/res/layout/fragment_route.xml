@@ -4,14 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- RecyclerView 用于显示路线列表 -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/routeRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="8dp" />
-
     <!-- 地图部分 -->
     <fragment
         android:id="@+id/route"
@@ -52,5 +44,14 @@
             android:text="Start Navigation"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp" />
+
+        <!-- 返回按钮 -->
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"/>
     </LinearLayout>
 </LinearLayout>

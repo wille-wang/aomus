@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.route;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,11 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.R;
 import com.example.myapplication.util.Building;
 import com.example.myapplication.util.Route;
@@ -22,27 +23,26 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.firebase.database.*;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import android.content.Intent;
-import android.net.Uri;
-import android.widget.Toast;
 
+public class RouteFragment extends Fragment implements RouteSelectDialogFragment.RouteSelectionListener {
 
-public class RouteFragment extends Fragment {
-
-    private final List<Route> routeList = new ArrayList<>();
     private final Map<String, Building> buildingCache = new HashMap<>();
     private final LatLng universityMelbourne = new LatLng(-37.7963, 144.9614); // Hardcode the University of Melbourne
     private GoogleMap mMap;
-    private RecyclerView routeRecyclerView;
-    private RouteAdapter routeAdapter;
     private TextView routeNameTextView, routeDetailsTextView;
     private boolean isMapReady = false; // 用于检查地图是否已准备好
     private Route selectedRoute;
+    private Button navigateButton;
 
     private final OnMapReadyCallback callback = googleMap -> {
         mMap = googleMap;
@@ -55,20 +55,17 @@ public class RouteFragment extends Fragment {
 
         // Move and zoom the camera to the University of Melbourne
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(universityMelbourne, 15));
-    };
 
-    private Button navigateButton;
+        // 如果已有选择的路线，则显示路线
+        if (selectedRoute != null) {
+            displayRoute(selectedRoute);
+        }
+    };
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_route, container, false);
-
-        // 初始化RecyclerView
-        routeRecyclerView = view.findViewById(R.id.routeRecyclerView);
-        routeRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        routeAdapter = new RouteAdapter(routeList, this::onRouteSelected);
-        routeRecyclerView.setAdapter(routeAdapter);
 
         // 初始化TextView
         routeNameTextView = view.findViewById(R.id.routeName);
@@ -90,8 +87,16 @@ public class RouteFragment extends Fragment {
             }
         });
 
-        // 从Firebase获取路线和建筑数据
         fetchBuildingDataFromFirebase();
+
+        // 首次加载时显示选择路线对话框
+        if (selectedRoute == null) {
+            showRouteSelectDialog();
+        }
+
+        // 添加返回按钮的点击事件
+        Button backButton = view.findViewById(R.id.backButton);
+        backButton.setOnClickListener(v -> showRouteSelectDialog());
 
         return view;
     }
@@ -109,8 +114,6 @@ public class RouteFragment extends Fragment {
                         buildingCache.put(buildingSnapshot.getKey(), building);
                     }
                 }
-                // 在建筑数据加载完成后获取路线数据
-                fetchRoutesFromFirebase();
             }
 
             @Override
@@ -120,34 +123,23 @@ public class RouteFragment extends Fragment {
         });
     }
 
-    private void fetchRoutesFromFirebase() {
-        DatabaseReference routeRef = FirebaseDatabase.getInstance().getReference("route");
-        routeRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                routeList.clear();
-                for (DataSnapshot routeSnapshot : dataSnapshot.getChildren()) {
-                    Route route = routeSnapshot.getValue(Route.class);
-                    if (route != null) {
-                        routeList.add(route);
-                    }
-                }
-                routeAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.e("RouteFragment", "Failed to read routes data", databaseError.toException());
-            }
-        });
+    private void showRouteSelectDialog() {
+        RouteSelectDialogFragment dialogFragment = new RouteSelectDialogFragment();
+        dialogFragment.show(getChildFragmentManager(), "RouteSelectDialog");
     }
 
-    private void onRouteSelected(Route route) {
+    @Override
+    public void onRouteSelected(Route route) {
         selectedRoute = route;
-        // 检查地图是否已准备好
+        if (isMapReady) {
+            displayRoute(route);
+        }
+    }
+
+    private void displayRoute(Route route) {
         if (isMapReady && mMap != null) {
-            mMap.clear(); // 清除地图上的标记
-            // 添加新的标记
+            mMap.clear();
+            // 在地图上显示路线的建筑
             for (String buildingId : route.getBuildings()) {
                 Building building = buildingCache.get(buildingId);
                 if (building != null) {
@@ -165,7 +157,7 @@ public class RouteFragment extends Fragment {
                     details.append(building.getName()).append(", ");
                 }
             }
-            // 去掉最后的逗号
+
             if (details.length() > 0) {
                 details.setLength(details.length() - 2);
             }
@@ -224,4 +216,3 @@ public class RouteFragment extends Fragment {
         }
     }
 }
-
