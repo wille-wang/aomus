@@ -8,12 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
 import com.example.myapplication.util.Building;
 import com.example.myapplication.util.Route;
@@ -40,13 +44,13 @@ public class RouteFragment extends Fragment implements RouteSelectDialogFragment
     private final LatLng universityMelbourne = new LatLng(-37.7963, 144.9614); // Hardcode the University of Melbourne
     private GoogleMap mMap;
     private TextView routeNameTextView, routeDetailsTextView;
-    private boolean isMapReady = false; // 用于检查地图是否已准备好
+    private boolean isMapReady = false;
     private Route selectedRoute;
     private Button navigateButton;
 
     private final OnMapReadyCallback callback = googleMap -> {
         mMap = googleMap;
-        isMapReady = true; // 地图已准备好
+        isMapReady = true;
 
         // Enable UI controls
         mMap.getUiSettings().setZoomControlsEnabled(true);
@@ -56,7 +60,6 @@ public class RouteFragment extends Fragment implements RouteSelectDialogFragment
         // Move and zoom the camera to the University of Melbourne
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(universityMelbourne, 15));
 
-        // 如果已有选择的路线，则显示路线
         if (selectedRoute != null) {
             displayRoute(selectedRoute);
         }
@@ -67,18 +70,18 @@ public class RouteFragment extends Fragment implements RouteSelectDialogFragment
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_route, container, false);
 
-        // 初始化TextView
+        // TextView initialization
         routeNameTextView = view.findViewById(R.id.routeName);
         routeDetailsTextView = view.findViewById(R.id.routeDetails);
 
-        // 初始化地图
+        // map initialization
         SupportMapFragment routeFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.route);
         if (routeFragment != null) {
             routeFragment.getMapAsync(callback);
         }
 
         navigateButton = view.findViewById(R.id.navigateButton);
-        // 为按钮设置点击事件
+        // navi button click event
         navigateButton.setOnClickListener(v -> {
             if (selectedRoute != null) {
                 startNavigation(selectedRoute);
@@ -89,12 +92,12 @@ public class RouteFragment extends Fragment implements RouteSelectDialogFragment
 
         fetchBuildingDataFromFirebase();
 
-        // 首次加载时显示选择路线对话框
+        // load select dialog
         if (selectedRoute == null) {
             showRouteSelectDialog();
         }
 
-        // 添加返回按钮的点击事件
+        // back button click event
         Button backButton = view.findViewById(R.id.backButton);
         backButton.setOnClickListener(v -> showRouteSelectDialog());
 
@@ -139,7 +142,7 @@ public class RouteFragment extends Fragment implements RouteSelectDialogFragment
     private void displayRoute(Route route) {
         if (isMapReady && mMap != null) {
             mMap.clear();
-            // 在地图上显示路线的建筑
+            // display marks on map
             for (String buildingId : route.getBuildings()) {
                 Building building = buildingCache.get(buildingId);
                 if (building != null) {
@@ -148,7 +151,7 @@ public class RouteFragment extends Fragment implements RouteSelectDialogFragment
                 }
             }
 
-            // 显示路线详细信息
+            // display route details
             routeNameTextView.setText(route.getName());
             StringBuilder details = new StringBuilder("Length: " + route.getLength() + "\nTime: " + route.getTime() + "\nBuildings: ");
             for (String buildingId : route.getBuildings()) {
@@ -162,6 +165,34 @@ public class RouteFragment extends Fragment implements RouteSelectDialogFragment
                 details.setLength(details.length() - 2);
             }
             routeDetailsTextView.setText(details.toString());
+
+            // load building images
+            loadBuildingImages(route.getBuildings());
+        }
+    }
+
+    private void loadBuildingImages(List<String> buildingIds) {
+        LinearLayout imageContainer = getView().findViewById(R.id.buildingImagesContainer);
+        imageContainer.removeAllViews();
+
+        for (String buildingId : buildingIds) {
+            Building building = buildingCache.get(buildingId);
+            if (building != null && building.getImgUrl() != null) {
+                ImageView imageView = new ImageView(getContext());
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                        500, // image width
+                        500 // image height
+                );
+                layoutParams.setMargins(8, 0, 8, 0); // 图片间距
+                imageView.setLayoutParams(layoutParams);
+
+                // Glide loading image
+                Glide.with(getContext())
+                        .load(building.getImgUrl())
+                        .into(imageView);
+
+                imageContainer.addView(imageView);
+            }
         }
     }
 
@@ -171,22 +202,21 @@ public class RouteFragment extends Fragment implements RouteSelectDialogFragment
             return;
         }
 
-        // 获取起点和终点
-        Building originBuilding = buildingCache.get(selectedRoute.getBuildings().get(0));
+        // start
+        String origin = "current+location";
+
+        // destination
         Building destinationBuilding = buildingCache.get(selectedRoute.getBuildings().get(selectedRoute.getBuildings().size() - 1));
 
-        if (originBuilding == null || destinationBuilding == null) {
-            Toast.makeText(getContext(), "Failed to find  building.", Toast.LENGTH_SHORT).show();
+        if (destinationBuilding == null) {
+            Toast.makeText(getContext(), "Failed to find destination building.", Toast.LENGTH_SHORT).show();
             return;
         }
-
-        // 获取起点和终点的坐标
-        String origin = originBuilding.getLatitude() + "," + originBuilding.getLongitude();
         String destination = destinationBuilding.getLatitude() + "," + destinationBuilding.getLongitude();
 
-        // 构建途经点
+        // waypoints
         List<String> waypointCoordinates = new ArrayList<>();
-        for (int i = 1; i < selectedRoute.getBuildings().size() - 1; i++) {
+        for (int i = 0; i < selectedRoute.getBuildings().size() - 1; i++) {
             Building waypointBuilding = buildingCache.get(selectedRoute.getBuildings().get(i));
             if (waypointBuilding != null) {
                 waypointCoordinates.add(waypointBuilding.getLatitude() + "," + waypointBuilding.getLongitude());
@@ -198,14 +228,14 @@ public class RouteFragment extends Fragment implements RouteSelectDialogFragment
             waypoints.append(waypoint).append("|");
         }
 
+        // build navigation URL
         String uri = "https://www.google.com/maps/dir/?api=1" +
                 "&origin=" + origin +
                 "&destination=" + destination +
                 "&waypoints=" + waypoints.toString() +
                 "&travelmode=walking";
 
-
-        // 启动 Intent 跳转到 Google 地图
+        // go to google map
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
         intent.setPackage("com.google.android.apps.maps");
 
@@ -215,4 +245,5 @@ public class RouteFragment extends Fragment implements RouteSelectDialogFragment
             Toast.makeText(getContext(), "Google Maps is not installed", Toast.LENGTH_SHORT).show();
         }
     }
+
 }

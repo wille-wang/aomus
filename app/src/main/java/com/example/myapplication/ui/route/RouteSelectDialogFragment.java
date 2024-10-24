@@ -26,21 +26,31 @@ public class RouteSelectDialogFragment extends DialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_route_select, container, false);
 
-        // 初始化RecyclerView
+        // RecyclerView initialization
         RecyclerView routeRecyclerView = view.findViewById(R.id.routeRecyclerView);
         routeRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         routeAdapter = new RouteAdapter(routeList, this::onRouteSelected);
         routeRecyclerView.setAdapter(routeAdapter);
 
-        // 从Firebase获取路线数据
+        // get route data from Firebase
         fetchRoutesFromFirebase();
-
-        // 关闭按钮
-        Button closeButton = view.findViewById(R.id.closeButton);
-        closeButton.setOnClickListener(v -> dismiss());
 
         return view;
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // width 95%, height 80%
+        if (getDialog() != null && getDialog().getWindow() != null) {
+            getDialog().getWindow().setLayout(
+                    (int) (getResources().getDisplayMetrics().widthPixels * 0.95),
+                    (int) (getResources().getDisplayMetrics().heightPixels * 0.8)
+            );
+        }
+    }
+
+
 
     private void fetchRoutesFromFirebase() {
         DatabaseReference routeRef = FirebaseDatabase.getInstance().getReference("route");
@@ -59,7 +69,6 @@ public class RouteSelectDialogFragment extends DialogFragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // 处理错误
             }
         });
     }
@@ -68,7 +77,7 @@ public class RouteSelectDialogFragment extends DialogFragment {
         if (getParentFragment() instanceof RouteSelectionListener) {
             ((RouteSelectionListener) getParentFragment()).onRouteSelected(route);
         }
-        dismiss(); // 选择完毕关闭对话框
+        dismiss();
     }
 
     public interface RouteSelectionListener {

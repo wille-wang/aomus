@@ -29,7 +29,7 @@ public class RouteAdapter extends RecyclerView.Adapter<RouteAdapter.RouteViewHol
     @NonNull
     @Override
     public RouteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.route_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_route, parent, false);
         return new RouteViewHolder(view);
     }
 
@@ -46,16 +46,18 @@ public class RouteAdapter extends RecyclerView.Adapter<RouteAdapter.RouteViewHol
 
     public static class RouteViewHolder extends RecyclerView.ViewHolder {
         TextView routeName;
+        TextView routeDescription;
 
         public RouteViewHolder(@NonNull View itemView) {
             super(itemView);
             routeName = itemView.findViewById(R.id.routeName);
+            routeDescription = itemView.findViewById(R.id.routeDescription);
         }
 
         public void bind(final Route route, final OnItemClickListener listener) {
             routeName.setText(route.getName());
+            routeDescription.setText("Length: " + route.getLength() + ", Time: " + route.getTime());
             itemView.setOnClickListener(v -> listener.onItemClick(route));
         }
     }
 }
-
