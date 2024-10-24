@@ -74,6 +74,10 @@ public class RouteFragment extends Fragment implements RouteSelectDialogFragment
         routeNameTextView = view.findViewById(R.id.routeName);
         routeDetailsTextView = view.findViewById(R.id.routeDetails);
 
+        // Set default text when no route is selected
+        routeNameTextView.setText("Route not selected");
+        routeDetailsTextView.setText("");
+
         // map initialization
         SupportMapFragment routeFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.route);
         if (routeFragment != null) {
@@ -81,7 +85,9 @@ public class RouteFragment extends Fragment implements RouteSelectDialogFragment
         }
 
         navigateButton = view.findViewById(R.id.navigateButton);
-        // navi button click event
+        // Hide navigation button initially
+        navigateButton.setVisibility(View.GONE);
+
         navigateButton.setOnClickListener(v -> {
             if (selectedRoute != null) {
                 startNavigation(selectedRoute);
@@ -92,13 +98,14 @@ public class RouteFragment extends Fragment implements RouteSelectDialogFragment
 
         fetchBuildingDataFromFirebase();
 
-        // load select dialog
+        // Show route selection dialog if no route is selected initially
         if (selectedRoute == null) {
             showRouteSelectDialog();
         }
 
         // back button click event
         Button backButton = view.findViewById(R.id.backButton);
+        backButton.setText("Select route");
         backButton.setOnClickListener(v -> showRouteSelectDialog());
 
         return view;
@@ -136,6 +143,18 @@ public class RouteFragment extends Fragment implements RouteSelectDialogFragment
         selectedRoute = route;
         if (isMapReady) {
             displayRoute(route);
+        }
+
+        // Update UI after route selection
+        if (selectedRoute != null) {
+            // Show navigation button after a route is selected
+            navigateButton.setVisibility(View.VISIBLE);
+
+            // Change backButton text
+            Button backButton = getView().findViewById(R.id.backButton);
+            if (backButton != null) {
+                backButton.setText("Select another route");
+            }
         }
     }
 
