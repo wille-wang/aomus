@@ -21,6 +21,7 @@ _**All-in-One for Melbourne University Students**_ (_**AOMUS**_, /ˈau̇-mər-s/
   - [Usage](#usage)
     - [For Developers](#for-developers)
     - [For End Users](#for-end-users)
+      - [Permissions](#permissions)
       - [Physical Device](#physical-device)
       - [Virtual Device](#virtual-device)
   - [Development Conventions](#development-conventions)
@@ -112,6 +113,14 @@ This app is optimized for:
 - **Android version**: 8.0 (Oreo) or higher
 - **Display size**: Medium, 1080 \* 2400 resolution
 - **Screen density**: 420 dpi
+
+#### Permissions
+
+To enable all features, please grant the following permissions when prompted:
+
+- **Internet**: for network-based functionalities
+- **Camera**: for using the QR code scanner
+- **Notifications**: for receiving timely alerts
 
 #### Physical Device
 
