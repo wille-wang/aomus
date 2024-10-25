@@ -55,7 +55,7 @@ public class RouteAdapter extends RecyclerView.Adapter<RouteAdapter.RouteViewHol
 
     public void bind(final Route route, final OnItemClickListener listener) {
       routeName.setText(route.getName());
-      routeDescription.setText("Length: " + route.getLength() + ", Time: " + route.getTime());
+      routeDescription.setText(route.getLength() + " (" + route.getTime() + ")");
       itemView.setOnClickListener(v -> listener.onItemClick(route));
     }
   }

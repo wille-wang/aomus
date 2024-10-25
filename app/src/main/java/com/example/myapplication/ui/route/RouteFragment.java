@@ -77,7 +77,7 @@ public class RouteFragment extends Fragment
     routeDetailsTextView = view.findViewById(R.id.routeDetails);
 
     // Set default text when no route is selected
-    routeNameTextView.setText("Route not selected");
+    routeNameTextView.setText("Select a Route to Explore the Campus!");
     routeDetailsTextView.setText("");
 
     // map initialization
@@ -96,7 +96,7 @@ public class RouteFragment extends Fragment
           if (selectedRoute != null) {
             startNavigation(selectedRoute);
           } else {
-            Toast.makeText(getContext(), "Please select a route first.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Please select a route first!", Toast.LENGTH_SHORT).show();
           }
         });
 
@@ -158,7 +158,7 @@ public class RouteFragment extends Fragment
       // Change backButton text
       Button backButton = getView().findViewById(R.id.backButton);
       if (backButton != null) {
-        backButton.setText("Select another route");
+        backButton.setText("Select Another Route");
       }
     }
   }
@@ -179,7 +179,7 @@ public class RouteFragment extends Fragment
       routeNameTextView.setText(route.getName());
       StringBuilder details =
           new StringBuilder(
-              "Length: " + route.getLength() + "\nTime: " + route.getTime() + "\nBuildings: ");
+              "Distance: " + route.getLength() + " (" + route.getTime() + ")" + "\n\nBuildings: ");
       for (String buildingId : route.getBuildings()) {
         Building building = buildingCache.get(buildingId);
         if (building != null) {

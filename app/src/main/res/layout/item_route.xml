@@ -22,7 +22,8 @@
         android:layout_height="wrap_content"
         android:paddingTop="4dp"
         android:text="Route description"
-        android:textSize="16sp" />
+        android:textColor="#696969"
+        android:textSize="14sp" />
 </LinearLayout>
 
 
