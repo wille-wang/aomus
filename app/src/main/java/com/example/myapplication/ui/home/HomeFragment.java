@@ -40,6 +40,7 @@ public class HomeFragment extends Fragment {
     binding.mapCard.setOnClickListener(v -> openFragment(new MapFragment(), "Map"));
     binding.chatbotCard.setOnClickListener(v -> openFragment(new ChatbotFragment(), "Chatbot"));
     binding.libraryCard.setOnClickListener(v -> openFragment(new LibraryFragment(), "Library"));
+    binding.routeCard.setOnClickListener(v -> openFragment(new MapFragment(), "Route"));
 
     return root;
   }

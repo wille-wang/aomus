@@ -196,7 +196,7 @@
         app:cardBackgroundColor="@android:color/holo_orange_light"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp"
-        app:layout_constraintEnd_toStartOf="@id/schedule_card"
+        app:layout_constraintEnd_toStartOf="@id/route_card"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/map_card">
 
@@ -224,9 +224,9 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- Schedule Card - Right of Library (Third row) -->
+    <!-- Route Card - Right of Library (Third row) -->
     <androidx.cardview.widget.CardView
-        android:id="@+id/schedule_card"
+        android:id="@+id/route_card"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -245,19 +245,19 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:id="@+id/schedule_card_icon"
+                android:id="@+id/route_card_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="false"
                 android:focusable="false"
-                android:src="@drawable/ic_home_schedule" />
+                android:src="@drawable/ic_home_route" />
 
             <TextView
-                android:id="@+id/schedule_card_label"
+                android:id="@+id/route_card_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Schedule"
+                android:text="Route"
                 android:textAlignment="center" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -275,6 +275,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/schedule_card" />
+        app:layout_constraintTop_toBottomOf="@id/route_card" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
