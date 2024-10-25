@@ -154,18 +154,45 @@
       "year": 1888
     }
   },
-  "users": {
-    "admin": {
-      "checkins": {
-        "par-122": {
-          "buildingCode": "par-122",
-          "counts": 2,
-          "lastCheckIn": 1728361612201
-        }
-      },
-      "password": "adminadmin",
-      "username": "admin"
+  "route": {
+    "route-1": {
+      "buildings": [
+        "par-149",
+        "par-150",
+        "par-177",
+        "par-173",
+        "par-171",
+        "par-195"
+      ],
+      "length": "0.9 km",
+      "name": "Old Buildings & Classic Landmarks",
+      "time": "30 min"
     },
+    "route-2": {
+      "buildings": [
+        "par-122",
+        "par-112",
+        "par-177",
+        "par-158"
+      ],
+      "length": "2.1 km",
+      "name": "Student Gatherings & Leisure Places",
+      "time": "42 min"
+    },
+    "route-3": {
+      "buildings": [
+        "par-113",
+        "par-128",
+        "par-133",
+        "par-136",
+        "par-171"
+      ],
+      "length": "1.5 km",
+      "name": "Science and Culture",
+      "time": "33 min"
+    }
+  },
+  "users": {
     "admin1": {
       "checkins": {
         "par-112": {

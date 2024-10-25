@@ -1,17 +1,15 @@
 # AOMUS
 
-_All-in-One for Melbourne University Students_ (_AOMUS_, /ˈau̇-mər-s/) is an Android app designed for new students of the University of Melbourne to get familiar with the campus. Users with this Android app can:
+_**All-in-One for Melbourne University Students**_ (_**AOMUS**_, /ˈau̇-mər-s/) is an Android app designed to help new University of Melbourne students familiarize themselves with the campus. With AOMUS, users can:
 
-- have their own profiles in the app
-- visit the University of Melbourne with predefined routes
-- check in near/inside the places of interest on campus by scanning QR codes
-- leave comments on the places of interest on campus
-- read the introduction to a place of interest, provided by ChatGPT
-- view and modify their course details (e.g., schedules, venues)
+- Explore campus locations with detailed introductions to places of interest
+- Check in at specific locations by scanning QR codes
+- Locate campus buildings using an interactive map
+- Chat with a built-in chatbot for University-related queries
+- Access the university library's online resources instantly
+- Follow predefined routes for guided campus tours
 
 ![summary](./docs/img/summary.jpeg)
-
-<!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
 
 ## Table of Contents
 
@@ -20,13 +18,17 @@ _All-in-One for Melbourne University Students_ (_AOMUS_, /ˈau̇-mər-s/) is an 
   - [Architecture](#architecture)
     - [Database Management System (DBMS)](#database-management-system-dbms)
   - [Quick Links](#quick-links)
-  - [Requirements](#requirements)
+  - [Usage](#usage)
+    - [For Developers](#for-developers)
+    - [For End Users](#for-end-users)
+      - [Permissions](#permissions)
+      - [Physical Device](#physical-device)
+      - [Virtual Device](#virtual-device)
   - [Development Conventions](#development-conventions)
     - [Committing](#committing)
     - [Branching](#branching)
-  - [Resources](#resources)
-
-<!-- TOC end -->
+  - [Acknowledgements](#acknowledgements)
+  - [Contributors](#contributors)
 
 ## Architecture
 
@@ -55,7 +57,7 @@ The following schema outlines the structure of the Firebase Realtime Database, a
 ```
 root/
 ├── buildings/
-│   └── {buildingCode}/
+│   └── <buildingUUID>/
 │       ├── code: `String`
 │       ├── desc: `String`
 │       ├── imgUrl: `String`
@@ -63,10 +65,16 @@ root/
 │       ├── longitude: `float`
 │       ├── name: `String`
 │       └── year: `int`
+├── routes/
+│   └── <routeUUID>/
+│       ├── buildings: `Array`
+│       ├── length: `String`
+│       ├── name: `String`
+│       └── time: `String`
 └── users/
-    └── {username}/
+    └── <userUUID>/
         ├── checkins/
-        │   └── {buildingId}/
+        │   └── <buildingId>/
         │       ├── buildingCode: `String`
         │       ├── counts: `int`
         │       └── lastCheckIn: `long`
@@ -75,12 +83,12 @@ root/
         ├── realName: `String`
         ├── schoolEmail: `String`
         └── username: `String`
+
 ```
 
-- **`buildings`**: a collection of all buildings on the campus. Each `building` contains metadata like its name, location (latitude/longitude), description, and year of establishment.
-- **`users`**: a collection of registered users. Each user has personal details such as username, email, and program information, with a `checkin` node to track the buildings they have visited.
-
-![db-schema](./docs/img/db-schema.jpg)
+- `buildings`: a collection of all buildings on the campus. Each building contains metadata like its name, location (latitude/longitude), description, and year of establishment.
+- `routes`: a collection of predefined campus routes. Each route contains a list of buildings along the route, an estimated distance, a suggested completion time, and a descriptive route name.
+- `users`: a collection of registered users. Each user has personal details such as username, email, and program information, with a checkins node to track the buildings they have visited, including the number of times checked in and the timestamp of the last visit.
 
 ## Quick Links
 
@@ -88,9 +96,43 @@ root/
 - 👨‍🎓 [Assignment specification](https://canvas.lms.unimelb.edu.au/courses/183251/assignments/494805)
 - 👨‍💻 [Android developer guides](https://developer.android.com/guide)
 
-## Requirements
+## Usage
 
-- [Android Studio Koala/2024.1.1+](https://developer.android.com/studio/releases/past-releases/as-koala-release-notes)
+### For Developers
+
+The recommended development environment includes (or compatible versions):
+
+- [Android Studio Koala (2024.1.1)](https://developer.android.com/studio/)
+- [JDK 17](https://www.oracle.com/java/technologies/downloads/)
+- [Android SDK 26 (Android 8.0)](https://developer.android.com/tools/releases/platforms)
+
+### For End Users
+
+This app is optimized for:
+
+- **Android version**: 8.0 (Oreo) or higher
+- **Display size**: Medium, 1080 \* 2400 resolution
+- **Screen density**: 420 dpi
+
+#### Permissions
+
+To enable all features, please grant the following permissions when prompted:
+
+- **Internet**: for network-based functionalities
+- **Camera**: for using the QR code scanner
+- **Notifications**: for receiving timely alerts
+
+#### Physical Device
+
+<!-- TODO: Write the installation instructions on physical devices -->
+
+#### Virtual Device
+
+To set up a virtual device, clone this repository and open it in Android Studio:
+
+```sh
+git clone https://github.com/wille-wang/comp90018-a2.git
+```
 
 ## Development Conventions
 
@@ -114,6 +156,18 @@ This repository intends to use [Conventional Commits](https://www.conventionalco
 > [!TIP]
 > You can also use the type tags following the [commit convention](#committing).
 
-## Resources
+## Acknowledgements
 
-- [University of Melbourne: Image Gallery](https://www.unimelb.edu.au/filming-on-campus/gallery)
+- Images provided by the [University of Melbourne: Image Gallery](https://www.unimelb.edu.au/filming-on-campus/gallery)
+
+<!-- TODO: Add credits for icons -->
+
+## Contributors
+
+| Contributor   | Username         | Email                               |
+| ------------- | ---------------- | ----------------------------------- |
+| Zeru Guo      | `ero-crypto`     | `zerug@student.unimelb.edu.au`      |
+| Yicheng Huang | `EASONOSAE`      | `yichuang1@student.unimelb.edu.au`  |
+| Wille Wang    | `wille-wang`     | `yifewang14@student.unimelb.edu.au` |
+| Zeyue Xu      | `zeyuexu`        | `zeyue@student.unimelb.edu.au`      |
+| Yu Zhou       | `Universe010110` | `zhouyz4@student.unimelb.edu.au`    |

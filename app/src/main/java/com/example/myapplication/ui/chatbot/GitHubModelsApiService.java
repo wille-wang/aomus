@@ -1,6 +1,6 @@
 // File: GitHubModelsRequest.java
 
-package com.example.myapplication.ai.chatbot;
+package com.example.myapplication.ui.chatbot;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
