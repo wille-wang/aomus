@@ -27,6 +27,7 @@ _**All-in-One for Melbourne University Students**_ (_**AOMUS**_, /ˈau̇-mər-s/
     - [Committing](#committing)
     - [Branching](#branching)
   - [Acknowledgements](#acknowledgements)
+  - [Contributors](#contributors)
 
 ## Architecture
 
@@ -151,3 +152,13 @@ This repository intends to use [Conventional Commits](https://www.conventionalco
 - Images provided by the [University of Melbourne: Image Gallery](https://www.unimelb.edu.au/filming-on-campus/gallery)
 
 <!-- TODO: Add credits for icons -->
+
+## Contributors
+
+| Contributor   | Username         | Email                               |
+| ------------- | ---------------- | ----------------------------------- |
+| Zeru Guo      | `ero-crypto`     | `zerug@student.unimelb.edu.au`      |
+| Yicheng Huang | `EASONOSAE`      | `yichuang1@student.unimelb.edu.au`  |
+| Wille Wang    | `wille-wang`     | `yifewang14@student.unimelb.edu.au` |
+| Zeyue Xu      | `zeyuexu`        | `zeyue@student.unimelb.edu.au`      |
+| Yu Zhou       | `Universe010110` | `zhouyz4@student.unimelb.edu.au`    |
