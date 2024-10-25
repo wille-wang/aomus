@@ -159,8 +159,7 @@ This repository intends to use [Conventional Commits](https://www.conventionalco
 ## Acknowledgements
 
 - Images provided by the [University of Melbourne: Image Gallery](https://www.unimelb.edu.au/filming-on-campus/gallery)
-
-<!-- TODO: Add credits for icons -->
+- Icons provided by [Icons8](https://icons8.com/)
 
 ## Contributors
 
