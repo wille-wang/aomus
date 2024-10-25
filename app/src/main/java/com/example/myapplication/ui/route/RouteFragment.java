@@ -77,7 +77,7 @@ public class RouteFragment extends Fragment
     routeDetailsTextView = view.findViewById(R.id.routeDetails);
 
     // Set default text when no route is selected
-    routeNameTextView.setText("Select a Route to Explore the Campus!");
+    routeNameTextView.setText("Select a route to explore the campus!");
     routeDetailsTextView.setText("");
 
     // map initialization
