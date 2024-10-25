@@ -168,9 +168,9 @@ public class MainActivity extends AppCompatActivity
       }
     } else if (id == R.id.nav_route) {
       getSupportFragmentManager()
-              .beginTransaction()
-              .replace(R.id.nav_host_fragment_content_main, new RouteFragment())
-              .commit();
+          .beginTransaction()
+          .replace(R.id.nav_host_fragment_content_main, new RouteFragment())
+          .commit();
       if (getSupportActionBar() != null) {
         getSupportActionBar().setTitle("Route");
       }

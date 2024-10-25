@@ -15,32 +15,32 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/white"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:background="@android:color/white">
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/routeName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
             android:text="Route Name"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:paddingBottom="8dp"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/routeDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Route Details"
-            android:textSize="14sp"/>
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/navigateButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Start Navigation"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
-            android:layout_gravity="center_horizontal"/>
+            android:text="Start Navigation" />
     </LinearLayout>
 </LinearLayout>
