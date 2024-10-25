@@ -8,10 +8,10 @@ public class Route {
   private String length;
   private String time;
 
-  // 空构造函数（Firebase 需要）
+  // No-argument constructor required for Firebase
   public Route() {}
 
-  // 参数化构造函数
+  // Constructor to initialize the route object
   public Route(String name, List<String> buildings, String length, String time) {
     this.name = name;
     this.buildings = buildings;
@@ -19,7 +19,7 @@ public class Route {
     this.time = time;
   }
 
-  // Getter 和 Setter 方法
+  // Getter and setter methods for each field
   public String getName() {
     return name;
   }

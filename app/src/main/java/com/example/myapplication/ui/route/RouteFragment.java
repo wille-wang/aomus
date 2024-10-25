@@ -210,7 +210,7 @@ public class RouteFragment extends Fragment
                 500, // image width
                 500 // image height
                 );
-        layoutParams.setMargins(8, 0, 8, 0); // 图片间距
+        layoutParams.setMargins(8, 0, 8, 0); // Set a margin between images
         imageView.setLayoutParams(layoutParams);
 
         // Glide loading image
