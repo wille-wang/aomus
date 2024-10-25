@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- 标题 -->
+    <!-- Title -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
         android:textSize="16sp"
         android:textStyle="normal" />
 
-    <!-- RecyclerView 用于显示路线列表 -->
+    <!-- RecyclerView for the route list-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/routeRecyclerView"
         android:layout_width="match_parent"
