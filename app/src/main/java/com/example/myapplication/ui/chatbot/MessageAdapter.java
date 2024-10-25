@@ -1,6 +1,6 @@
 // File: MessageAdapter.java
 
-package com.example.myapplication.ai.chatbot;
+package com.example.myapplication.ui.chatbot;
 
 import android.view.LayoutInflater;
 import android.view.View;

@@ -1,6 +1,6 @@
 // File: ChatbotFragment.java
 
-package com.example.myapplication.ai.chatbot;
+package com.example.myapplication.ui.chatbot;
 
 import android.os.Bundle;
 import android.util.Log;
