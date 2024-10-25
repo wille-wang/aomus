@@ -16,6 +16,7 @@ import com.example.myapplication.databinding.FragmentHomeBinding;
 import com.example.myapplication.ui.gallery.GalleryFragment;
 import com.example.myapplication.ui.library.LibraryFragment;
 import com.example.myapplication.ui.map.MapFragment;
+import com.example.myapplication.ui.route.RouteFragment;
 import com.example.myapplication.ui.scanner.ScannerFragment;
 
 public class HomeFragment extends Fragment {
@@ -40,7 +41,7 @@ public class HomeFragment extends Fragment {
     binding.mapCard.setOnClickListener(v -> openFragment(new MapFragment(), "Map"));
     binding.chatbotCard.setOnClickListener(v -> openFragment(new ChatbotFragment(), "Chatbot"));
     binding.libraryCard.setOnClickListener(v -> openFragment(new LibraryFragment(), "Library"));
-    binding.routeCard.setOnClickListener(v -> openFragment(new MapFragment(), "Route"));
+    binding.routeCard.setOnClickListener(v -> openFragment(new RouteFragment(), "Route"));
 
     return root;
   }
