@@ -8,6 +8,8 @@ public class Building {
   private String desc;
   private String googleMapPlusCode;
   private String imgUrl;
+  private double latitude;
+  private double longitude;
   private String name;
   private int year;
 
@@ -57,6 +59,22 @@ public class Building {
 
   public void setImgUrl(String imgUrl) {
     this.imgUrl = imgUrl;
+  }
+
+  public double getLatitude() {
+    return latitude;
+  }
+
+  public void setLatitude(double latitude) {
+    this.latitude = latitude;
+  }
+
+  public double getLongitude() {
+    return longitude;
+  }
+
+  public void setLongitude(double longitude) {
+    this.longitude = longitude;
   }
 
   public String getName() {

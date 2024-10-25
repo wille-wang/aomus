@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="8dp"
+        android:text="Recommended university tour routes"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- intro -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:paddingBottom="8dp"
+        android:text="Explore the University of Melbourne with our recommended tour routes, visit buildings like iconic landmarks and vibrant student hubs, perfect for new students to get acquainted with campus life."
+        android:textSize="16sp"
+        android:textStyle="normal" />
+
+    <!-- RecyclerView for the route list-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/routeRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="1" />
+</LinearLayout>
