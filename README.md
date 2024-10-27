@@ -1,5 +1,10 @@
 # AOMUS
 
+<!-- Display the app icon -->
+<p align="center">
+  <img src="./assets/icon.png" alt="icon" width="100"/>
+</p>
+
 _**All-in-One for Melbourne University Students**_ (_**AOMUS**_, /ˈau̇-mər-s/) is an Android app designed to help new University of Melbourne students familiarize themselves with the campus. With AOMUS, users can:
 
 - Explore campus locations with detailed introductions to places of interest
@@ -9,7 +14,7 @@ _**All-in-One for Melbourne University Students**_ (_**AOMUS**_, /ˈau̇-mər-s/
 - Access the university library's online resources instantly
 - Follow predefined routes for guided campus tours
 
-![summary](./docs/img/summary.jpeg)
+![summary](./assets/summary.jpeg)
 
 ## Table of Contents
 
@@ -49,7 +54,7 @@ The AOMUS architecture follows a client-server model, where the Android app inte
   - **Google Maps**
     - offers basic map-based and location-based services
 
-![architecture](./docs/img/architecture.png)
+![architecture](./assets/architecture.png)
 
 ### Database Management System (DBMS)
 
