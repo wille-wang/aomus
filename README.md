@@ -20,6 +20,7 @@ _**All-in-One for Melbourne University Students**_ (_**AOMUS**_, /ˈau̇-mər-s/
   - [Quick Links](#quick-links)
   - [Usage](#usage)
     - [For Developers](#for-developers)
+      - [Sensors](#sensors)
     - [For End Users](#for-end-users)
       - [Permissions](#permissions)
       - [Physical Device](#physical-device)
@@ -105,6 +106,13 @@ The recommended development environment includes (or compatible versions):
 - [Android Studio Koala (2024.1.1)](https://developer.android.com/studio/)
 - [JDK 17](https://www.oracle.com/java/technologies/downloads/)
 - [Android SDK 26 (Android 8.0)](https://developer.android.com/tools/releases/platforms)
+
+#### Sensors
+
+This app uses two types of sensors:
+
+- **Camera**: requires the `android.permission.CAMERA` permission to capture images, allowing the app to use the device's camera hardware
+- **Location (Fine and Coarse)**: requires both `android.permission.ACCESS_FINE_LOCATION` and `android.permission.ACCESS_COARSE_LOCATION` permissions to access the device's precise (GPS) or approximate location
 
 ### For End Users
 
