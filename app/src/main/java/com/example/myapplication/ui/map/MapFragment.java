@@ -1,6 +1,8 @@
 package com.example.myapplication.ui.map;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +14,8 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import com.example.myapplication.R;
 import com.example.myapplication.util.Building;
@@ -33,6 +37,7 @@ import java.util.Map;
 
 public class MapFragment extends Fragment {
 
+  private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
   private final Map<String, LatLng> locationMap = new HashMap<>();
   private final LatLng universityMelbourne =
       new LatLng(-37.7963, 144.9614); // Hardcode the University of Melbourne
@@ -113,6 +118,47 @@ public class MapFragment extends Fragment {
         (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
     if (mapFragment != null) {
       mapFragment.getMapAsync(callback);
+    }
+
+    // Check for location permissions
+    if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+        != PackageManager.PERMISSION_GRANTED) {
+      // Request the permission
+      ActivityCompat.requestPermissions(
+          getActivity(),
+          new String[] {Manifest.permission.ACCESS_FINE_LOCATION},
+          LOCATION_PERMISSION_REQUEST_CODE);
+    } else {
+      // Permission already granted, proceed with your logic
+      enableMyLocation();
+    }
+  }
+
+  @Override
+  public void onRequestPermissionsResult(
+      int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
+      if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        // Permission granted, proceed with your logic
+        enableMyLocation();
+      } else {
+        // Permission denied, show a message to the user
+        Toast.makeText(
+                getContext(),
+                "Location permission is required to use this feature",
+                Toast.LENGTH_SHORT)
+            .show();
+      }
+    }
+  }
+
+  private void enableMyLocation() {
+    if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+        == PackageManager.PERMISSION_GRANTED) {
+      if (mMap != null) {
+        mMap.setMyLocationEnabled(true);
+      }
     }
   }
 
