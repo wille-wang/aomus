@@ -136,7 +136,7 @@ To enable all features, please grant the following permissions when prompted:
 
 #### Installation
 
-1. Visit the [Releases](https://github.com/wille-wang/comp90018-a2/releases/) page.
+1. Visit the [Releases](https://github.com/wille-wang/aomus/releases/) page.
 2. Install the latest `aomus.apk`.
 
 > [!NOTE]
