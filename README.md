@@ -28,8 +28,7 @@ _**All-in-One for Melbourne University Students**_ (_**AOMUS**_, /ˈau̇-mər-s/
       - [Sensors](#sensors)
     - [For End Users](#for-end-users)
       - [Permissions](#permissions)
-      - [Physical Device](#physical-device)
-      - [Virtual Device](#virtual-device)
+      - [Installation](#installation)
   - [Development Conventions](#development-conventions)
     - [Committing](#committing)
     - [Branching](#branching)
@@ -135,17 +134,14 @@ To enable all features, please grant the following permissions when prompted:
 - **Camera**: for using the QR code scanner
 - **Notifications**: for receiving timely alerts
 
-#### Physical Device
+#### Installation
 
-<!-- TODO: Write the installation instructions on physical devices -->
+1. Visit the [Releases](https://github.com/wille-wang/comp90018-a2/releases/) page.
+2. Install the latest `aomus.apk`.
 
-#### Virtual Device
-
-To set up a virtual device, clone this repository and open it in Android Studio:
-
-```sh
-git clone https://github.com/wille-wang/comp90018-a2.git
-```
+> [!NOTE]
+>
+> This app is not signed, so skipping security checks during installation is necessary.
 
 ## Development Conventions
 
