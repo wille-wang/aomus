@@ -20,20 +20,78 @@ _**All-in-One for Melbourne University Students**_ (_**AOMUS**_, /ˈau̇-mər-s/
 
 - [AOMUS](#aomus)
   - [Table of Contents](#table-of-contents)
-  - [Architecture](#architecture)
-    - [Database Management System (DBMS)](#database-management-system-dbms)
-  - [Quick Links](#quick-links)
+  - [Repository Architecture](#repository-architecture)
   - [Usage](#usage)
-    - [For Developers](#for-developers)
-      - [Sensors](#sensors)
     - [For End Users](#for-end-users)
       - [Permissions](#permissions)
       - [Installation](#installation)
+    - [For Developers](#for-developers)
+      - [Sensors](#sensors)
+  - [Architecture](#architecture)
+    - [Database Management System (DBMS)](#database-management-system-dbms)
   - [Development Conventions](#development-conventions)
     - [Committing](#committing)
     - [Branching](#branching)
   - [Acknowledgements](#acknowledgements)
   - [Contributors](#contributors)
+
+## Repository Architecture
+
+```
+.
+├── app/  # Android app
+├── assets/  # images used in README.md
+├── backup/  # copy of the Firebase database
+├── docs/
+│   ├── canvas/  # copy of files submitted to Canvas LMS
+│   │   ├── flyer/  # flyer submission
+│   │   ├── video/  # video submission
+│   │   └── submission.txt  # submission report required by Canvas LMS
+│   └── scanner-example/  # examples used for the Scanner function
+└── README.md
+```
+
+## Usage
+
+### For End Users
+
+This app is optimized for:
+
+- **Android version**: 8.0 (Oreo) or higher
+- **Display size**: Medium, 1080 \* 2400 resolution
+- **Screen density**: 420 dpi
+
+#### Permissions
+
+To enable all features, please grant the following permissions when prompted:
+
+- **Internet**: for network-based functionalities
+- **Camera**: for using the QR code scanner
+- **Notifications**: for receiving timely alerts
+
+#### Installation
+
+1. Visit the [Releases](https://github.com/wille-wang/aomus/releases/) page.
+2. Install the latest `aomus.apk`.
+
+> [!NOTE]
+>
+> This app is not signed, so skipping security checks during installation is necessary.
+
+### For Developers
+
+The recommended development environment includes (or compatible versions):
+
+- [Android Studio Koala (2024.1.1)](https://developer.android.com/studio/)
+- [JDK 17](https://www.oracle.com/java/technologies/downloads/)
+- [Android SDK 26 (Android 8.0)](https://developer.android.com/tools/releases/platforms)
+
+#### Sensors
+
+This app uses two types of sensors:
+
+- **Camera**: requires the `android.permission.CAMERA` permission to capture images, allowing the app to use the device's camera hardware
+- **Location (Fine and Coarse)**: requires both `android.permission.ACCESS_FINE_LOCATION` and `android.permission.ACCESS_COARSE_LOCATION` permissions to access the device's precise (GPS) or approximate location
 
 ## Architecture
 
@@ -94,54 +152,6 @@ root/
 - `buildings`: a collection of all buildings on the campus. Each building contains metadata like its name, location (latitude/longitude), description, and year of establishment.
 - `routes`: a collection of predefined campus routes. Each route contains a list of buildings along the route, an estimated distance, a suggested completion time, and a descriptive route name.
 - `users`: a collection of registered users. Each user has personal details such as username, email, and program information, with a checkins node to track the buildings they have visited, including the number of times checked in and the timestamp of the last visit.
-
-## Quick Links
-
-- 📅 [GitHub project](https://github.com/users/wille-wang/projects/12)
-- 👨‍🎓 [Assignment specification](https://canvas.lms.unimelb.edu.au/courses/183251/assignments/494805)
-- 👨‍💻 [Android developer guides](https://developer.android.com/guide)
-
-## Usage
-
-### For Developers
-
-The recommended development environment includes (or compatible versions):
-
-- [Android Studio Koala (2024.1.1)](https://developer.android.com/studio/)
-- [JDK 17](https://www.oracle.com/java/technologies/downloads/)
-- [Android SDK 26 (Android 8.0)](https://developer.android.com/tools/releases/platforms)
-
-#### Sensors
-
-This app uses two types of sensors:
-
-- **Camera**: requires the `android.permission.CAMERA` permission to capture images, allowing the app to use the device's camera hardware
-- **Location (Fine and Coarse)**: requires both `android.permission.ACCESS_FINE_LOCATION` and `android.permission.ACCESS_COARSE_LOCATION` permissions to access the device's precise (GPS) or approximate location
-
-### For End Users
-
-This app is optimized for:
-
-- **Android version**: 8.0 (Oreo) or higher
-- **Display size**: Medium, 1080 \* 2400 resolution
-- **Screen density**: 420 dpi
-
-#### Permissions
-
-To enable all features, please grant the following permissions when prompted:
-
-- **Internet**: for network-based functionalities
-- **Camera**: for using the QR code scanner
-- **Notifications**: for receiving timely alerts
-
-#### Installation
-
-1. Visit the [Releases](https://github.com/wille-wang/aomus/releases/) page.
-2. Install the latest `aomus.apk`.
-
-> [!NOTE]
->
-> This app is not signed, so skipping security checks during installation is necessary.
 
 ## Development Conventions
 
