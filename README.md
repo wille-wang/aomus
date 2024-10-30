@@ -37,18 +37,18 @@ _**All-in-One for Melbourne University Students**_ (_**AOMUS**_, /ˈau̇-mər-s/
 
 ## Repository Architecture
 
-```
+The primary folders and files within this repository are outlined below:
+
+```plaintext
 .
-├── app/  # Android app
-├── assets/  # images used in README.md
-├── backup/  # copy of the Firebase database
-├── docs/
-│   ├── canvas/  # copy of files submitted to Canvas LMS
-│   │   ├── flyer/  # flyer submission
-│   │   ├── video/  # video submission
-│   │   └── submission.txt  # submission report required by Canvas LMS
-│   └── scanner-example/  # examples used for the Scanner function
-└── README.md
+├── README.md  # Android app
+├── app/
+├── assets/  # attachments used in README.md
+├── backup/
+│   └── database.json  # copy of the Firebase database
+└── docs/
+    ├── canvas-submission/  # copy of files submitted to Canvas LMS
+    └── scanner-examples/  # examples used for the Scanner function
 ```
 
 ## Usage
