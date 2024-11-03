@@ -1,4 +1,4 @@
-# Itemized Contributions
+![image](https://github.com/user-attachments/assets/54feb515-8dd4-4d85-b3ae-cb7456fc3cfd)# Itemized Contributions
 
 ## Zeru Guo
 
@@ -23,6 +23,9 @@
 
 ## Yu Zhou
 
-- user interface design
-- flyer making
-- demonstration video clipping
+- Concept refinement and design
+- Low-fidelity and high-fidelity mockups
+- Main interface navigation setup
+- App flyer design
+- Video filming and editing
+- Subtitles, voice-over, and sound effects for video
