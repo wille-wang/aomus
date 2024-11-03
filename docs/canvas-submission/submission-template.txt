@@ -1,22 +1,28 @@
-# TODO: Fill in the submission file
-
 ################################################################################                     
                     COMP90018 Programming Project Submission
 ################################################################################
 
-Group No: #
+Group No: T13-G03
 
 Group Members:
 
-1: [Username, Email] 
-2: [Username, Email] 
-3: [Username, Email] 
-4: [Username, Email] 
+| Name           | Email                               | GitHub           |
+| -------------- | ----------------------------------- | ---------------- |
+| Zeru Zero Guo  | <zerug@student.unimelb.edu.au>      | `ero-crypto`     |
+| Yicheng Huang  | <yichuang1@student.unimelb.edu.au>  | `EASONOSAE`      |
+| Wille Wang     | <yifewang14@student.unimelb.edu.au> | `wille-wang`     |
+| Zeyue Kerry Xu | <zeyue@student.unimelb.edu.au>      | `zeyuexu`        |
+| Yu Zhou        | <zhouyz4@student.unimelb.edu.au>    | `Universe010110` |
 
-YouTube Link:
+YouTube Link: https://youtu.be/vXpuy2BhR6Y
 
 Publicity statement: We authorise the University of Melbourne to use material from our submission for publicity.
 
 README:
 
-Please include details on how to compile and run your APP.
+To install the `aomus.apk` file included in the compressed package, follow these instructions. If the app fails to run on your device due to security restrictions, please take the steps below:
+
+1. Extract the contents of `aomus.zip`.
+2. Open the extracted folder in Android Studio and run the app from there.
+
+For further details, refer to the `README.md` file located in the `aomus/` directory.
