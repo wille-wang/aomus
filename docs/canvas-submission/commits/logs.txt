@@ -1,1 +1,1162 @@
-# TODO: replace the empty file with the Git commit logs
+commit 0b463dc57e548c8149b0b88eacda694ab50e5803
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Nov 3 14:25:10 2024 +1100
+
+    docs: fill in the submission template
+
+commit a6b89cc4b080f9a889924c4b96a49ae12bc12b77
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Nov 3 14:18:05 2024 +1100
+
+    chore: add the URL of the demo video
+    
+    Co-authored-by: EasonHuang <easonh2236@gmail.com>
+    Co-authored-by: Universe010110 <82056189+Universe010110@users.noreply.github.com>
+
+commit dcab42c135116259ed2933f2fba49cebe5b96c48
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Wed Oct 30 11:50:07 2024 +1100
+
+    chore: update the repository structure tree
+
+commit c77373a92cc331816a3ce0158a5243a9cf0ef1f0
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Wed Oct 30 11:36:12 2024 +1100
+
+    docs: sort Canvas submissions
+
+commit 557cd225058b70a85d5b67589c1c183bd2ab22c2
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Wed Oct 30 11:31:34 2024 +1100
+
+    docs: add compilation success files
+
+commit 0e9e35422f49316d1a3e9259b3f604dfc208b4cd
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Wed Oct 30 11:31:05 2024 +1100
+
+    docs: write itemized contributions
+
+commit a2520eac8d7c1849b60615a97dacc5157d33cf0a
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Wed Oct 30 11:01:37 2024 +1100
+
+    docs: refine README
+
+commit 87d32476a191377dbf511df1192014a9f9c5d797
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 29 23:59:48 2024 +1100
+
+    chore: update the link
+
+commit d26500a58a3bc771b94542f2cf8dc3781f4e0d5a
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 29 23:51:41 2024 +1100
+
+    docs: add installation instructions
+
+commit 52441e18ddfce705aef8b378d3f08d06340b609b
+Merge: 3160504 cd05633
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 27 13:42:30 2024 +1100
+
+    Merge pull request #18 from wille-wang/feat-icon
+    
+    Add a new icon
+
+commit cd05633b3c64f2fc4915c7eb0c1d4b188157c2bc
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 27 13:36:23 2024 +1100
+
+    refactor: separate images used for README
+
+commit f5ff870f06cff0e60eae7455fc2eeef5347b00ba
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 27 13:33:52 2024 +1100
+
+    docs: add the icon in README
+
+commit 6411d611db617f7d1889ec8b64f2a34de9ed80bc
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 27 13:30:02 2024 +1100
+
+    feat: add a new icon
+
+commit 3160504e3faca82a1073849a4857dd7d3458c3fa
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 27 13:03:50 2024 +1100
+
+    docs: add a Sensors section
+
+commit bb36708f65869ec12a5f0bf0e7bc7890d0b4987b
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 27 12:59:37 2024 +1100
+
+    chore: add user permission for GPS
+
+commit d61b4c902a083bf2650ea130041ef51e1540b6a0
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 19:03:58 2024 +1100
+
+    chore: clarify the instruction
+
+commit 69388cb67566aa613d875410fc0f79c3ca3b4de4
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 18:42:55 2024 +1100
+
+    chore: add an acknowledgment of icons
+
+commit 96004ba122b3ac6bb7606c40844b5ed9cbe7bbe7
+Merge: 321d33f 2d6511e
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 18:27:52 2024 +1100
+
+    Merge pull request #17 from wille-wang/refactor-repo-simp
+    
+    Simplify the structure and add documentation
+
+commit 2d6511e4b998fd948a652ad92a2b79c871b80f7e
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 18:18:13 2024 +1100
+
+    docs: add the Permissions section
+
+commit 1b0b849ea86cb8c4a9c88d416f59f986bb4e620c
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 18:11:02 2024 +1100
+
+    docs: add examples for Scanner
+
+commit 15a93c10d504d69e7f797e9749b219bf3e6497fb
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 18:03:42 2024 +1100
+
+    docs: add a new summary of screenshots
+
+commit 61ffab7ea49229d4c5c3a30dba4c4edc9eefc1bf
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 17:52:10 2024 +1100
+
+    chore: add a README for Canvas submission
+
+commit cbad588cbb6cb75b862c1b45bedcaec6d4cc05da
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 17:36:32 2024 +1100
+
+    chore: update the database
+
+commit 365b0d3ebfeee612857a5c4306a7c6b7ccb92156
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 17:35:42 2024 +1100
+
+    refactor: sort submission-related files
+
+commit 1af90294a52e04500635c68fb726223a2e0cebd9
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 17:33:44 2024 +1100
+
+    docs: add a Canvas submission template
+
+commit e5134e8a197ea1e7fd684aaaa0f0d9d5de6fb1bc
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 17:30:39 2024 +1100
+
+    docs: add the Contributors section
+
+commit 59a662b719d52ab5992a21bc89ffc2ec0ff34308
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 17:20:46 2024 +1100
+
+    docs: refine README
+
+commit 2fb3fc596739cc1cbae3dcf6e6954f68a7887cef
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 16:34:06 2024 +1100
+
+    refactor: unify Chatbot with the whole structure
+
+commit 321d33f6882cef41d775fe9253a40638ae37734f
+Merge: 7613036 c4ddf55
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 16:30:03 2024 +1100
+
+    Merge pull request #15 from wille-wang/Kerry-feature-route
+    
+    Route feature
+
+commit c4ddf556fd9a8ececee1336f15d1c71ed0016c76
+Merge: e549301 7613036
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 16:27:29 2024 +1100
+
+    Merge branch 'master' into Kerry-feature-route
+
+commit e549301308eb3203aa3acad8836e2941abff52bc
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 16:25:54 2024 +1100
+
+    chore: replace the Schedule icon with the Route icon
+
+commit b7f969fdca0383f99916b0ff391a8c6ea567d78d
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 16:15:57 2024 +1100
+
+    chore: write comments in English
+
+commit 80ec28747d1402274fe49e9068a92924a446ada7
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 16:04:03 2024 +1100
+
+    chore: adjust the text style
+
+commit 1a84cd06d475d3e53dc890620a1ef4eb69eda4c5
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 16:03:46 2024 +1100
+
+    fix: correct redirection to Route
+
+commit f3d9928213d507473fd8e37a7507f864fef59a55
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 16:01:43 2024 +1100
+
+    refactor: re-reference schedule to route
+
+commit 6e4280d3d7020a4c0037a22f64e1167f2eee7d5c
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 15:51:19 2024 +1100
+
+    refactor: rename files by patterns
+
+commit 0bbb496aa1bf5997f0ef2012c1ebd9ed5a73e0f7
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 15:43:28 2024 +1100
+
+    chore: write comments in English
+
+commit fa5b61641f7b18c32c810ce5724e7aa4b1fda54d
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 15:39:44 2024 +1100
+
+    chore: adjust the UI
+
+commit a434dbcbc8378f0dc21d8272d558c2eed5d77023
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 15:25:17 2024 +1100
+
+    style: format files
+
+commit 76130361483065eb3da3cdb5ef9e380a763d3be9
+Merge: ac97a46 0374cb8
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 25 11:22:56 2024 +1100
+
+    Merge pull request #16 from wille-wang/Eason-feature
+
+commit 0374cb8089efa362d2060e96f5b3a0a379421a04
+Author: EasonHuang <easonh2236@gmail.com>
+Date:   Fri Oct 25 11:05:48 2024 +1100
+
+    chore: update script.md content
+
+commit 8bc9e160bd637cfb0f14aee052f543804b6bdf97
+Merge: 613df5b ac97a46
+Author: zeyuexu <127080954+zeyuexu@users.noreply.github.com>
+Date:   Thu Oct 24 22:46:36 2024 +1100
+
+    Merge branch 'master' into Kerry-feature-route
+
+commit 613df5b9a8f90b6da8ffa3775ee39455e2f699c9
+Author: zeyuexu <zeyue@student.unimelb.edu.au>
+Date:   Thu Oct 24 19:56:40 2024 +1100
+
+    feat: add logic if route did not select
+
+commit f9b074a92889660c27dcbcb0b3a58897804d8d93
+Author: zeyuexu <zeyue@student.unimelb.edu.au>
+Date:   Thu Oct 24 19:45:05 2024 +1100
+
+    feat: implement route feature
+
+commit df698fb1b2760409148c6aa5539c1b7ead821ac9
+Author: zeyuexu <zeyue@student.unimelb.edu.au>
+Date:   Thu Oct 24 15:23:56 2024 +1100
+
+    feat: add DialogFragment to select route
+
+commit ac97a466b0c008eb8148818fb87559229a042890
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Thu Oct 24 15:19:39 2024 +1100
+
+    docs: remove the open-source license
+
+commit c105d473587532868ddc2fa3480dcda4ff83f6c2
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Thu Oct 24 14:55:54 2024 +1100
+
+    chore: refine docs
+
+commit a2b2055f61a4eb1db1c240c1d527cc5372ca27b8
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Thu Oct 24 14:51:35 2024 +1100
+
+    docs: add a script placeholder
+
+commit 55d97a2cd51cb5ed3c26758494ece440e81d52c9
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Thu Oct 24 14:51:11 2024 +1100
+
+    docs: write a README for the demo video
+
+commit f38611f56666f9732cfb229d59b98c0ea377f898
+Author: zeyuexu <zeyue@student.unimelb.edu.au>
+Date:   Wed Oct 23 22:52:51 2024 +1100
+
+    chore: implement route entrance in menu
+
+commit 3e7c54a80fe163ca8c78941306e245fa6eef3b64
+Author: zeyuexu <zeyue@student.unimelb.edu.au>
+Date:   Wed Oct 23 22:37:48 2024 +1100
+
+    chore: create route feature branch
+
+commit 37115a64c21acb345445cfd3ff1a920fa509a9c3
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 19 18:39:14 2024 +1100
+
+    chore: clarify the pull request checklist
+
+commit 328e678e56c13d06855c69054342de2a4966d8c8
+Merge: 4565d3f 4059f7c
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 19 18:33:48 2024 +1100
+
+    Merge pull request #11 from wille-wang/Eason-feature
+    
+    Implementation of Homepage UI and Navigation Functionality
+
+commit 4059f7ccafa296d4b5a8cb4bf8a0ef98d8ca6f61
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 19 18:30:38 2024 +1100
+
+    refactor: rename elements for consistency
+
+commit c07e2d3b7156b28b27fd5c1d858daaf5f33e53bc
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 19 18:21:58 2024 +1100
+
+    chore: reorder buttons to align with menu items
+
+commit e072d8dfba0c8f7be185ed8fee18a25fab8f07ca
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 19 18:01:32 2024 +1100
+
+    fix: correct wrong SupportActionBar title responses
+
+commit 3a5ca81d2352e64b28fee9f3165abb4b0ba5f543
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 19 17:47:40 2024 +1100
+
+    refactor: rename media files
+
+commit d15f1f70b4abab6c09caa23b5da083542ef9c0ad
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 19 17:42:46 2024 +1100
+
+    chore: remove non-English comments
+
+commit d99f1d8633594c4447bab578cd4698e05508131c
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 19 17:39:09 2024 +1100
+
+    fix: hide the bottom layer
+
+commit a12a000e8f103fc73ec02bbd67ee86612e3f8566
+Merge: c8e99a7 4565d3f
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 19 15:15:16 2024 +1100
+
+    Merge branch 'master' into Eason-feature
+
+commit c8e99a7ce417c08b3f339d8915b6f472b3bac066
+Author: Universe010110 <zhouyz4@student.unimelb.edu.au>
+Date:   Fri Oct 18 04:41:29 2024 +1100
+
+    "fix(home): fix button icon click navigation issue"
+
+commit a22be5fd38a2e8730aae242803673024929d9990
+Author: Universe010110 <zhouyz4@student.unimelb.edu.au>
+Date:   Fri Oct 18 04:31:44 2024 +1100
+
+    "feat(home): add button navigation to target fragments"
+
+commit 4565d3f445646b79a658b87cecc6d55264282f4a
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Wed Oct 16 04:03:13 2024 +1100
+
+    chore: update the PR template
+
+commit ff6821351e8f606c9ddb5f02a1aa2abafd907b17
+Merge: edcf8f4 aa99181
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Wed Oct 16 03:32:14 2024 +1100
+
+    Merge pull request #10 from wille-wang/Yu-feature1
+    
+    docs: add flyer for the app
+
+commit aa9918163e86c56b95e5a9b5d67d934d128515d9
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Wed Oct 16 03:27:00 2024 +1100
+
+    chore: correct file names
+
+commit a2c5afa8a615d90dbdcc12452e273c9bd0b444bf
+Author: Universe010110 <82056189+Universe010110@users.noreply.github.com>
+Date:   Wed Oct 16 02:06:06 2024 +1100
+
+    docs: add the remaining txt files for flyer folder
+
+commit 2d2cf516b7e5ab7c66baa34d9589abd2cb64507e
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Wed Oct 16 01:50:30 2024 +1100
+
+    chore: move files to correct directories
+
+commit 11a53dbbf708cb6f46a0e9fc96224c9286b01134
+Author: Universe010110 <82056189+Universe010110@users.noreply.github.com>
+Date:   Tue Oct 15 22:20:20 2024 +1100
+
+    docs: add flyer for the app
+
+commit edcf8f4e1e41461c2ce239d1132a1352210faf60
+Merge: 66211c6 b761542
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 15 17:23:13 2024 +1100
+
+    Merge pull request #8 from wille-wang/fix-support-action-bar
+    
+    Fix SupportActionBar titles via navigation bar item selections
+
+commit b7615423353a3f90394bcaad077292b00a99b7bb
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 15 17:04:51 2024 +1100
+
+    fix: adjust support action bar titles
+
+commit bd8338a33a83db36564e7206f5b30ad5385b9a62
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 15 17:04:28 2024 +1100
+
+    chore: remove default text in MainActivity
+
+commit 2940fed8f0f83c31ea5fdbc5659d260349b50619
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 15 17:03:54 2024 +1100
+
+    chore: set a white background
+
+commit 8ded5b5d57d6bcd48a86742306aa674017fc8d2c
+Author: EasonHuang <easonh2236@gmail.com>
+Date:   Tue Oct 15 01:08:51 2024 +1100
+
+    fix(fragment_home): fix the bug about constraint of classroomCard
+
+commit 78253d7a2c71da328b4d3be333a9d146b00d485a
+Author: EasonHuang <easonh2236@gmail.com>
+Date:   Tue Oct 15 01:00:40 2024 +1100
+
+    fix(fragment_home): resolve issue with textView
+
+commit 2c5ac4fe3e323222eafc62acc0be1e610983f020
+Author: EasonHuang <easonh2236@gmail.com>
+Date:   Mon Oct 14 22:39:01 2024 +1100
+
+    feat(fragment_home): add colorful cards for buttons
+
+commit 451a4ee4a52b5005db7d84604e4838817acbe33c
+Author: EasonHuang <easonh2236@gmail.com>
+Date:   Mon Oct 14 21:39:17 2024 +1100
+
+    feat(fragment_home): add relative names for image buttons
+
+commit c9c9259182ca0bb30282f9e8d219d296974d74b6
+Author: EasonHuang <easonh2236@gmail.com>
+Date:   Mon Oct 14 21:37:12 2024 +1100
+
+    feat(fragment_home): add relative Names for buttons
+
+commit 349a119d52674f7ce4ee42ee3e8b09c72f26d76e
+Author: EasonHuang <easonh2236@gmail.com>
+Date:   Mon Oct 14 20:49:13 2024 +1100
+
+    feat(fragment_home): add Welcome message and adjust button positions
+
+commit 3dcb55b5acbea797e6b0296e26c49f2262c404a7
+Author: EasonHuang <easonh2236@gmail.com>
+Date:   Mon Oct 14 00:50:41 2024 +1100
+
+    refactor(fragment_home): adjust button positions and constraints
+
+commit 48dc2bb222cec4b2fdfb09f94bf5b8914a9599ef
+Author: EasonHuang <easonh2236@gmail.com>
+Date:   Sun Oct 13 23:38:17 2024 +1100
+
+    feat(fragment_home): added five new PNG images and made them buttons
+
+commit 51afc40206acaf02a26066ccf3e828b9e33826db
+Author: Universe010110 <82056189+Universe010110@users.noreply.github.com>
+Date:   Sun Oct 13 20:39:06 2024 +1100
+
+    A
+    feat(home): add some new .png icons, and display the bot icon
+
+commit 66211c679e9ef17a81c2fcb89b227f4206184991
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 13 18:57:59 2024 +1100
+
+    fix: correct the data structure in the database
+
+commit 031ce7dfd6ad988d8a5c2987ffae652b9b220d50
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 13 18:54:04 2024 +1100
+
+    chore: update the  Google Maps API key
+
+commit 4f05f52cbd61c4065199feb98320846c5595c3d4
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Wed Oct 9 12:11:29 2024 +1100
+
+    ci: use Android SDK API 26 for better compatibility
+
+commit ca9ffc6c14e167da907057a034d9b1cab2c0eb8a
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 21:15:05 2024 +1100
+
+    chore: add a database backup
+
+commit c9ba670345565cbf459e120b4f3b5261e98edf8c
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 20:35:50 2024 +1100
+
+    docs: assign GitOps responsibility
+
+commit 240e15351b96375e8c7baaf1b280f2d6668a7d6a
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 20:21:55 2024 +1100
+
+    docs: add a summary image
+
+commit c17ee22e56055e4d2c22a9f412db664edbac5460
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 20:18:27 2024 +1100
+
+    docs: add the Resources section
+
+commit 2dcad13943e0cd8b18caac9f8b73194c7c3c221b
+Merge: b1e00a0 480beb5
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 17:56:11 2024 +1100
+
+    Merge pull request #5 from wille-wang/master-wille
+    
+    Implement a full-stack Android app
+
+commit 480beb59668b0492482809e88eb865f2b02d4b7d
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 17:21:56 2024 +1100
+
+    fix: remove typos
+
+commit b6fd8df3f17e7ec2e7f11d82bf9039417acf5562
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 17:14:03 2024 +1100
+
+    fix: add POST_NOTIFICATIONS permission
+
+commit 837e3fb008730fc212fabb09ec77b5d4504439e9
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 17:06:35 2024 +1100
+
+    ci: create a dummy local.properties
+
+commit a055f4d65227c5377b1e8d9867ccbea5f18dcb70
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 17:03:22 2024 +1100
+
+    fix(ci): exclude private information
+
+commit 87dced8cae8c50ba3ef3336cc31f3b83ccfc846e
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 16:58:25 2024 +1100
+
+    ci: specify Android SDK manually
+
+commit e24f0acf142519276d740b3479497ede1b0115aa
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 16:47:39 2024 +1100
+
+    docs: add a license
+
+commit 41b8bfea781df8d8ef32565daa051ec5a09260b4
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 14:12:19 2024 +1100
+
+    docs: update the Architecture section
+
+commit 1df76d45afaaf7474d44419a40a5c0e6a3f0eb7f
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 13:53:20 2024 +1100
+
+    docs: add descriptions about the database schema
+
+commit d3b62aa9dee98825a30c80bc40c67078fbe90df8
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 02:43:25 2024 +1100
+
+    chore: delete unused resources
+
+commit a3e223c13201639fefeb71f9f5ea30dad5074655
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 02:42:00 2024 +1100
+
+    perf: set right bubble alignment
+
+commit 30c7d4dd1cbe4de133f8336f60e839cdaa755975
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 02:21:43 2024 +1100
+
+    feat: add dialog bubbles
+
+commit 623a84089334fa1d85843a43e8a0818b79865d5b
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 02:06:47 2024 +1100
+
+    perf: handle button enabling/disabling
+
+commit 4def0a30dc95f582aae2e6ef1bf814da672c2b01
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 02:03:07 2024 +1100
+
+    perf: configure the chatbot with prompt engineering
+
+commit afc1d18156fb597806edc038a9cd6855f2228963
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 01:37:33 2024 +1100
+
+    fix: correct the API response structure
+
+commit 4403f9f8e7bb9766fad957af2b639e48621f022e
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 01:17:59 2024 +1100
+
+    feat: connect to GitHub Models
+
+commit 32e41c272383cb639de272ee33f27a3628ca534f
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 00:31:04 2024 +1100
+
+    chore: add a GitHub PAT
+
+commit c5e59ff3daddc26ca75871e19fe091b61dbd7719
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 00:21:50 2024 +1100
+
+    build: add dependencies for chatbot API
+
+commit 1f2a782f001be5855bc02c59aa620981c4e1140f
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 00:11:04 2024 +1100
+
+    chore: remove an unused floating action button
+
+commit 086786e7cd49f0c3f36c2ab43c4b38ede9536b19
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Tue Oct 8 00:04:19 2024 +1100
+
+    perf: add a screen style for chatting
+
+commit 80ff0cf0ae61c944229e0503b73270ef94137895
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Mon Oct 7 23:53:16 2024 +1100
+
+    refactor: add a placeholder for the chatbot
+
+commit a9413e5ef87f05c16e7cfc767c3bc77724720ff4
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Mon Oct 7 12:11:47 2024 +1100
+
+    docs: write Architecture
+
+commit 8c9392b9ef164b20876e42051c394f7d8d7cc90c
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Mon Oct 7 11:48:34 2024 +1100
+
+    perf: allow for blank fields
+
+commit db8a500e3e220c78f751b0241958e61e2a541e80
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Mon Oct 7 11:43:41 2024 +1100
+
+    perf: relex all-field filling-in constraints
+
+commit 3b8eb914d5a7ebf6093dcc957f2310f538809144
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Mon Oct 7 11:40:00 2024 +1100
+
+    fix: fix login crash
+
+commit 89d8d47e1c2138d0ca61cf352b45c4c7b44d797a
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Mon Oct 7 11:38:53 2024 +1100
+
+    feat: track visit counts for each building
+
+commit 1baf20aee05f06b5086c420446a6c961d9b877ab
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Mon Oct 7 11:11:04 2024 +1100
+
+    fix: correct the node logic for each building in checking-in
+
+commit 117fe3f2e183e6d19bf2db32b4c3178617d4978f
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Mon Oct 7 10:58:03 2024 +1100
+
+    docs: add instructions to database nodes
+
+commit 80c8c29c39f92bff40bcd428fe1bbe6e7cffb5b6
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Mon Oct 7 10:34:37 2024 +1100
+
+    fix: correct type errors
+
+commit 0ee7af0a7adfa7573479e7bc31272176425a1503
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Mon Oct 7 10:28:36 2024 +1100
+
+    perf: support queries with both names and codes
+
+commit ec521f7ce5acfcd9e89252e69d7da615b522f5e4
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Mon Oct 7 10:01:10 2024 +1100
+
+    refactor: apply new database schemas
+
+commit df018efc6d418ee6360fd28b589d3ebdeb5b55df
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Mon Oct 7 09:34:36 2024 +1100
+
+    refactor: redefine more flatten schemas for Building and User
+
+commit 18895ace7383fe18d1ad20f36009a79d0a77354e
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Mon Oct 7 00:10:47 2024 +1100
+
+    perf: hide the keyboard when selecting the hamburger icon
+
+commit b8a848abd113308f6a60d497a08c53c31f907fca
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Mon Oct 7 00:04:16 2024 +1100
+
+    perf: hide the keyboard after selection
+
+commit 4789ee1fbab81e27fa3e775fc2a60ccbd3a18795
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 23:57:26 2024 +1100
+
+    chore: remove the initial data point
+
+commit 5a593f7e098668eeaad2f42c67a29d175a9116b6
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 23:16:29 2024 +1100
+
+    refactor: define the schema of buildings
+
+commit 913b0ab1b22f12012d36601517fff7baa96dcf0f
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 22:55:44 2024 +1100
+
+    chore: remove the initial marker
+
+commit 1bf249bd10e1ce544b676b2fe5b5d95bff9c096a
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 22:53:29 2024 +1100
+
+    perf: use online queries instead of offline data
+
+commit 9611286f90eeeca14fe33d74fc6b7e16dc603951
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 22:39:54 2024 +1100
+
+    feat: see suggestions about defined locations
+
+commit d88a79cdd5eceeb1a0e93f4e9cfa9591f56dd13d
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 21:38:56 2024 +1100
+
+    feat: add a search view in Maps
+
+commit 691ccdc0e1dfd0bbf70ace1e7319e6d6109f7ca7
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 19:52:54 2024 +1100
+
+    fix: correct logic of drawer items
+
+commit 99e2ac3a3e2c48ecb552f7dbeb1a6253c90e9d15
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 19:48:06 2024 +1100
+
+    perf: set the initial location to UniMelb
+
+commit 59f18ef5bd36fab698d1a99df91f2afb48f69d93
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 19:44:07 2024 +1100
+
+    build: integrate Google Maps API
+
+commit 160df6286e3a02b774a94731a07a7ce42ea69320
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 19:15:06 2024 +1100
+
+    feat: add building descriptions to the dialog
+
+commit d4a123f86ba002128b1d8a7cc9e3acea0d7cfca7
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 19:06:03 2024 +1100
+
+    build: replace offline photos with online photos
+
+commit cb1d0e743ba05829d4dbf7b1da30fdf8169c977d
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 18:33:00 2024 +1100
+
+    feat: define the schema for Building
+
+commit 125ae31524cf70fc79f2f4fc901e589971971026
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 18:04:32 2024 +1100
+
+    feat: add dialogs for photos in the Gallery
+
+commit c2164f6cd068d9e18817c2b126a431567c28f754
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 17:55:13 2024 +1100
+
+    docs: add descriptions to photos
+
+commit 5db21e5ab9834d1fcbb63e21a2ba8d5320311a27
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 17:44:57 2024 +1100
+
+    fix: add permission handling for ScannerFragment
+
+commit 697953f304847a8dc7da1fdce501aef6883f39f5
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 17:01:11 2024 +1100
+
+    feat: rename the app
+
+commit e6abe84856b270a4d668285c6711f62f93fcfc7c
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 16:11:11 2024 +1100
+
+    chore: remove the campus from Toasts
+
+commit a03ef5ca6e9efaac7e698c660f5016541b14fb13
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 16:09:24 2024 +1100
+
+    feat: complete the database logic of check-ins
+
+commit 49647b6ca8038ed60c2fb77d8b64ca9a6b1993ce
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 15:42:30 2024 +1100
+
+    fix: correct wrong resource references
+
+commit c70bac38dd2c89b2b5c55f90c2690520c27cdb71
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 15:38:46 2024 +1100
+
+    perf: support campuses in the schema
+
+commit 25b760f130e6bdd0e83f94f9707f9a0b2544e4f5
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 15:34:11 2024 +1100
+
+    feat: add login check for QR code check-in
+
+commit d14b5ed63b55553ca0e8c6844a2caffd3b0622c3
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 15:27:38 2024 +1100
+
+    feat: define the schema of codes
+
+commit 2f4b2320cbc27a1cf1a5ea9bd3b6445d1cd10e5e
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 15:08:05 2024 +1100
+
+    feat: add an option to import a code from Photos on Android
+
+commit 86379b627c603353aa799174a6efbb5dcf9ef3a8
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 14:54:07 2024 +1100
+
+    feat: add an embedded QR code scanner
+
+commit 4e953c2a4c5cfc55c99986f71a2dc60ea0dbe4ac
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 14:08:20 2024 +1100
+
+    chore: remove unused Slideshow fragment
+
+commit 03b02a6a99cfc88fb92dd4c6f9628b3c787a80a8
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 12:15:20 2024 +1100
+
+    style: use a more consistent comment style
+
+commit bd88a7323198d2fc34d943a8481fa9c5df4f7bc1
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 11:49:40 2024 +1100
+
+    chore: remove the unused prototype
+
+commit 16a3381abf9393e175fd0fa75a97a1f9d486b088
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Oct 6 11:46:39 2024 +1100
+
+    style: use the Google Java Format
+
+commit 54abd437265bb567993b8622a3d055d2968fc0fa
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 5 22:49:18 2024 +1000
+
+    feat: add a Library fragment
+
+commit 70150e67944217c4f38e9c209924cf992214f4e2
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 5 21:52:14 2024 +1000
+
+    feat: add a gallery of photos
+
+commit f581c7c6c3dcde4e6a66e0ac1b14efa15aa46b50
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 5 21:40:58 2024 +1000
+
+    feat: implement the gallery
+
+commit f0139f2accdec5c1438d9b92eb36904e48623edf
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 5 21:00:04 2024 +1000
+
+    feat: implement profile logic
+
+commit 37822ca750a4906868a693c5c0180f799944168d
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 5 20:35:39 2024 +1000
+
+    feat: implement basic SettingsActivity
+
+commit b56341bb7f8b422c1ac17345a307ad20b8e0b66f
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 5 20:08:31 2024 +1000
+
+    feat: implement redirection to SettingsActivity
+
+commit a8350f3b92c2327041245a3accfd1deab238c8db
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 5 19:23:46 2024 +1000
+
+    feat: update the username in the nav header
+
+commit fefc05db8d3c2111ed2dc4a8e5373b5eefed62ac
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 5 19:11:59 2024 +1000
+
+    chore: remove unused fields
+
+commit 3e966384ac335a7e0afd611e7c6181ed15acaf16
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 5 18:25:36 2024 +1000
+
+    refactor: rename usernameEditText and passwordEditText
+
+commit e52ed63d99f6eec95428dfcebb1b96a8bbe06a94
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 5 17:38:24 2024 +1000
+
+    fix: replace the email with the username
+
+commit c3739f1fa84b6b371573b36d38fdc7b02c72aa87
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 5 17:31:52 2024 +1000
+
+    feat: implement login/registration logic
+
+commit e5b3a3bd5b31d2e85301d0da752cd234fe9ebcc8
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 5 15:58:16 2024 +1000
+
+    feat: add bidirectional navigation for LoginActivity
+
+commit 07b1c576965db64d0defc24a067745a4aedcefea
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 5 15:22:52 2024 +1000
+
+    feat: add redirection from MainActivity to LoginActivity
+
+commit 1e0e019ececcca0c03118d17dfe1157981cda809
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 5 14:56:32 2024 +1000
+
+    feat: add a LoginActivity
+
+commit f9ff654b2e776c295f02f2ff808eb028d388c7eb
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 5 14:47:28 2024 +1000
+
+    feat: use the Navigation Drawer Activity as the Main Activity
+
+commit 85b57118f5d8c81c4970946581c422ba5892816c
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sat Oct 5 14:36:40 2024 +1000
+
+    docs(README): define the app name
+
+commit b1e00a0ce1d7b7b97f659a074d4edd8161d2c4b8
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Oct 4 11:38:27 2024 +1000
+
+    docs(proto): add a brief about the prototype
+
+commit 03ed441473689ee12743de1f752926f87aa104b7
+Merge: e9b0ba2 7573a48
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Thu Oct 3 15:02:11 2024 +1000
+
+    Merge pull request #2 from wille-wang/build-firebase
+    
+    build: connect to the Firebase Realtime Database
+
+commit 7573a489d0d9ec2e24b9c2f1634e47b360f8f0bb
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Thu Oct 3 13:33:53 2024 +1000
+
+    build: track google-services.json for colloboration
+
+commit 5425d9dd804db612c705e23521c25abe4e06a67b
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Thu Oct 3 13:07:56 2024 +1000
+
+    chore: delete code for testing
+
+commit b37bf1f28723cc340d9028e7544e03be140ad397
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Thu Oct 3 12:59:56 2024 +1000
+
+    test: verify the connection to the Firebase Realtime Database
+
+commit 4eef2566ff22c57750bf560ee09dcd7deaf3ebb9
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Thu Oct 3 12:58:46 2024 +1000
+
+    build: connect to the Firebase Realtime Database
+
+commit 6f7c350b165d6fee58233263d1070bf0bc2da910
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Thu Oct 3 11:39:56 2024 +1000
+
+    chore: delete unused import statements
+
+commit 41fc0bcc3ebc915506a588f948e8c76f355b5853
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Thu Oct 3 11:37:50 2024 +1000
+
+    build: connect to Firebase
+
+commit 1de92bbc40f9a468386d606bdcccaeb78c14da66
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Thu Oct 3 11:30:34 2024 +1000
+
+    chore: delete unused auto-generated code
+
+commit e9b0ba27f7e86c0cce0848249da1087ed1ed92f0
+Merge: a99d480 cfa2c12
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Thu Oct 3 11:24:42 2024 +1000
+
+    Merge pull request #1 from wille-wang/Universe010110-patch-1
+    
+    upload figma link
+
+commit cfa2c122e4c43494dec3afe1c78fe11f3974c6d6
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Thu Oct 3 11:19:19 2024 +1000
+
+    chore(docs): format the link
+
+commit 5ab7ff75115086d85147ba7990366139e35ef4bf
+Author: Universe010110 <82056189+Universe010110@users.noreply.github.com>
+Date:   Tue Sep 24 15:51:01 2024 +1000
+
+    upload figma link
+
+commit a99d480da3958f36fe0420486626b41cbc103431
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Sep 20 21:22:32 2024 +1000
+
+    docs(README): add quick links and requirements
+
+commit 76751a487cec74bc591d0ed631d40b77fe719c5f
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Sep 20 21:14:59 2024 +1000
+
+    docs(README): refine README
+
+commit 78844f0cda17f03e4e10dd705a477d37fc73dae7
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Fri Sep 20 21:10:21 2024 +1000
+
+    chore: add a placeholder for prototyping
+
+commit 1c1801df5a17ae4e23758c03b7a70a1535b174a5
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Sep 8 11:06:45 2024 +1000
+
+    build: add a Java-based Android app
+
+commit 6eb9b028fc5e50b793accd362f3cae48e9f2aa69
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Sep 8 11:06:22 2024 +1000
+
+    docs: add README
+
+commit 13bc9cf72456ab073b40ecf129c01f47b0cdc60f
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Sep 8 11:06:05 2024 +1000
+
+    ci: add CI for Android
+
+commit d48026498b0479f6cfa4939a6162e67e6409a006
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Sun Sep 8 11:05:41 2024 +1000
+
+    docs: add a PR template
+
+commit ea3f9293931ab80ab90729d0b6e535d74ab76bd9
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Thu Sep 5 11:24:37 2024 +1000
+
+    docs: update gitignore
+
+commit 7d1355ab332afee316120a388a66196cd38f9c46
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Thu Sep 5 11:11:50 2024 +1000
+
+    init
+
+commit 0dbcd209d540e5f49ffc9e88c54891c726b45d99
+Author: wille-wang <130608029+wille-wang@users.noreply.github.com>
+Date:   Thu Sep 5 11:11:27 2024 +1000
+
+    init
