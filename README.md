@@ -16,6 +16,11 @@ _**All-in-One for Melbourne University Students**_ (_**AOMUS**_, /ˈau̇-mər-s/
 
 ![summary](./assets/summary.jpeg)
 
+> [!WARNING]
+> This project is **no longer operational or maintained**, and all sensitive credentials (Google Maps, GitHub Models, and Firebase) were invalidated and removed from the codebase as of **November 22, 2024**.
+>
+> Developers intending to use or modify this repository are required to configure their own API credentials for these services ([#6](https://github.com/wille-wang/aomus/issues/6)). For reference, you can find the database schema in the [Database Management System (DBMS)](#database-management-system-dbms) and mock data in `./backup/database.json`. Ensure you update the configuration to match your API setups before deployment.
+
 ## Table of Contents
 
 - [AOMUS](#aomus)
@@ -33,7 +38,6 @@ _**All-in-One for Melbourne University Students**_ (_**AOMUS**_, /ˈau̇-mər-s/
     - [Committing](#committing)
     - [Branching](#branching)
   - [Acknowledgements](#acknowledgements)
-  - [Contributors](#contributors)
 
 ## Repository Architecture
 
@@ -179,13 +183,3 @@ This repository intends to use [Conventional Commits](https://www.conventionalco
 
 - Images provided by the [University of Melbourne: Image Gallery](https://www.unimelb.edu.au/filming-on-campus/gallery)
 - Icons provided by [Icons8](https://icons8.com/)
-
-## Contributors
-
-| Contributor   | Username         | Email                               |
-| ------------- | ---------------- | ----------------------------------- |
-| Zeru Guo      | `ero-crypto`     | `zerug@student.unimelb.edu.au`      |
-| Yicheng Huang | `EASONOSAE`      | `yichuang1@student.unimelb.edu.au`  |
-| Wille Wang    | `wille-wang`     | `yifewang14@student.unimelb.edu.au` |
-| Zeyue Xu      | `zeyuexu`        | `zeyue@student.unimelb.edu.au`      |
-| Yu Zhou       | `Universe010110` | `zhouyz4@student.unimelb.edu.au`    |
